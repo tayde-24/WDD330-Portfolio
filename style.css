@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap");
+body {
+  margin: auto 0;
+}
+
+.container-header {
+  border-top: 2.5rem double black;
+  border-bottom: 2.5rem double black;
+  background: #020024;
+  background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  padding: 0.2rem 3rem;
+}
+.container-header h1, .container-header h2 {
+  color: #dfdf1e;
+  font-family: "Ubuntu";
+}
+.container-header h1 {
+  font-size: 3rem;
+}
+.container-header h2 {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.week-list {
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
+.week-list li {
+  margin-bottom: 1rem;
+}
+.week-list li a {
+  color: #090979;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+.week-list li a:hover {
+  color: #dfdf1e;
+  padding: 0.1rem 0.5rem 0.1rem 1rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 10px;
+  margin-left: 1rem;
+}
+
+footer .bottom-footer {
+  background-color: #050448;
+  padding: 3rem 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */

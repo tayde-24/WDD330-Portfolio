@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap');
+
+$midnight-blue:#050448;
+$font-color:#090979; 
+//#191970;
+$yellowish: #dfdf1e;
+$header: "Ubuntu";
+$header-size-1: 3rem;
+$header-size-2: 2rem;
+$pararaph-text: "Oswald";
+$paragraph-size: 1.3rem;
+body {
+    margin: auto 0;
+}
+
+.container-header {
+    border-top: 2.5rem double black;
+    border-bottom: 2.5rem double black;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    padding: .2rem 3rem;
+    h1, h2 {
+        color: $yellowish;
+        font-family: $header;
+        
+    }
+    h1 {
+        font-size: $header-size-1;
+    }
+    h2 {
+        font-weight: 500;
+        font-size: $header-size-2;  
+    }
+}
+
+.week-list {
+    font-family: $pararaph-text;
+    font-size: $paragraph-size;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+   li {
+       margin-bottom: 1rem;
+       a {
+           color: $font-color;
+           transition: .2s ease-in-out;
+           text-decoration: none;
+       }
+       a:hover {
+        //font-size: 4rem;
+        color: $yellowish;
+        padding: .1rem .5rem .1rem 1rem;
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(5,4,72,0.8214636196275386) 0%, rgba(9,9,121,0.8186624991793592) 35%, rgba(0,212,255,1) 100%);
+        //font-size: 1.4rem;
+        border-radius: 10px;
+        margin-left: 1rem;
+        
+    }
+   } 
+} 
+
+footer {
+    .bottom-footer {
+        background-color: $midnight-blue;
+        padding: 3rem 1rem;
+    }
+}
