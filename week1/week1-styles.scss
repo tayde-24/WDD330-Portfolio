@@ -98,7 +98,7 @@ body {
 .next-page, .gist {
     margin-left: 3rem;
     a {
-        color: $font-color;
+        color: teal;
         transition: .2s ease-in-out;
         text-decoration: none;
     }
@@ -122,7 +122,7 @@ body {
     font-family: $pararaph-text;
 
     a {
-        color: $font-color;
+        color: teal;
         transition: .2s ease-in-out;
         text-decoration: none;
         font-size: 1.3rem;
