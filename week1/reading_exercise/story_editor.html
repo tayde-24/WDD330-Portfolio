@@ -20,17 +20,121 @@
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap');
+
+    body {
+        margin: 0 auto;
+    }
     textarea {
         width: 800px;
         height: 250px;
         background-color: lightyellow;
     }
+
+    .container-header {
+        border-top: 2.5rem double black;
+        border-bottom: 2.5rem double black;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+        padding: .2rem 3rem; 
+    }
+
+    h2 {
+        color: #dfdf1e;
+        font-family: "Ubuntu";
+        font-weight: 500;
+        font-size: 3rem;  
+    }
+
+    .content {
+        padding: 2rem 3rem;
+    }
+
+    .bottom-footer {
+        background-color:#050448;
+        padding: 1.5rem 1rem;
+    }
+    p {
+        font-family: "Oswald";
+        color: #dfdf1e;
+        font-size: 1.2rem;
+        margin-left: 2rem;
+    }
+
+    .story-header {
+        font-size: 2.2rem;
+        font-family: "Ubuntu";
+        font-weight: 500;
+        color: #dfdf1e;
+        background-color: #050448;
+        padding: 1rem 1rem 1rem 2.5rem;
+        max-width: 11ex;
+        margin-left: -3rem;
+        text-align: right;
+        border-radius: 0 10px 10px 0;
+    }
+
+    input {
+        padding: .5rem .5rem;
+        margin-bottom: 1rem;
+        margin-left: 10px; 
+        border: groove;
+        overflow: hidden;
+        text-align: left;
+    }
+
+    input[type=text]:focus {
+        border: 3px solid #555;    
+    }
+    
+    .text-font {
+        font-family: "Oswald";
+        font-size: 1.3rem;
+    }
+
+    button {
+        padding: .3rem .5rem;
+        font-family: "Oswald";
+        border-radius: 5px;
+        background-color: #050448;
+        border: 2px solid #050448;
+        color: #dfdf1e;
+        margin-bottom: 1rem;
+    }
+
+    button:hover {
+        color: #050448;
+        background-color: #dfdf1e;
+        border: 2px solid #dfdf1e;
+    }
+
+    textarea {
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+    #story_display {
+        font-family: "Oswald";
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
 </style>
 </head>
 
 <body>
-    <h1>Story Editor</h1>
-    Story Name: <input id="name_input"></input>
+    <header>
+        <div class="container-header">
+          <h2>Local Storage Exercise: Story Editor</h2>
+        </div>
+      </header>
+
+    <div class="content">
+    <h1 class="story-header">Story Editor</h1>
+    <div class="text-font">
+        Story Name: <input id="name_input"></input>
+    </div>
+
     <section>
         <button onclick="loadStory()">Find and Edit It</button>
         <button onclick="saveStory()">Save it</button>
@@ -38,6 +142,14 @@
     </section>
     <textarea id="story_editor" placeholder="Write and awesome story..."></textarea>
     <section id="story_display"></section>
+
+</div>
+
+<footer>
+    <div class="bottom-footer">
+      <p>Copyright 2022 Brigham Young University-Idaho</p>
+    </div>
+  </footer>
 
 </body>
 </html>

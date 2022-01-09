@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap");
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: auto 0;
 }
@@ -22,10 +26,43 @@ body {
   font-size: 2rem;
 }
 
+.flex-area {
+  display: flex;
+}
+
+.introduction {
+  flex: 25%;
+  padding: 3rem 2rem;
+  background-color: #e9e9e9;
+}
+.introduction p {
+  font-family: "Oswald";
+  font-size: 1.4rem;
+}
+.introduction img {
+  border-radius: 40px;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
 .week-list {
+  flex: 75%;
   font-family: "Oswald";
   font-size: 1.3rem;
-  padding: 1.5rem 0 1.5rem 1.5rem;
+  padding: 1.5rem 0 1.5rem 5rem;
+}
+.week-list h2 {
+  color: #dfdf1e;
+  background-color: #050448;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: 500;
+  border-radius: 0 10px 10px 0;
+  width: 100%;
+  max-width: 28ex;
+  text-align: right;
+  margin-left: -5rem;
 }
 .week-list li {
   margin-bottom: 1rem;
@@ -45,7 +82,13 @@ body {
 
 footer .bottom-footer {
   background-color: #050448;
-  padding: 3rem 1rem;
+  padding: 1.5rem 1rem;
+}
+footer p {
+  font-family: "Oswald";
+  color: #dfdf1e;
+  font-size: 1.2rem;
+  margin-left: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap');
 
-$midnight-blue:#050448;
+$midnight-blue: #050448;
 $font-color:#090979; 
 //#191970;
 $yellowish: #dfdf1e;
@@ -9,6 +9,11 @@ $header-size-1: 3rem;
 $header-size-2: 2rem;
 $pararaph-text: "Oswald";
 $paragraph-size: 1.3rem;
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: auto 0;
 }
@@ -33,10 +38,44 @@ body {
     }
 }
 
+.flex-area {
+    display: flex;
+}
+
+.introduction {
+    flex: 25%;
+    padding: 3rem 2rem;
+    background-color: rgb(233, 233, 233);
+    p {
+        font-family: $pararaph-text;
+        font-size: 1.4rem;
+    }
+    img {
+        border-radius: 40px;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+
 .week-list {
+    flex: 75%;
     font-family: $pararaph-text;
     font-size: $paragraph-size;
-    padding: 1.5rem 0 1.5rem 1.5rem;
+    padding: 1.5rem 0 1.5rem 5rem;
+   h2 {
+      color: $yellowish;
+      background-color: $midnight-blue;
+      padding: 1rem;
+      font-size: $header-size-2;
+      font-weight: 500;
+      border-radius: 0 10px 10px 0;
+      width: 100%;
+      max-width: 28ex;
+      text-align: right;
+      margin-left: -5rem;
+   } 
    li {
        margin-bottom: 1rem;
        a {
@@ -60,6 +99,12 @@ body {
 footer {
     .bottom-footer {
         background-color: $midnight-blue;
-        padding: 3rem 1rem;
+        padding: 1.5rem 1rem;
+    }
+    p {
+        font-family: $pararaph-text;
+        color: $yellowish;
+        font-size: 1.2rem;
+        margin-left: 2rem;
     }
 }
