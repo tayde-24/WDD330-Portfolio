@@ -107,6 +107,7 @@ body p {
   color: #090979;
   transition: 0.2s ease-in-out;
   text-decoration: none;
+  font-size: 1.3rem;
 }
 .go-back a:hover {
   color: #dfdf1e;
