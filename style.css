@@ -68,7 +68,7 @@ body {
   margin-bottom: 1rem;
 }
 .week-list li a {
-  color: #090979;
+  color: teal;
   transition: 0.2s ease-in-out;
   text-decoration: none;
 }
