@@ -57,6 +57,10 @@ body p {
   background-color: #dfdf1e;
 }
 
+.emphasize {
+  background-color: #dfdf1e;
+}
+
 .building-html .h-container {
   display: table;
 }
