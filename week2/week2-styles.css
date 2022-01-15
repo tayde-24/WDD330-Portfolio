@@ -134,4 +134,21 @@ footer p {
   margin-left: 2rem;
 }
 
+.up {
+  margin-top: -1.5rem;
+  margin-bottom: 3rem;
+  line-height: 1.3rem;
+}
+.up a {
+  color: teal;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+.up a:hover {
+  color: #dfdf1e;
+  padding: 0.1rem 0.5rem 0.1rem 1rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 10px;
+}
+
 /*# sourceMappingURL=week2-styles.css.map */

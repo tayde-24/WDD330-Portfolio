@@ -14,76 +14,207 @@
     <div class="content">
 
         <div class="chunk-1">
-            <h3 class="affected-h3">Comments</h3>
+            <h3 class="affected-h3">Arrays</h3>
             <ul class="program-basics">
-                <li>Writing comments:
+                <li><span class="emphasize">What is an <i>array?</i></span> &#8594 It's an ordered list of values. It's simply written with a pair of square brackets 
                     <ul>
-                        <li>A piece of code that's ignored by the language</li>
-                        <li>Extremely important &#8594 Makes things easier for anyone reading your code to understand what's going on 
-                            <div>
+                        <li>Ex: <code>const myArray = [];</code></li>
+                        <li>Another way to write is as an array constructor fumction &#8594 <code>const myArray = new Array();</code>
                                 <ul>
-                                    <li>Single line comments <code>//</code></li>
-                                    <li>Multi-line comments <code>/**/</code></li>
+                                    <li><span class="emphasize">Though both produce an empty array, it's preferable to stick with the array literals</span></li>
                                 </ul>
-                            </div>
                         </li>
-                        <li>There are utilities to make a document out of your comments</li>
+                    </ul>
+                </li>
+                <li>Arrays are not primitive values but a special built-in <i>object</i></li>
+                <li>Each item in an array can be treated like a variable</li>
+                <li>We can change the value using the assignment operator <code>=</code></li>
+                <li>How to add values to arrays:
+                    <div class="h-container">
+                    <ul class="h-size">
+                        <li><code>const heroes = []; //initializing array <br>
+                            heroes[0] = "Batman"; <br> heroes[1] = "Wonder Woman";
+                            <br>heroes[2] = "Flash";<br>heroes[5] = "Aquaman"<br><br>
+                            //Result: ["Batman", "Wonder Woman", "Flash", <i>undefined</i>,
+                            <i>undefined</i>, "Aquaman"]</code></li>
+                    </ul>
+                    </div>
+                </li>
+                <li>There's no need to add each value one by one:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>const avengers = ["Captain America", "Iron Man", "Thor", "Hulk"];<br>
+                            <br>//Result: ["Captain America", "Iron Man", "Thor", "Hulk"]</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>It doesn't have to be the same types of items inside the array
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>const mixedArray = [<i>null</i>, 1, [], "two", true];</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>Removing values &#8594 <code><i>delete</i> avengers[3]; //Example</code>
+                    <ul>
+                        <li><span class="emphasize">Whatever value was deleted will contain an 
+                            <code>undefined</code> values in its place</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>Array Properties and Methods:
+                    <ul>
+                        <li>
+                            Finding length of array &#8594 <code>avengers.length; // 6</code>
+                        </li>
+                        <li>Finding the last item of an array &#8594 <code>avengers[avengers.length - 1]; //Result: "Hulk"</code></li>
+                        <li><code>pop()</code> &#8594 Removes the last item from an array</li>
+                        <li><code>shift()</code> &#8594 Works similar way to <code>pop()</code> method, but removes the first item from an array</li>
+                        <li><code>push()</code> &#8594 This method appends a new value to the end of the array</li>
+                        <li><code>unshift()</code> &#8594 Similar to <code>push()</code>, but it appends a new item to the beginning of the array</li>
+                        <li><code>concat()</code> &#8594 Merges with one or more arrays</li>
+                        <li><code>join()</code> &#8594 Turn an array into a string that comprises all the items in the array, separated by commas</li>
+                        <li><code>slice()</code> &#8594 Creates a subrray array, chops out a slice of an original array</li>
+                        <li><code>splice()</code> &#8594 Removes items from an array then inserts new items in their place
+                            <ul>
+                                <li><span class="emphasize">This is a DESTRUCTIVE operation as it changes the value of the array</span></li>
+                            </ul>
+                        </li>
+                        <li><code>reverse()</code> &#8594 Reverses the order of an array</li>
+                        <li><code>sort()</code> &#8594 Sets the order of an array
+                            <ul>
+                                <li>It changes the order of the array permanently</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
+            <p class="up">Refer to book for the rest of the <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/3/k01nwtc8/">array properties and methods</a> to review.</p>
         </div>
 
         <div class="chunk-2">
-            <h3 class="affected-h3">JavaScript Grammar</h3>
+            <h3 class="affected-h3">Sets</h3>
             <ul class="program-basics">
-                <li>JavaScript known as a C-style syntax because of similarities with C programming language</li>
-                <li>Could be written without semi colons, but it's prone for errors
-                    <div class="h-container">
-                        <ul class="h-size">
-                            <li><code>const message = "Hello world!"<br>alert(message) <br><br>/*Can get away with it, but it's<br> not good practice, 
-                                especially <br>when it comes to complex coding. <br>It can cause confusion.*/</code>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="h-container">
-                        <ul class="h-size">
-                            <li><code>const message = "Hello world!";<br>alert(message); <br><br>//Way better!</code></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><span class="emphasize">What is a block?</span> &#8594 A series of statements that are collected together inside curley braces
+                <li><span class="emphasize">Sets</span> &#8594 Data structure that represents a collection of unique values (it cannot include any duplicate values)</li>
+                <li>They offer a useful way to keep track of data without having to check if any values have been duplicated
                     <ul>
-                        <li>Blocks don't need to be terminated by a semi-colon</li>
+                        <li>Quick and easy to check if a particular value is in a set</li>
                     </ul>
                 </li>
-                <li><span class="emphasize">What is whitespace?</span> &#8594 Spaces, tabs and new lines that are used to separate different parts of each statement</li>
+                <li><span class="emphasize">How to create sets</span> &#8594 It's created using the <code>new</code> operator and <code>Set()</code> constructor
+                    <ul>
+                        <li><code><i>const</i> list = <i>new</i> Set(); //Example </code></li>
+                    </ul>
+                </li>
+                <li>Values can be placed into a set using the <code>add()</code> method &#8594 <code>list.add(1);</code>
+                    <ul>
+                        <li>Multiple items can be added to the set by repeating the add method &#8594 <code>list.add(2).add(3).add(4);</code></li>
+                        <li>Another way to write multiple values &#8594 <code>const numbers = new Set([1,2,3]);</code></li>
+                        <li>Type coercion is not used when values are added to a set</li>
+                    </ul>
+                </li>
+                <li>Set Methods:
+                    <ul>
+                        <li><code>size()</code> &#8594 The number of values in a set</li>
+                        <li><code>has()</code> &#8594 Used to check if a value is in a set</li>
+                        <li><code>delete()</code> &#8594 Used to remove a value from set (Returns a boolean value of true if the value has been removed</li>
+                        <li><code>clear()</code> &#8594 Used to remove <i>all</i> values from a set</li>
+                        <li><code>Array.from()</code> &#8594 Makes it possible to convert a set into an array</li>
+                    </ul>
+                </li>
+                <li>When objects are added to sets, they will be stored there as long as the set exists, even if the original reference to the object <br> 
+                    is removed
+                </li>
+                <li><span class="emphasize">Weak sets</span> avoid this situation by garbage collecting any references to a 'dead object' that's had its original reference removed</li>
             </ul>
         </div>
 
         <div class="chunk-3">
-            <h3 class="affected-h3">Primitive Data</h3>
+            <h3 class="affected-h3">Maps</h3>
             <ul class="program-basics">
-                <li>JavaScript has seven different data types (first six are primitive data types):
+                <li><span class="emphasize">Maps</span> &#8594 Another data structure, a convenient way of keeping a list of key and value pairs
                     <ul>
-                        <li>String</li>
-                        <li>Symbol</li>
-                        <li>Number</li>
-                        <li>Boolean</li>
-                        <li>Undefined</li>
-                        <li>Null</li>
+                        <li>Similar to 'hashes', or 'hash tables' or 'dictionaries' in other programming languages</li>
                     </ul>
                 </li>
-                <li>Any value that isn't one of the primitive data is an object
+                <li>What makes maps different from JavaScript objects:
                     <ul>
-                        <li>Arrays</li>
-                        <li>Functions</li>
-                        <li>Object literals</li>
+                        <li>Maps can use any data type as a key</li>
+                        <li>Efficient way to find the number of key-value pairs an object has by using <code>size</code> property</li>
+                        <li>Focused on the storage and retrieval of key-value pairs</li>
+                        <li>Restricts you to using the <code>get()</code> method to retrieve any values</li>
                     </ul>
                 </li>
-                <li>What does <code>typeof</code> do? &#8594 They find out the type of a value</li>
+                <li>How to create maps &#8594 <code>const romanNumerals = new Map();</code></li>
+                <li><code>set()</code> Used to add a key and value pair to a map (The first value is the key and the second is the value</li>
+                <li>Map Methods:
+                    <ul>
+                        <li><code>get()</code> &#8594 It helps look up a value</li>
+                        <li><code>has()</code> &#8594 Used to check if a particular key is in a map</li>
+                        <li><code>delete()</code> &#8594 Used to remove a key and value pair from a map (Returns a boolean)</li>
+                        <li><code>clear()</code> &#8594 Removes <i>all</i> key and value pairs from a map</li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
+        <div class="chunk-4">
+            <h3 class="affected-h3">Logic</h3>
+            <ul class="program-basics">
+                <li>Logical conditions that allow you to control the flow of a program by running different blocks of code,
+                    <br>depending on the results of certain operations
+                </li>
+                <li><code>if</code> statement structure:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>if (condition) { <br> // code to run if condition is true <br>}</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><code>else</code> statement structure:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>if (condition) { <br> // code to run if condition is true <br>} else { <br>
+                            //code to run if condition is false <br>}</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><span class="emphasize">Ternary Operator</span> &#8594 A shorthand way of writing an <code>if...else</code> statement:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>condition ? (//code to run if condition is true) : (//code to run if false)</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><code>Switch</code> statements (makes a logical decision tree):
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code><i>switch</i> (number) { <br> case 4:<br>console.log("You roled a four");<br>
+                            break;<br>case 5:<br>console.log("You roled a five");<br>break;<br>.<br>.<br>.
+                            <br>default:<br>console.log("You roled a number less than four");<br>break;<br>}</code></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-5">
+            <h3 class="affected-h3">Loops</h3>
+            <ul class="program-basics">
+                <li>Loops will repeat a piece of code over and over again according to certain conditions</li>
+                <li><code>while</code> loops will repeatedly run a block of code while a certain condition is true, and takes the <br>following structure:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>while (condition) {<br> //do something<br>}</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>Conditions in a while loop will be met at some point, otherwise your code will get stuck in an<br>
+                <span class="emphasize">infinite loop</span> that can possibly crash the program</li>
+            </ul>
+
+            <p class="up">Refer to book for the rest of the <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/3/k01nwtc8/">different types of loops</a> to review.<br><br>No questions at the moment for this chapter.</p>
+        </div>
         
         <div class="next-page">
             <p>Tried out <a href="reading_exercise/exercise_2.html">Arrays, Logic, and Loops</a> examples that can be found in console.</p>
