@@ -5,6 +5,11 @@ heroes[1] = "Wonder Woman";
 heroes[2] = "Flash";
 heroes[5] = "Aquaman"; // Can use index notation to add new items to any position in this array
 // heroes[3] = "Batman";
+let text= "";
+for (i=0; i < heroes.length; i++) {
+    text += heroes[i] + "<br>";
+    document.getElementById("demo").innerHTML= text;
+}
 
 const avengers = ["Captain America", "Iron Man", "Thor", "Hulk"]; //Sets up the heros in this array in one line
 const mixedArray = [null, 1, [], "two", true]; // Array can contain a variety of different types as well as an empty array object
@@ -61,7 +66,30 @@ while (bottles > 0){
     bottles--;
 }
 
+const romanNumerals = new Map();
+romanNumerals.set(1, "I");
+console.log(romanNumerals);
 
+const romanNumerals2 = new Map([[1, "I"], [2, "II"], [3, "III"], [4, "IV"], [5,"V"]]);
+romanNumerals2.size;
+console.log("romanNumerals2 map has " + romanNumerals2.size + " key and value pairs.");
+console.log(romanNumerals2.has(5)); //checks to see if a particular key is in the map
+for (let value of romanNumerals2.values()) {
+    console.log(value);
+}
+for (let [key, value] of romanNumerals2.entries()) {
+    console.log(key + " = " + value);
+}
+
+romanNumerals2.forEach(function(value, key) {
+    console.log(key + " : " + value);
+})
+
+console.log("Key and value of five has been deleted: " + romanNumerals2.delete(5));
+console.log(romanNumerals2);
+
+romanNumerals2.clear();
+console.log("After using clear() method on romanNumerals2: " , romanNumerals2);
 
 
 

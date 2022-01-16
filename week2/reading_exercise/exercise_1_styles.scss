@@ -18,11 +18,20 @@ body {
     margin: auto 0;
     .content {
         display: flexbox;
+        code {
+            font-family: monospace;
+            color: crimson;
+            background-color: #dbdbdb;
+            padding: 2px;
+            font-size: 105%;
+            border-radius: 5px;
+          }
     }
     p {
         font-family: $pararaph-text;
         font-size: 1.5rem;
         margin-left: 3rem;
+        margin-right: 3rem;
     }
     .affected-h3 {
         display: table;
@@ -60,7 +69,7 @@ body {
 
 .go-back {
     margin-left: 3rem;
-    margin-top: 1.5rem;
+    margin-top: 3rem;
     margin-bottom: 2.5rem;
     font-family: $pararaph-text;
 
@@ -79,6 +88,68 @@ body {
     .space {
         margin-top: 2rem;
     }
+}
+
+#demo {
+    display: table;
+    padding: 1rem;
+    background-color: rgb(80, 78, 100);
+    color: $yellowish;
+}
+
+.quiz-body {
+    position: relative;
+    background-color: teal;
+    height: 650px;
+    padding: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border-bottom: 2rem solid black;
+    border-top: 2rem solid black;
+    h1 {
+        color: indigo;
+        font-family: $header;
+        font-size: $header-size-2;
+    }
+    .quiz-container {
+        display: table;
+        margin-top: 5rem;
+        padding: 2rem 5rem;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: rgb(39, 39, 39) 5px 5px 10px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #your-score {
+        font-family: $pararaph-text;
+        font-size: 1.7rem;
+        color: rgb(253, 224, 143);
+        text-align: center;
+        transition: color 2s;
+    }
+    .center-button {
+        display: table;
+        margin-left: auto;
+        margin-right:auto ;
+        button {
+            display: table;
+            font-family: $pararaph-text;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            color: white;
+            background-color: orange;
+            border: 1px solid orange;
+            box-shadow: 2px 2px 5px black;
+            transition: 1s;
+        }
+        button:hover { 
+            background-color: rgb(163, 110, 10);
+            border: 1px solid rgb(163, 110, 10);
+        }
+    } 
 }
 
 footer {
