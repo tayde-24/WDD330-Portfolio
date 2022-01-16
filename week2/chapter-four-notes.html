@@ -14,78 +14,154 @@
     <div class="content">
 
         <div class="chunk-1">
-            <h3 class="affected-h3">Comments</h3>
+            <h3 class="affected-h3">Function</h3>
             <ul class="program-basics">
-                <li>Writing comments:
+                <li><span class="emphasize">Function</span> &#8594 A chunk of code that can be referenced by name, and is almost like a small, self-contained mini program
                     <ul>
-                        <li>A piece of code that's ignored by the language</li>
-                        <li>Extremely important &#8594 Makes things easier for anyone reading your code to understand what's going on 
-                            <div>
-                                <ul>
-                                    <li>Single line comments <code>//</code></li>
-                                    <li>Multi-line comments <code>/**/</code></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>There are utilities to make a document out of your comments</li>
+                        <li>Can help reduce repetition</li>
+                        <li>Make code easier to follow</li>
+                        <li>Considered to be first-class objects &#8594 meaning they behave in te same way as all the other primitive data <br> types and objects in the language</li>
+                        <li>Can be assigned to variables, stored in arrays and can even be returned by another function</li>
                     </ul>
+                </li>
+                <li>How to write Function Declarations:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code><i>function</i> hello() { <br>console.log("Hello World");<br>}</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>How to write Function Expressions:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>const goodbye = <i>function</i>() {<br>console.log("Goodbye World!");<br>};
+                            <br>//Note that the example ends <br>with a semi-colon</code></li>
+                            <li>This is known as an anonymous function <br>because it doesn't have a name</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>How to write <code>Function()</code> Constructors:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code><i>const</i> hi = <i>new</i> Function('console.log("Hi World!");');</code></li>
+                            <li>Not recommended to declare functions this way &#8594 numerous problems<br>with placing the
+                            function body inside a string </li>
+                            <li>Functions created this way are also created in the global scope; can lead to <br>
+                                strange and unexpected behavior</li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
 
         <div class="chunk-2">
-            <h3 class="affected-h3">JavaScript Grammar</h3>
+            <h3 class="affected-h3">Invoking a Function</h3>
             <ul class="program-basics">
-                <li>JavaScript known as a C-style syntax because of similarities with C programming language</li>
-                <li>Could be written without semi colons, but it's prone for errors
+                <li>Invoking a function is to run the code inside the function's body</li>
+                <li>This is how to invoke a function:
                     <div class="h-container">
                         <ul class="h-size">
-                            <li><code>const message = "Hello world!"<br>alert(message) <br><br>/*Can get away with it, but it's<br> not good practice, 
-                                especially <br>when it comes to complex coding. <br>It can cause confusion.*/</code>
+                            <li><code>hello();<br>//Result: "Hello World!"</code>
                             </li>
                         </ul>
                     </div>
-                    <div class="h-container">
-                        <ul class="h-size">
-                            <li><code>const message = "Hello world!";<br>alert(message); <br><br>//Way better!</code></li>
-                        </ul>
-                    </div>
+                   The function can be invoked over and over again by typing its name followed by parenthesis
                 </li>
-                <li><span class="emphasize">What is a block?</span> &#8594 A series of statements that are collected together inside curley braces
-                    <ul>
-                        <li>Blocks don't need to be terminated by a semi-colon</li>
-                    </ul>
-                </li>
-                <li><span class="emphasize">What is whitespace?</span> &#8594 Spaces, tabs and new lines that are used to separate different parts of each statement</li>
+                <li>One advantage of functions is that there's no need to write repetitive blocks of code</li>
+                <li>All the functionality is kept in one place &#8594 Known as the DRY principle (Don't Repeat Yourself)</li>
             </ul>
         </div>
 
         <div class="chunk-3">
-            <h3 class="affected-h3">Primitive Data</h3>
+            <h3 class="affected-h3">Return Values</h3>
             <ul class="program-basics">
-                <li>JavaScript has seven different data types (first six are primitive data types):
-                    <ul>
-                        <li>String</li>
-                        <li>Symbol</li>
-                        <li>Number</li>
-                        <li>Boolean</li>
-                        <li>Undefined</li>
-                        <li>Null</li>
-                    </ul>
+                <li>All functions return a value, which can be specified using the return statement</li>
+                <li>Here's an example that returns a string:
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code><i>function</i> howdy(){<br><i>return</i> "Howdy World!";<br>}</code></li>
+                        </ul>
+                    </div>
+                    We can now assign a function invocation to a variable, and the value of that variable<br>
+                    will be the return value of that function    
                 </li>
-                <li>Any value that isn't one of the primitive data is an object
-                    <ul>
-                        <li>Arrays</li>
-                        <li>Functions</li>
-                        <li>Object literals</li>
-                    </ul>
-                </li>
-                <li>What does <code>typeof</code> do? &#8594 They find out the type of a value</li>
             </ul>
+        </div>
+
+        <div class="chunk-4">
+            <h3 class="affected-h3">Parameters and Arguments</h3>
+            <ul class="program-basics">
+                <li><span class="emphasize">Parameters</span> &#8594 Any parameters a function needs are set when the function is defined</li>
+                <li><span class="emphasize">Arguments</span> &#8594 When a function is invoked, it is provided with arguements
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code><i>function</i> square(x){<br><i>return</i> x*x;<br>}<br><br>//the x inside the parenthesis <br> is a parameter</code></li>
+                            <li><code>square(4.5); //Result: 20.25</code></li>
+                        </ul>
+                    </div>
+                    You can use as many parameters as you like when defining functions    
+                </li>
+                <li>If a parameter is not provided as an arguement when the function is invoked, the function 
+                    will still be invoked,<br> but the parameter will be given a value of <code>undefined</code></li>
+                <li><span class="emphasize">Default Parameters</span> &#8594 These are values that will be used by
+                     the function if no arguments are provided when <br>invoked
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>function hello(name="World") {<br> console.log(`Hello ${name}!);<br>}
+                            <br>//Result without argument: "Hello World!"<br><br>hello("Universe"); //Result: "Hello Universe!"</code></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-5">
+            <h3 class="affected-h3">Callbacks</h3>
+            <ul class="program-basics">
+                <li>Functions can also be given as a parameter to another function</li>
+                <li>A function that is passed as an arguement to another is known as a <span class="emphasize"><i>callback</i></span>
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code><i>function</i> sing(song){<br>console.log(`I'm singing along to ${song}`);<br>}
+                            <br><br>sing("Let It Go"); //Result: "I'm singing along to Let It Go"</code></li>
+                        </ul>
+                    </div>
+                    We can now assign a function invocation to a variable, and the value of that variable<br>
+                    will be the return value of that function    
+                </li>
+            </ul>
+            <p class="up">Refer to book for the rest of the <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/4/k01nwtq1/">different callbacks programming</a> to review.</p>
+        </div>
+
+        <div class="chunk-6">
+            <h3 class="affected-h3">Array Iterators</h3>
+            <ul class="program-basics">
+                <li><code>forEach()</code> &#8594 This method will loop through the array and invoke a callback
+                    function using each value as an argument
+                    <ul>
+                        <li>It takes three parameters:
+                            <ul>
+                                <li>The first represents the value in the array</li>
+                                <li>The second represents the current index</li>
+                                <li>The third represents the array that the callback is being called on</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><code>map()</code> &#8594 Similar to <code>forEach()</code> method in that it iterates over an array, and takes a callback as a parameter
+                    <ul>
+                        <li>The difference is that it returns a new array that replaces each value with the return value of the callback</li>
+                    </ul>
+                </li>
+                <li><code>reduce()</code> &#8594 ANother method that iterates each value in the array, but this time it cumulatively combines each result to
+                    <br> return just a single value.</li>
+                <li><code>filter()</code> &#8594 It returns a new array that only contains items from the original array that return true when passed to the<br> callback</li>
+            </ul>
+            <p class="up">No questions at the moment for this chapter.</p>
         </div>
         
         <div class="next-page">
-            <p>Here is the exercise I did for <a href="reading_exercise/exercise_3.html">complete exercise with Functions</a>.</p>
+            <p>Here's the <a href="reading_exercise/exercise_3.html">complete exercise with Functions</a>.</p>
         </div>
 
         <div class="go-back">

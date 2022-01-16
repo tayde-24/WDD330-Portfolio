@@ -33,14 +33,14 @@ body .emphasize {
   background-color: #dfdf1e;
 }
 
-.lesson-title, .exercise-title {
+.lesson-title {
   border-top: 2.5rem double black;
   border-bottom: 2.5rem double black;
   background: #020024;
   background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
   padding: 0.2rem 3rem;
 }
-.lesson-title h2, .exercise-title h2 {
+.lesson-title h2 {
   color: #dfdf1e;
   font-family: "Ubuntu";
   font-weight: 500;
