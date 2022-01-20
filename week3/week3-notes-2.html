@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Notes and Questions</title>
+    <link rel="stylesheet" href="week-3.css">
+  </head>
+  <body>
+    <div class="lesson-title">
+      <h2>Week 03- Notes on DOMs and Events</h2>
+    </div>
+    <div class="content">
+        <div class="chunk-1">
+            <h3 class="affected-h3">The Document Object Model</h3>
+            <ul class="objects-dom">
+                <li>The Document Object Model (DOM) allows you to access elements of a web page and enable interaction with a page
+                    by adding and removing elements, changing the order, content and attributes of elements, and even altering how they
+                    are styled
+                </li>
+                <li><span class="emphasize">What is a DOM?</span> &#8594; It represents an HTML document as a network of connected nodes
+                that form a tree-like structure
+                    <ul>
+                        <li>Treats everything on a web page as a node
+                            <ul>
+                                <li>HTML tags</li>
+                                <li>Text inside these tags</li>
+                                <li>Even attributes of a tag are all nodes</li>
+                            </ul>
+                            <span class="emphasize">HTML tag is the root node, and every other part of the document is a child of this</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>The DOM is not actually part of JavaScript because it is <i>language agnostic</i> &#8594; Meaning it can be used in any
+                    programming language, not just JavaScript</li>
+                <li>We can use JavaScript to access and modify different parts of a web page using a special built-in object called <code>
+                    document</code>
+                </li>
+                <li>Legacy DOM Shortchut Methods
+                    <ul>
+                        <li><code>Document.body</code> &#8594; It returns the body element of a web page</li>
+                        <li><code>Document.images</code> &#8594; It returns a node list of all te images contained in the document</li>
+                        <li><code>Document.links</code> &#8594; It returns a node list of all the <code>a</code> elements and <code>area</code>
+                            elements that have an <code>href</code> attribute 
+                        </li>
+                        <li><code>Document.anchors</code> &#8594; It returns a node list of all the <code>a</code> elements that have a <code>
+                            name</code> attribute
+                        </li>
+                        <li><code>Document.forms</code> It returns a node list of all the forms in the document</li>
+                        <li><span class="emphasize">NOT ACTUALLY ARRAYS</span> &#8594; Node lists are array-like objects, but they are not arrays (you can access 
+                            each item using index notation)</li>
+                        <li>They also have a <code>length</code> property, which can be used to iterate through every element using a
+                            <code>for</code> loop
+                            <div class="h-container">
+                                <ul class="h-size">
+                                    <li><code>for (let i=0; i < document.images.length; i++) {<br> // do something with each image using
+                                        document.images[i]<br>}</code></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><code>getElementsByTagName()</code> &#8594; This returns a live node list of all the elements with the tag name that is
+                    provided as an arguement
+                </li>
+                <li><code>getElementsByClassName()</code> &#8594; This returns a live node list of all elements that have the class name that
+                    is supplied as an argument
+                </li>
+                <li><code>document.querySelector()</code> &#8594; This allos you to use CSS notation to find the first element in the document
+                    that matches a CSS selector provided as an arguement
+                </li>
+                <li><code>document.querySelectorAll()</code> &#8594; Also uses CSS notation but returns a node list of all the elements in the
+                    document that match the CSS query selector
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-2">
+            <h3 class="affected-h3">Getting and Setting Attributes</h3>
+            <ul class="objects-dom">
+                <li>The DOM has numerous getter and setter methods that can be used to view, add, remove or modify the value of any
+                    of these attributes
+                    <ul>
+                        <li><code>getAttribute()</code> &#8594; This method returns the value of the attribute provided as an argument</li>
+                        <li><code>setAttribute()</code> &#8594; This can change the value of an element's attribute
+                            <ul>
+                                <li>It takes two arguments: the attribute that you wish to change, and the new value of that attribute</li>
+                            </ul>
+                        </li>
+                        <li><code>className</code> &#8594; This allows the class of an element to be set directly
+                            <ul>
+                                <li><span class="emphasize">Changing the <code>className</code> property of an element by assignment will
+                                    overwrite all oter classes that have already been set on the element</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>classList</code> &#8594; It is a list of all the classes an element has
+                            <ul>
+                                <li><code>add</code> &#8594; This method can be used to add a class to an element without overwriting any 
+                                    classes that already exist
+                                </li>
+                                <li><code>remove</code> &#8594; This will remove a specific class from an element</li>
+                                <li><code>toggle</code> &#8594; A method that will add a class is an element doesn't have it already,
+                                    and remove the class if it does have it
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Creating Dynamic Markup
+                    <ul>
+                        <li><code>createElement()</code> &#8594; This method that takes a tag name as a parameter and returns that element</li>
+                        <li><code>document.createTextNode()</code> &#8594; This method creates a text node: it takes a parameter, which is a string
+                            containing the text that goes in the node
+                        </li>
+                        <li>A Function to Create Elements
+                            <div class="h-container">
+                                <ul class="h-size">
+                                    <li><code>function createElement (tag, text) {<br>const el = document.createElement(tag);<br>el.textContent = text;
+                                    <br>return el<br>}</code></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Updating CSS
+                            <ul>
+                                <li>Every element node has a style property</li>
+                                <li>Any CSS property names that are seperated by dashes must be writtne in camelCase notation, so the dash is removed
+                                    and the next letter is capitalized because dashes are not legal characters in property names
+                                    <ul>
+                                        <li><span class="emphasize">Alternatively, the bracket notation can also be used, meaning that CSS properties can be provided as a string and
+                                            don't need the camelCase notation</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="line-breaker">
+
+    <div class="chunk-3">
+        <h3 class="affected-h3">Events</h3>
+        <ul class="objects-dom">
+            <li>Events are another part of the DOM and they are what provides the link between the web page and user interactions</li>
+            <li>Inline-event handlers are best avoided</li>
+            <li>The recommended way of dealing with events, and the current standard, is to use event listeners</li>
+            <li><code>addEventListener()</code> &#8594; This method is called on a node object, the node to which the event listener
+                is being applied
+                <ul>
+                    <li>The first parameter is the type of event</li>
+                    <li>The second is a callback function that is invoked when the even occurs</li>
+                </ul>
+            </li>
+            <li>There are event listeners for mouse clicks, key presses, key modifiers, and touch events</li>
+            <li><code>removeEventListener()</code> &#8594; This method removes an event listener</li>
+            <li><code>preventDefault()</code> &#8594; This method can be used inside the callback function to stop the default behavior happening</li>
+        </ul>
+    </div>
+
+    <p class="gist">Here's one question I have:<br><br><span class="emphasize">Does the "innerHTML" simply print out whatever piece of code the element contains?</span></p>
+
+    <div class="go-back">
+        <a href="portfolio/../.."> &#8592; Go back to Portfolio page</a>
+        <div class="space"><a href="index.html">&#8592; Objects and Chapter 5 Notes</a></div>
+    </div>
+
+
+
+    <footer>
+        <div class="bottom-footer">
+          <p>Copyright 2022 Brigham Young University-Idaho</p>
+        </div>
+      </footer>
+  </body>
+</html>

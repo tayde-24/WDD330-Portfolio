@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 3 Notes and Questions</title>
-    <link rel="stylesheet" href="week1-styles.css">
+    <link rel="stylesheet" href="week-3.css">
   </head>
   <body>
     <div class="lesson-title">
@@ -12,95 +12,189 @@
     </div>
     <div class="content">
       <div class="chunk-1">
-      <h3 class="affected-h3">Intro of Chapter</h3>
-      <ul class="intro">
-        <li>When writing an application you are communicating with the user</li>
-        <li>Any information stored or shared with the user is called an <span class="emphisize">output</span></li>
-        <li>Anything coming in from where it was stored, or anything the user enters is called input
+      <h3 class="affected-h3">Object Methods, "this"</h3>
+      <ul class="objects-dom">
+        <li>Objects are usually created to represent entities of the real world, like users, orders and so on</li>
+        <li>Method Example:
+          <div class="h-container">
+            <ul class="h-size">
+              <li><code>let user = {<br>name: "John",<br>age: 30<br>};<br><br>user.sayHi = function() {
+                <br>alert("Hello!");<br>};<br><br>user.sayHi(); //Result: Hello!</code></li>
+            </ul>
+        </div>
+        </li>
+        <li>A function that is a property of an object is called its <span class="emphasize"><i>method</i></span></li>
+        <li>In this example code, the method is <code>sayHi</code> and the object is <code>user</code></li>
+        <li>When writting code using objects to represent entities, thats called <span>object-oriented programming</span>
+          in short: "OOP"
+        </li>
+        <li>There exists a shorter syntax for methods in an object literal:
+          <div class="h-container">
+            <ul class="h-size">
+              <li><code>//these objects do the same<br><br>user = {<br>sayHi: function() {<br>alert("Hello");<br>
+              }<br>};<br><br>//method shorthand looks better, right?<br>user = {<br>sayHi() { 
+                //same as "sayHi: function(){...}"<br>alert("Hello");<br>}<br>};</code></li>
+            </ul>
+          </div>
+        </li>
+        <li>It's common that an object method needs to access the info stored in the object to do its job</li>
+        <li>In this same example, if we need the name of the the user (the object), a method can be used to call
+            the method
+          <div class="h-container">
+            <ul class="h-size">
+              <li><code>sayHi() {<br>//"this" is the "current object"<br>alert(this.name);<br>}<br>};<br>
+              <br>user.sayHi(); //Result: John</code></li>
+            </ul>
+          </div>
+          It's also possible to access the object without <code>this</code>, by referencing it via the outer variable (but such code is unreliable)  
+        </li>
+        <li><code>this</code> is not bound &#8594 It can be used in any function, even if it's not a method o an object
           <ul>
-            <li><span>To techies, input and output are called IO, Input-Output</span></li>
+            <li>Dot or square brackets ("[]") access the method - doesn't matter</li>
           </ul>
         </li>
+        <li>In JavaScript <code>this</code> is "free", its value is evaluated at call-time and does not depend on where 
+          the method was declared, but rather on what object is "before the dot"</li>
+        <li>Arrow functions have no "this"
+          <ul>
+            <li>Arrow functions are special: they don't have their "own" <code>this</code>
+              <div class="h-container">
+                <ul class="h-size">
+                  <li><code>user = {<br>firstName: "Ilya",<br>sayHi() {<br>let arrow = () => alert(this.firstName);
+                    <br>arrow();<br>}<br>};<br><br>user.sayHi(); //Result: Ilya</code>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>        
       </ul>
       </div>
 
-      <div class="chunk-2">
-      <h3 class="affected-h3">Building the HTML (Review for me)</h3>
-      <ul class="building-html">
-        <li>Make sure to give the page tab a title. Also make sure the title makes sense 
-          with the content that's being <br>presented there</li>
-        <li><span class="emphasize">What is a placeholder?</span> <span>&#8594</span> 
-          <span>A placeholder is a property specific to textarea's and input tags</span>
-          <ul>
-            <li>Basically, it can be used to put a hint to your user</li>
-          </ul>
-        </li>
-        <li>There are different levels of header tags:
-          <div class="h-container">
-          <ul class="h-size">
-            <li><h1>h1 <span>&#8594</span> The largest</h1></li>
-            <li><h2>h2 <span>&#8594</span> A little small</h2></li>
-            <li><h3>h3 <span>&#8594</span> Getting smaller</h3></li>
-            <li><h4>h4...h6 <span>&#8594</span> Gets even smaller. You get the idea.</h4></li>
-          </ul>
-        </div>
-        </li>
-        <li><span class="emphasize">Section Tags</span> <span>&#8594</span> Represents an area
-            or chunck of the page when it's displayed in your web browser</li>
-        <li>By adding the "onclick" listener in the button tag, it plays out the function you program it to do</li>
-        <li>Adding CSS can not only make the page work better, but it also makes the web page look pleasing 
-          <br>to the user's eyes
-          <ul>
-            <li>Only when done well that is. Simplicity it <b>the key</b></li>
-          </ul>
-        </li>
-        <li>It doesn't matter what order you put the functions in. JavaScript can handle any order</li>
-        <li><span class="emphasize"> What is <i>var</i>?</span> <span>&#8594</span> Variable
-          <ul>
-            <li>Example imagery: It's like a box you can put stuff</li>
-            <li>Make sure it matches the variable; otherwise, it will get confusing and may not work</li>
-            <li>Example: <span class="box">var storyName = document.getElementById("name_input").value</span></li>
-            <li>The "id" gets the element value under that id name</li>
-          </ul>
-        </li>
-        <li><span class="emphasize">What is <i>local storage</i>?</span> <span>&#8594</span> It stores any information you want to use later.
-          <ul>
-            <li>It uses key-value pairs</li>
-          </ul>
-        </li>
-      </ul>
-
-      <div class="next-page">
-        <p>Here is the exercise I did for the reading upon learning about <a href="reading_exercise/story_editor.html">Local Storage</a>.</p>
-      </div> 
-
       <hr class="line-breaker">
+
+      <div class="chunk-2">
+      <h3 class="affected-h3">Object (From JavaScript: Novice to Ninja)</h3>
+      <ul class="objects-dom">
+        <li>One way to think about an object is that it's like a dictionary where you look up a property
+          name and see a value &#8594 like a database of values</li>
+        <li>JS objects are similar to a hash or associative array in other programming languages</li>
+        <li>They are used to keep any related information and functionality together in the same place</li>
+        <li>They also provide a useful way of organizing your code without polluting the global namespace</li>
+        <li>It's also possible to create an object using a constructor function &#8594 <code>const spiderman
+          = new Object(); //not recommended however</code></li>
+        <li>Dot notation is much more common, but bracket notation has a few advantages
+          <ul>
+            <li>It's the only way to access nonstandard property and method names that don't follow the variable naming rules</li>
+            <li>Also  lets you evaluate an expression and use it as the property key</li>
+          </ul>
+        </li>
+      </ul> 
+      <!-- <hr class="line-breaker"> -->
     </div>
 
     <div class="chunk-3">
-      <h3 class="affected-h3">Master Mobile UX Video</h3>
-      <p class="gist">This is the basically the gist from what I got from the videos:</p>
-      <ul class="video-clip">
-        <li>
-          We need to rewire our brain to start with the mobile UX first, and then slowly make adjustments for 
-          <br>different screen sizes (will make adjustments with these webpages throughout this course to do just 
-          <br> that)
+      <h3 class="affected-h3">Checking if Properties or Methods Exist and Finding all the Properties of an Object</h3>
+      <ul class="objects-dom">
+        <li>The <code>in</code> operator can be used to check whether an object has a particular property</li>
+        <li><code>hasOwnProperty()</code> &#8594 This can be used to check whether an object has a property that is
+          its own, rather than one that has been inherited from another object
+          <ul>
+            <li>This method will <i>only</i> return any properties that belong to that particular object</li>
+          </ul>
         </li>
-        <li>Get into the perspective of the user, not just the developer</li>
-        <li>Keep in mind accessibility and the flow of the website</li>
-        <li>Make forms simple and easy</li>
-        <li>Slow loading pages/websites will make users move on to the next website that can fulfill what they need</li>
+        <li>We can loop through all of an object's properties and methods by using a <code>for in</code> loop
+          <div class="h-container">
+            <ul class="h-size">
+              <li><code>for(<i>const</i> key <i>in</i>superman) {<br>console.log(key + ": " +
+                superman[key]);<br>}</code></li>
+            </ul>
+          </div>
+        </li>
+        <li><code>Object.keys()</code> &#8594 This method returns an array of all the keys of an object that is
+          provided as an argument
+          <div class="h-container">
+            <ul class="h-size">
+              <li><code>for(const key of Object.keys(superman)) {<br>console.log(key);<br>}<br><br>
+                //can use something similar with just the values &#8594 Object.values()</code></li>
+            </ul>
+          </div>
+        </li>
+        <li><code>Object.entries()</code> &#8594 Returns an array of key-value pairs</li>
+        <li>New properties and methods can be added to objects at any time in a program
+          <ul>
+            <li>It's important to note that properties don't always appear in the order they were entered</li>
+          </ul>
+        </li>
       </ul>
     </div>
 
-    <p class="gist">This is the only question I have: <br><br>
-      <span class="emphasize">Is local storage useful for complicated data? Or is this only used for simple data like in this week's <br> exercise?</span>
-    </p>
+    <div class="chunk-4">
+      <h3 class="affected-h3">Namespacing and Built-in Objects</h3>
+      <ul class="objects-dom">
+        <li>Naming collisions occur when the same variable or function name is used for different purposes
+          by code sharing the same scope
+        </li>
+        <li>The problem becomes more likely if you code libraries from other developers or work on code in
+          teams, as you might choose the same name for a function<br>as another member of the team
+        </li>
+        <li>A solution to this problem is to use the <span class="emphasize">object literal pattern</span> to
+          create a namespace for groups of related functions</li>
+        <li>JavaScript has a number of other built-in global objects that cn be accessed from anywhere in a 
+          program
+        </li>
+        <li><span class="emphasize">JSON</span> &#8594 JavaScript Object Notation is an extremely popular lightweight data-storage format
+          that is used by by a large number of services for data serialization and configuration
+          <ul>
+            <li>The beauty of JSON is that it manages to hit the sweet spot between being both human-and 
+              machine-readable
+            </li>
+            <li>Property names must be double-quoted</li>
+            <li>Permitted values are double-quoted strings, numbers, true, false, null, arrays and objects</li>
+            <li>Functions are not permitted values</li>
+          </ul>
+        </li>
+        <li class="h-sizes"><code>const batman = '{"name": "Batman","real name": "Bruce Wayne",<br>"height": 74, 
+          "weight": 210, "hero": true, "villain": false,<br> "allies": ["Robin","Batgirl","Superman"]}'</code></li>
+        <li><code>parse()</code> &#8594 This method takes a string of data in JSON format and returns a JavaScript object</li>
+        <li><code>stringify()</code> &#8594 This method takes a JavaScript object and returns a string of JSON data</li>
+        <li>These methods are particularly useful when it comes to sending data to, and receiving data from,
+          a web server using Ajax requests, or when using localStorage to store data on a user's machine
+        </li>
+        <li>The <code>Math</code> object is a built-in object that has several properties representing mathematical constants, as
+          well as methods that carry out a number of common mathematical operations
+          <ul>
+            <li><code>Math.PI</code> &#8594 The ratio of the circumference and diameter of a circle</li>
+            <li><code>Math.SQRT2</code> &#8594 The square root of 2</li>
+            <li><code>Math.E</code> &#8594 Euler's constant</li>
+            <li><code>Math.LN10</code> &#8594 The natural logarithm of 10</li>
+            <li><code>LOG10E</code> &#8594 The log base 10 of Euler's constant</li>
+          </ul>
+        </li>
+        <li>Mathematical Methods &#8594 The <code>Math</code> object also has several methods to carry out a variety of
+          useful mathematical operations:
+          <ul>
+            <li><code>Math.abs()</code> &#8594 A method that returns the absolute value of a number</li>
+            <li><code>Math.ceil()</code> &#8594 A method that will round a number up to the nearest integer, or
+              remain the same if it's already an integer</li>
+            <li><code>Math.floor()</code> &#8594 A method that will round a number down to the next integer, or
+              remain the same if it is already an integer</li>
+            <li>...and so much more</li>
+          </ul>
+        </li>
+      </ul>
+      <p class="up">Check the rest of the <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/5/k01nwtwy/">methods and other other constructor function</a> to help review what they each do.</p>
+    </div>
+
+    <p class="gist">No questions at the moment.</p>
+    <br><br>
+    <p class="up">Here is the exercise I did for <a href="exercises/exercise-1.html">Objects</a>.</p>
      
     </div>
 
     <div class="go-back">
       <a href="portfolio/../.."> &#8592; Go back to Portfolio page</a>
+      <div class="right-align"><a href="week3-notes-2.html">Chapter 6 and 7 Notes &#8594;</a></div>
     </div>
     
     <footer>
@@ -108,6 +202,5 @@
         <p>Copyright 2022 Brigham Young University-Idaho</p>
       </div>
     </footer>
-	<script src=""></script>
   </body>
 </html>
