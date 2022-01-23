@@ -9,7 +9,7 @@ body {
 body .content {
   display: flexbox;
 }
-body p {
+body p, body label {
   font-family: "Oswald";
   font-size: 1.5rem;
   margin-left: 3rem;
@@ -47,10 +47,111 @@ body .emphasize {
   font-size: 2.5rem;
 }
 
+.object-exercise {
+  margin-bottom: 4rem;
+}
+.object-exercise li {
+  margin-bottom: 10px;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  margin-left: 2rem;
+  margin-right: 12rem;
+}
+.object-exercise .emphasize {
+  background-color: #dfdf1e;
+}
+.object-exercise .h-container {
+  display: table;
+}
+.object-exercise .h-size {
+  list-style-type: none;
+  padding: 0.5rem 1.5rem;
+  background-color: #dddddd;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.object-exercise .h-size li {
+  font-family: "Times New Roman", Times, serif;
+}
+.object-exercise code {
+  font-family: monospace;
+  color: crimson;
+  background-color: #dbdbdb;
+  padding: 2px;
+  font-size: 105%;
+  border-radius: 5px;
+}
+
 .line-breaker {
   margin-bottom: 2.8rem;
   margin-top: 2.5rem;
   margin-right: 3rem;
+}
+
+section {
+  background-color: #e2e2e2;
+  padding: 2rem 4rem;
+  margin: 0 4rem 0 2rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px gray;
+}
+section table {
+  background-color: white;
+  padding: 1rem;
+  border-collapse: collapse;
+}
+section table td, section table th {
+  padding: 1rem;
+  border: 2px solid black;
+  text-transform: capitalize;
+}
+section table th {
+  font-size: 1.5rem;
+  text-align: left;
+}
+section table th:nth-child(2) {
+  background-color: aquamarine;
+}
+section table th:nth-child(1) {
+  background-color: #ff0062;
+}
+section table .hidden {
+  display: none;
+}
+section p {
+  font-family: "Oswald";
+  font-size: 1.5rem;
+  margin-left: 0;
+}
+section .click-button, section .clear-button {
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+section .click-button {
+  background-color: #050448;
+  border: 1px solid #050448;
+}
+section .clear-button {
+  background-color: grey;
+  border: 1px solid grey;
+  margin-left: 1rem;
+}
+section .click-button:hover, section .clear-button:hover {
+  background-color: #dfdf1e;
+  color: #050448;
+  border: 1px solid #dfdf1e;
+}
+section .change-title, section .title {
+  font-family: "Ubuntu";
+  font-size: 2rem;
+}
+section #show-table {
+  font-family: "Oswald";
 }
 
 .next-page a {
@@ -97,6 +198,78 @@ body .emphasize {
   padding: 0.1rem 0.5rem 0.1rem 1rem;
   background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
   border-radius: 10px;
+}
+
+.next-each-other {
+  display: inline-flex;
+}
+.next-each-other .move-right {
+  margin-left: 10rem;
+  border-left: 1px solid grey;
+  display: inline;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+}
+.next-each-other .move-right p {
+  margin-left: 3rem;
+}
+.next-each-other .move-right .block {
+  display: block;
+  margin: 3rem 3rem 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  border-radius: 10px;
+  transition: 0.5s;
+  background-color: grey;
+  border: 1px solid grey;
+}
+.next-each-other .move-right .block:hover {
+  background-color: rgba(128, 128, 128, 0.507);
+  border: 1px solid rgba(128, 128, 128, 0.507);
+}
+.next-each-other .move-right #number-roll {
+  font-family: "Oswald";
+  font-size: 2rem;
+  font-weight: 600;
+  color: red;
+  margin-left: 3rem;
+  padding: 2rem 4rem;
+  background-color: white;
+  text-align: center;
+}
+
+.line-breaker {
+  margin-bottom: 2.8rem;
+  margin-top: 2.5rem;
+  margin-right: 3rem;
+}
+
+.exercise-2 .inline {
+  display: flex;
+}
+.exercise-2 .box {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  max-width: 35ex;
+  width: 100%;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  border: 3px groove #05044896;
+}
+.exercise-2 #changeColor {
+  transition: background-color 0.5s;
+}
+.exercise-2 #coor {
+  transition: all 1s ease-in-out;
+}
+.exercise-2 #disappear {
+  transition: all 1s;
+}
+.exercise-2 #shiftRight {
+  transition: all 1s ease-in-out;
 }
 
 footer .bottom-footer {

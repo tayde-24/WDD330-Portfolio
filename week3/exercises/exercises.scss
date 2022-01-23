@@ -18,7 +18,7 @@ body {
     .content {
         display: flexbox;
     }
-    p {
+    p, label {
         font-family: $pararaph-text;
         font-size: 1.5rem;
         margin-left: 3rem;
@@ -57,10 +57,114 @@ body {
     }
 }
 
+.object-exercise {
+    margin-bottom: 4rem;
+    li {
+        margin-bottom: 10px;
+        font-family: $pararaph-text;
+        font-size: $paragraph-size;
+        margin-left: 2rem;
+        margin-right: 12rem;
+    }
+    .emphasize {
+        background-color: $yellowish;
+    }
+    .h-container {
+        display: table;
+    }
+    .h-size {
+        list-style-type: none;
+        padding: .5rem 1.5rem;
+        background-color: rgb(221, 221, 221);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        li {
+           font-family: 'Times New Roman', Times, serif;
+        }
+    }
+    code {
+        font-family: monospace;
+        color: crimson;
+        background-color: #dbdbdb;
+        padding: 2px;
+        font-size: 105%;
+        border-radius: 5px;
+      }
+}
+
 .line-breaker {
     margin-bottom: 2.8rem;
     margin-top: 2.5rem;
     margin-right: 3rem;
+}
+
+section {
+    background-color: rgb(226, 226, 226);
+    padding: 2rem 4rem;
+    margin: 0 4rem 0 2rem;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px gray;
+    table {
+        background-color: white;
+        padding: 1rem;
+        border-collapse: collapse;
+        
+        td, th {
+            padding: 1rem;
+            border: 2px solid black;
+            text-transform: capitalize;
+        }
+        th {
+            font-size: 1.5rem;
+            text-align: left;
+        }
+        th:nth-child(2) {
+            background-color: aquamarine;
+        }
+        th:nth-child(1) {
+            background-color: rgb(255, 0, 98);
+        }
+        .hidden {
+            display: none;
+        }
+    }
+    p {
+        font-family: $pararaph-text;
+        font-size: 1.5rem;
+        margin-left: 0;
+    }
+
+    .click-button, .clear-button {
+        margin-top: 2rem;
+        padding: .5rem 1rem;
+        color: white;  
+        font-family: $pararaph-text;
+        font-size: $paragraph-size;
+        border-radius: 10px;
+        transition: .5s;
+    }
+    .click-button {
+        background-color: $midnight-blue;
+        border: 1px solid $midnight-blue;
+    }
+    .clear-button {
+        background-color: grey;
+        border: 1px solid grey;
+        margin-left: 1rem;
+    }
+    .click-button:hover, .clear-button:hover {
+        background-color: $yellowish;
+        color: $midnight-blue;
+        border: 1px solid $yellowish;
+    }
+    .change-title, .title {
+        font-family: $header;
+        font-size: 2rem;
+        //max-width: 40ex;
+    }
+    #show-table {
+        font-family: $pararaph-text;
+    }
 }
 
 .next-page {
@@ -112,6 +216,84 @@ body {
         background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(5,4,72,0.8214636196275386) 0%, rgba(9,9,121,0.8186624991793592) 35%, rgba(0,212,255,1) 100%);
         border-radius: 10px;
     }  
+}
+
+.next-each-other {
+    display: inline-flex;
+    .move-right {
+        margin-left: 10rem;
+        border-left: 1px solid grey;
+        display: inline;
+        font-family: $pararaph-text;
+        font-size: $paragraph-size;
+        p {
+            margin-left: 3rem;
+        }
+        // input {
+        //     margin-left: .5rem;
+        //     padding: .5rem 4rem .5rem .5rem;
+        // }
+        .block {
+            display: block;
+            margin: 3rem 3rem 1rem ;
+            padding: .5rem 1rem;
+            color: white;  
+            font-family: $pararaph-text;
+            font-size: $paragraph-size;
+            border-radius: 10px;
+            transition: .5s;
+            background-color: grey;
+            border: 1px solid grey;
+        }
+        .block:hover {
+            background-color: rgba(128, 128, 128, 0.507);
+            border: 1px solid rgba(128, 128, 128, 0.507);
+        }
+        #number-roll {
+            font-family: $pararaph-text;
+            font-size: 2rem;
+            font-weight: 600;
+            color: red;
+            margin-left: 3rem;
+            padding: 2rem 4rem;
+            background-color: white;
+            text-align: center;
+        }
+    }
+}
+
+.line-breaker {
+    margin-bottom: 2.8rem;
+    margin-top: 2.5rem;
+    margin-right: 3rem;
+}
+
+.exercise-2 {
+    .inline {
+        display: flex;
+    }
+    .box {
+        padding: .5rem 1rem;
+        background-color: white;
+        margin-bottom: 1rem;
+        max-width: 35ex;
+        width: 100%;
+        font-family: $pararaph-text;
+        font-size: $paragraph-size;
+        border: 3px groove #05044896;
+    }
+    #changeColor {
+        transition: background-color .5s;
+    }
+    #coor {
+        transition: all 1s ease-in-out;
+    }
+    #disappear {
+        transition: all 1s;
+    }
+    #shiftRight {
+        transition: all 1s ease-in-out;
+    }
 }
 
 footer {
