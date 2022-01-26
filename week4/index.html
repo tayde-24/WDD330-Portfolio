@@ -3,45 +3,269 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 1 Notes and Questions</title>
+    <title>Week 4 Notes and Questions</title>
     <link rel="stylesheet" href="week-4.css">
   </head>
   <body>
     <div class="lesson-title">
-      <h2>Week 01- Notes on both Local Storage Reading UX Design Video</h2>
+      <h2>Week 04- Forms</h2>
     </div>
     <div class="content">
       <div class="chunk-1">
-      <h3 class="affected-h3">Intro of Chapter</h3>
-      <ul class="intro">
-        <li>When writing an application you are communicating with the user</li>
-        <li>Any information stored or shared with the user is called an <span class="emphisize">output</span></li>
-        <li>Anything coming in from where it was stored, or anything the user enters is called input
+      <h3 class="affected-h3">Forms</h3>
+      <ul class="forms-objects">
+        <li>Forms are made up of a <code>form</code> element that containes form controls such as input
+            fields, select menus and buttons
+        </li>
+        <li>Traditionally, when a form was submitted, it would be sent to a server where the information would
+            processed using a "back-end" language such as <span class="emphasize">PHP or Ruby</span>
+            <ul>
+              <li>Now more possible to process the info. in a form on the "front-end" <i>before</i> it is sent
+                sent to the server using JavaScript   
+              </li>
+            </ul>
+        </li>
+        <li>Before, they used a useful property called <code>document.forms</code> from the legacy DOM
+            tht returned an HTML collection of all the forms in the document in the order they appear in
+            the markup &#8594; <code>const form = document.forms[0];</code>
           <ul>
-            <li><span>To techies, input and output are called IO, Input-Output</span></li>
+            <li>Equivalent to &#8594; <code>const form = document.getElementsByTagname("form")[0];</code></li>
+          </ul>
+        </li>
+        <li>A form object also has a method called <code>elements</code> that returns an HTML collection
+            of all the elements contained in the form.
+            <ul>
+              <li>In this case the form contains two controls: an input and a button element &#8594;
+                <code>const [input,button] = form.elements;</code>
+              </li>
+              <li>Can also access te form controls using their "name" attribute as if it was a property of the 
+                form object &#8594; <code>const input = form.searchInput;</code>
+              </li>
+            </ul>
+        <li>Form Properties and Methods
+          <ul>
+            <li><code>form.submit()</code> method will submit the form automatically</li>
+            <li>Three different ways to do it:
+              <div class="h-container">
+                <ul class="h-size">
+                  <li>
+                    <code>&#60;button type="submit"&#62;Submit&#60;button&#62;<br>
+                      &#60;button type="submit" value="Submit"&#62;<br>
+                      &#60;button type="image" src="button.png"&#62;  
+                    </code>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li><code>form.reset()</code> &#8594; This method will reset all the form controls back to their
+              initial values specified in the HTML
+            </li>
+            <li><code>form.action</code> &#8594; This property can be used to set the <code>action</code> attribute of a form,
+              so it's sent to a different URL to be processed on the server:
+              <ul>
+                <li><code>form.action = "/an/other.url"</code></li>
+              </ul>
+            </li>
+            <li>The <code>focus</code> event occurs when an element is focused on.</li>
+            <li>The <code>blur</code> event occurs when the user moves the focus away from the form element</li>
+            <li>The <code>change</code> event occurs when the user moves the focus away from the form element
+              <i>after changing it.</i>  
+            </li>
+            <li><code>submit</code> &#8594; After clicking the button, the browser tries to load a nonexistent page
+              <span class="emphasize">(the URL should end in something similar to <i>'.../search?searchInput=hello')</i>.</span>
+              <ul>
+                <li>The <code>search()</code> function was invoked after the event got fired</li>
+                <li>The form was then submitted to the URL provided in the "action" attribute for processing</li>
+                <li><code>preventDefault()</code> &#8594; This method stops the form from being submitted to the url
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li><code>function search(event) {<br>alert("Form Submitted");<br>event.preventDefault();<br>}</code></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>  
+            </li>
+          </ul>
+        </li>
+        <li>Retrieving and Changing Values From a Form
+          <ul>
+            <li><code>value</code> &#8594; A property that can be used to retrieve the text inside the field</li>
+            <li>Similar functionality to setting a value would be using the <code>placeholder</code>
+              attribute in the HTML markup &#8594; The only difference is that the placeholder text is not a value
+              of the input field (so the user if he fails to fill it up will be submitting a blank value)
+            </li>
+          </ul>
+        </li>
+      </li>
+    </ul>
+    </div>
+
+    <div class="chunk-2">
+      <h3 class="affected-h3">Form Controls</h3>
+      <ul class="forms-objects">
+        <li>Common Types of Form Control:
+          <ul>
+            <li><code>input</code> &#8594; Fields, including text, passwords, checkboxes, radio 
+              buttons, and file uploads
+            </li>
+            <li><code>select</code> &#8594; Menus for drop-down lists of options</li>
+            <li><code>textarea</code> &#8594; Elements for longer text entry</li>
+            <li><code>button</code> &#8594; Elements for submitting and resetting forms</li>
+            <li><code>autofocus</code> &#8594; It's an attribute to give focus to an element when a page loads</li>
+          </ul>
+        </li>
+        <li>Text Input Fields &#8594; The default type of input is "text", which is used for entering a short piece of text</li>
+        <li>Password Input Fields &#8594; <code>input type="password"</code> is used to enter passwords or secret information 
+          <ul>
+            <li>Kind of like type="text", but the characters are concealed as they are entered so they are unable to be read on the screen</li>
+          </ul>
+        </li>
+        <li>Checkbox Input Fields &#8594; <code>input type="checkbox"</code> They are used to select different options that can be checked(true) or left unchecked(false)
+            <ul>
+              <li>User can select <i>more than one checkbox</i> from a list</li>
+            </ul>
+        </li>
+        <li>Radio buttons &#8594; <code>input type="radio"</code> Like checkboxes, they allow users to check an option as true, but they provide an exclusive choice of 
+          options, so <i>only one option</i> can be selected
+        </li>
+        <li>Hidden Input Fields &#8594; <code>input type="hidden"</code> These are not displayed by the browser, but have a "value" attribute
+          that can contain information that is submitted with the form. <span class="emphasize">These fields are not secret and is visible in the HTML</span>  
+        </li>
+        <li>File Input Fields &#8594; <code>input type="file"</code> These are used to upload files, and most browsers will provide a browse button or similar
+          that lets users select a file from their file system
+        </li>
+        <li>Other Input Types:
+          <ul>
+            <li><code>number</code> &#8594; Lets you enter a number</li>
+            <li><code>tel</code> &#8594; Lets you enter a phone number</li>
+            <li><code>color</code> &#8594; Lets you pick out a color</li>
+          </ul>
+        </li>
+        <li>Select drop-down lists can be used to select one or more options from a list of values</li>
+        <li><code>textarea</code> &#8594; An element that is used to enter long pieces of text over multiple lines such as a comment
+          or blog post
+        </li>
+      </ul>
+      
+    </div>
+
+    <div class="chunk-3">
+      <h3 class="affected-h3">Form Elements</h3>
+      <ul class="forms-objects">
+        <li>Form validation is the process of checking whether a user has entered the information into a form correctly</li>
+        <li>Validation can occur on the client side using JavaScript, and on the server side
+          <ul>
+            <li>Should be used to <span class="emphasize"><i>enhance</i></span> the user experience when filling in a form by
+              giving feedback about any errors before it's submitted
+            </li>
+          </ul>
+        </li>
+        <li>Disabling the Submit Button
+          <ul>
+            <li>Another useful technique that can be aid usibility is to disable the submit button if there are errors on the form</li>
           </ul>
         </li>
       </ul>
-      </div>
-
-      <div class="chunk-2">
-      <h3 class="affected-h3">Building the HTML (Review for me)</h3>
       
-
-      <div class="next-page">
-        <p>Here is the exercise I did for the reading upon learning about <a href="reading_exercise/story_editor.html">Local Storage</a>.</p>
-      </div> 
-
-      <hr class="line-breaker">
     </div>
 
 
-    <p class="gist">This is the only question I have: <br><br>
-      <span class="emphasize">Is local storage useful for complicated data? Or is this only used for simple data like in this week's <br> exercise?</span>
+    <p class="gist">Here's a question I have: <br><br>
+      There's one section of the "Hero's form that I tried out in the exercise portion, but somehow I kept getting an
+        error in the console that the <code>toUpperCase()</code> was not a function. Here's what they put down in their book.
     </p>
-     
+    <ul class="forms-objects">
+    <div class="h-container">
+      <ul class="h-size">
+        <li><code>function validateInline() {<br>const heroName = this.value.toUpperCase();<br>
+          if(heroName.startsWith("X")) {<br>error.style.display = "block";<br>} else {<br>error.style.display = "none";<br>
+        }<br>}</code></li>
+      </ul>
     </div>
+  </ul>
+  <p>The <i>this</i> in the <code>heroName</code> variable, or constant, didn't seem to work at all, but when I changed it to
+    <code>const heroName = form.heroName.value.toUpperCase();</code> this seemed to work. <span class="emphasize">Was I supposed to put inside some key word
+    in the function, or did I miss something here?</span>
+  </p>
+  </div>
 
+  <hr class="line-breaker">
+  
+  <div class="chunk-4">
+    <h3 class="affected-h3">Object-Oriented Programming in JavaScript</h3>
+    <ul class="forms-objects">
+      <li>Object-Oriented Programming is a style of programming that involves separating the code into objects that have properties and methods
+        <ul>
+          <li>Keeps related pieces of code encapsulated in objects that maintain state throughout the life of the program</li>
+          <li>Can be reused or easily be modified, as required</li>
+        </ul>
+      </li>
+      <li>Encapsulation
+        <ul>
+          <li>It keeps all the programming logic inside an object and making methods available to implement the functionality,
+            without the outside world needing to know <i>how it's done</i>
+          </li>
+        </ul>
+      </li>
+      <li>Polymorphism
+        <ul>
+          <li>This means that various objects can share the same method, but also have the ability to override the shared methods
+            with a more specific implementation
+          </li>
+        </ul>
+      </li>
+      <li>Inheritence
+        <ul>
+          <li>It takes an object that already exists and inherit all its properties and methods &#8594; We can improve
+            on its functionality by adding new properties and methods
+          </li>
+        </ul>
+      </li>
+      <li>Classes
+        <ul>
+          <li>Many OOP languages, such as Java and Ruby, are known as class-based languages</li>
+          <li>They use class to define a blueprint of an object</li>
+          <li>JavaScript didn't have classes before ES6 &#8594; Used the concepts of using actual objects as the blueprint 
+            for creating more objects (become known as a prototype-based language)
+          </li>
+        </ul>
+      </li>
+      <li>Constructor Functions &#8594; This is a function that defines the properties and methods of an object
+        <ul>
+          <li>The keyword <code>this</code> is used to represent the object that will be returned by the constructor function</li>
+          <li><span class="emphasize">The parentheses are not required when instantiating a new object using a constructor function</span></li>
+          <li><span class="emphasize">The parentheses are <i>required</i>, however, if any default arguements need to be provided</span></li>
+          <li>Each new object that's created using the function will inherit the properties and methods defined in the function</li>
+        </ul>
+      </li>
+      <li>ES6 Class Declarations &#8594; This syntax does exactly the same thing as a constructor function, but looks similar to
+        writing a class in a class-based programming language.
+        <ul>
+          <li>The names of constructor functions or class declarations are capitalized, which is the convention used for classes
+            in class-based programming languages
+          </li>
+        </ul>
+      </li>
+      <li>The Constructor Property &#8594; All objects have a constructor property that returns the cunstructor function that created it
+        <ul>
+          <li>Can use constructor property to instantiate a copy of an object without having to reference the actual constructor function
+            or class declaration directly
+          </li>
+        </ul>
+      </li>
+      <li>Static Methods &#8594; This can be used in class declarations to create a static method
+        <ul>
+          <li>A static method is called by the class directly rather than by instances of the class</li>
+          <li>Static methods are <i>not</i> available to instances of the class</li>
+        </ul>
+      </li>
+      <li>Prototypal Inheritence &#8594; It means that every class has a prototype property that is shared by every instance of the class</li>
+    </ul>
+  </div>
+    <!-- <div class="next-page">
+      </div>  -->
+
+      
     <div class="go-back">
       <a href="portfolio/../.."> &#8592; Go back to Portfolio page</a>
     </div>
@@ -51,6 +275,5 @@
         <p>Copyright 2022 Brigham Young University-Idaho</p>
       </div>
     </footer>
-	<script src=""></script>
   </body>
 </html>
