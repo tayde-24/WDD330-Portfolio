@@ -2,45 +2,83 @@
 <html lang='en'>
 <head>
     <meta charset='utf-8'>
-    <title>Search</title>
-    <style>
-        .error {
-            background-color: #f99;
-            border: #900 1px solid;
-            display: none;
-        }
-    </style>
+    <title>Super Hero Form and Tic-Tac-Toe Exercise</title>
+    <link rel="stylesheet" href="exercise.css">
 </head>
 <body>
+    <div class="lesson-title">
+        <h2>Exercise for Forms and Tic-Tac-Toe</h2>
+    </div>
     <!-- <form name='search' action='/search'>
         <input name='searchInput'>
         <button type='submit'>Search</button>
     </form>
 
     <br> -->
+    <div class="content">
 
+    <h3 class="affected-h3">Super Hero Form</h3>
+    <section class="middle-section">
+    <h3 class="bigger">Super Hero Entry Form</h3>
+    <p>Please fill out this form to be considered in an entry for the super hero group.</p>
     <form id="hero">
+        <fieldset>
+        <legend>Your Super Hero Name:</legend>
         <label for="heroName">Name:
             <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Super Hero Name" maxlength="32" onkeyup="validateInline()" required>
         </label>
-        <label for="realName">
+        <label for="realName">Your real name (It will be classified):
             <input type="password" name="realName" id="realName">
         </label>
+        </fieldset>
 
-        <p>Super Powers:</p>
-        <label for="flight">Flight:<input type="checkbox" id="flight" value="Flight" name="powers"></label>
-        <label for="strength">Super Strength:<input type="checkbox" id="strength" value="Strength" name="powers"></label>
-        <label for="speed">Super Speed:<input type="checkbox" id="speed" value="Super Speed" name="powers"></label>
-        <label for="energy">Energy Blasts:<input type="checkbox" id="energy" value="Energy Blast" name="powers"></label>
-        <label for="telekinesis">Telekinesis:<input type="checkbox" id="telekinesis" value="Telekinesis" name="powers"></label>
+        <p>What is your super power?</p>
+        <fieldset>
+        <legend>Your Super Power:</legend>
+        <div>
+        <div class="block">
+            <label for="flight"><input type="checkbox" id="flight" value="Flight" name="powers">Flight</label>
+            <label for="strength"><input type="checkbox" id="strength" value="Strength" name="powers">Super Strength</label>
+            <label for="speed"><input type="checkbox" id="speed" value="Super Speed" name="powers">Super Speed</label>
+            <label for="energy"><input type="checkbox" id="energy" value="Energy Blast" name="powers">Energy Blasts</label>
+            <label for="telekinesis"><input type="checkbox" id="telekinesis" value="Telekinesis" name="powers">Telekinesis</label>
+        </div>
+        <div class="block next">  
+            <label for="telepathy"><input type="checkbox" id="telepathy" value="Telepathy" name="powers">Telepathy</label>
+            <label for="psychokinesis"><input type="checkbox" id="psychokinesis" value="Psychokinesis" name="powers">Psychokinesis</label>
+            <label for="teleportation"><input type="checkbox" id="teleportation" value="Teleportation" name="powers">Teleportation</label>
+            <label for="shapeshifting"><input type="checkbox" id="shapeshifting" value="Shape Shifting" name="powers">Shape Shifting</label>
+            <label for="invisibility"><input type="checkbox" id="invisibility" value="Invisibility" name="powers">Invisibility</label>
+        </div>
+        <div class="block next">  
+            <label for="heatvision"><input type="checkbox" id="heatvision" value="Heat Vision" name="powers">Heat Vision</label>
+            <label for="timetravel"><input type="checkbox" id="timetravel" value="Time Travel" name="powers">Time Travel</label>
+            <label for="atmokinesis"><input type="checkbox" id="atmokinesis" value="Atmokinesis" name="powers">Atmokinesis</label>
+            <label for="powerabsorption"><input type="checkbox" id="powerabsorption" value="Power Absorption" name="powers">Power Absorption</label>
+            <label for="lifecreation"><input type="checkbox" id="lifecreation" value="Life Creation" name="powers">Life Creation</label>
+        </div>
+        </div>
+        </fieldset>
 
         <p>What type of hero are you?</p>
-        <label for="hero">Hero:<input type="radio" name="category" value="Hero" id="hero"></label>
-        <label for="villain">Villain:<input type="radio" name="category" value="Villain" id="villain"></label>
-        <label for="anti-hero">Anti-hero:<input type="radio" name="category" value="Antihero" id="anti-hero"></label>
-        <label for="age">Age: <input type="number" id="age" name="age" min=0 step=1></label>
+        <fieldset>
+        <legend>Type of hero:</legend>
+        <div class="block">
+            <label for="hero"><input type="radio" name="category" value="Hero" id="hero">Hero</label>
+            <label for="neutralhero"><input type="radio" name="category" value="Neutral Hero" id="neutralhero">Neutral Hero</label>
+            <label for="neutral"><input type="radio" name="category" value="Neutral" id="neutralhero">Neutral</label>
+        </div>
+        <div class="block next">
+            <label for="neutralvillain"><input type="radio" name="category" value="Neutral Villain" id="neutralvillain">Neutral Villain</label>
+            <label for="villain"><input type="radio" name="category" value="Villain" id="villain">Villain</label>
+            <label for="anti-hero"><input type="radio" name="category" value="Antihero" id="anti-hero">Anti-hero</label>
+        </div>
+        </fieldset>
 
-    
+        <p>What is your age?</p>
+        <label for="age">Age: <input type="number" id="age" name="age" min=0 step=1></label>
+        
+        <p>Where is your base of Operation?</p>
         <label for="city">Base of Operation
             <select name="city" id="city">
                 <option value="" selected>Choose a City</option>
@@ -52,12 +90,56 @@
             </select>
         </label>
         
-        <label for="origin">Origin Story:
-            <textarea id="origin" name="origin" rows="20" cols="20">Born as Kal-El on the planet Krypton...</textarea>
+        <p>What's your origin story?</p>
+        <label for="origin">
+            <textarea id="origin" name="origin" rows="10" cols="85%">Born as Kal-El on the planet Krypton...</textarea>
         </label>
-        
-        <button type="submit" id="submit" disabled>Submit</button> <button type="reset">Reset</button>
+        <br>
+        <button type="submit" id="submit" disabled>Submit</button> <button type="reset" onclick="clear()" id="resets">Reset</button>
     </form>
+    </section>
+
+    <!-- <div class="hidden thanks" id="show"></div> -->
+
+    <h3 class="affected-h3">Team Activity Tic-Tac-Toe</h3>
+    <!-- Probably do the tic-tac-toe exercise here -->
+    <section class="make-center">
+    <h3>Let's play some Tic-Tac-Toe!</h3>
+    <table id="tic-tac" class="board">
+        <tr>
+            <td id="1-1" class="top left"></td>
+            <td id="1-2" class="top middle"></td>
+            <td id="1-3" class="top right"></td>
+        </tr>
+        <tr>
+            <td id="2-1" class="middle left"></td>
+            <td id="2-2" class="middle"></td>
+            <td id="2-3" class="middle right"></td>
+        </tr>
+        <tr>
+            <td id="3-1" class="bottom left"></td>
+            <td id="3-2" class="bottom middle"></td>
+            <td id="3-3" class="bottom right"></td>
+        </tr>
+    </table>
+    <button type="button" onClick="clearTable()">Reset</button>
+    <div id="display-winner"></div>
+    </section>
+
+    <p class="make-centered">I didn't quite change much of the original JavaScript from the Team Assignment like I wanted to, but I added some
+        styling to when one of the players wins or both players get a tie with the "classList" property by using both the add and removing methods. 
+    </p>
+    </div>
+    <div class="go-back">
+        <a href="portfolio/../.."> &#8592; Go back to Portfolio page</a>
+        <div class="space"><a href="../index.html"> &#8592; Chapter 8, 12, and 15 Notes</a></div>
+      </div>
+      
+      <footer>
+        <div class="bottom-footer">
+          <p>Copyright 2022 Brigham Young University-Idaho</p>
+        </div>
+      </footer>
 <script src='js/week4.js'></script>
 </body>
 </html>

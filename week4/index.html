@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="lesson-title">
-      <h2>Week 04- Forms</h2>
+      <h2>Week 04- Forms, OOP, and Modular JavaScript</h2>
     </div>
     <div class="content">
       <div class="chunk-1">
@@ -260,10 +260,204 @@
         </ul>
       </li>
       <li>Prototypal Inheritence &#8594; It means that every class has a prototype property that is shared by every instance of the class</li>
+      <li>Prototype &#8594; This is useful if you don't have access to the class declaration, but still want to add properties and methods to the class</li>
+      <li><code>prototype</code> &#8594; This property is one of the ways we can find the prototype of an object</li>
+      <li><code>Object.getPrototype()</code> &#8594; This method is another way to find the prototype of an object (this takes the object as a parameter)</li>
+      <li><code>__proto__</code> &#8594; Known as dunder proto that also finds the prototype of an object (recommend using <code>
+        getPrototypeOf()</code> instead</li>
+      <li><code>isPrototypeOf()</code> &#8594; This method returns a boolean to check if it's the prototype of an instance</li>
+      <li>The prototype can be used to add any new properties and methods after the class has been declared
+        <ul>
+          <li>Should be used to define any properties that will remain the same for every instance of the class</li>
+        </ul>
+      </li>
     </ul>
   </div>
-    <!-- <div class="next-page">
-      </div>  -->
+
+  <div class="chunk-5">
+    <h3 class="affected-h3">Public and Private Methods</h3>
+    <ul class="forms-objects">
+      <li>Methods and properties are said to be public because they can be queried directly and changed by assignment
+        <ul>
+          <li>This could become an issue giving users access these properties, so in order to avoid this, we have to keep some properties
+            and methods private inside of a class declaration (prevents them from being accessed or changed)
+          </li>
+          <li>The use of getter and setter methods help return the property value to the user</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="chunk-5">
+    <h3 class="affected-h3">Inheritence and Enumerable Properties</h3>
+    <ul class="forms-objects">
+      <li>Properties of objects in JavaScript are said to be enumerable or non-enumerable
+        <ul>
+          <li>Those that aren't enumerable will not show up when a <code>for-in</code> loop is used to loop through an 
+            object's properties and methods
+          </li>
+          <li><code>propertyIsEnumerable() &#8594; This can be used to check if a property is enumerable</code></li>
+        </ul>
+      </li>
+      <li>A class can inherit from another class using the <code>extends</code> keyword in a class declaration</li>
+      <li>The <code>extends</code> in a way helps create a sub-class or child class of the main thing (which uses <i>super</i>
+        that refers to the parent class, and can be used to access any properties and call any methods of the parent class
+      </li>
+      <li>Polymorphism related stuff
+        <ul>
+          <li>While monkey-patching built-in objects can seem a good way to add extra or missiong functionality, it can also
+            add unexpected behavior
+          </li>
+          <li>The current consensus in the JS community is that this shouldn't be done, so avoid it unless you have a very
+            good reason to do so
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="chunk-6">
+    <h3 class="affected-h3">Property Attributes and Descriptors</h3>
+    <ul class="forms-objects">
+      <li>Each property has a number of attributes that provide information about the property</li>
+      <li>All object properties have the following attributes stored in a property descriptor:
+        <ul>
+          <li><code>value</code> &#8594; This is the value of the property and is <code>underfined</code> by default</li>
+          <li><code>writable</code> &#8594; This boolean value shows whether a property can be changed or not, and is false by default</li>
+          <li><code>enumerable</code> &#8594; This boolean value shows whether a property will show up when the object is displayed in a 
+            <code>for in</code> loop, and is "false" by default
+          </li>
+          <li><code>configurable</code> &#8594; This boolean value shows whether you can delete a property or change any of its attributes,
+            and is <code>false</code> by default
+          </li>
+        </ul>
+      </li>
+      <li>Instead of using assignment, we can add properties to an object using the <code>Object.defineProperty()</code> method
+        &#8594; This provides more fine-grained control when adding  new properties, as it allows each attribute to be set
+      </li>
+      <li>The <code>get()</code> and <code>set()</code> methods can be used to control how a property is set using assignment and
+        the value that is returned when a property is queried
+      </li>
+    </ul>
+  </div>
+
+  <div class="chunk-7">
+    <h3 class="affected-h3">Creating Objects from Other Objects</h3>
+    <ul class="forms-objects">
+      <li>The <code>Object()</code> constructor function has a method called <code>create</code> that can be used to create a new
+        object that is an exact copy of the object that is provided as an arguement (acts as the prototype for the new object)
+      </li>
+      <li>By capitalizing the name of the object, it acts in a similar way to a class in class-based programming languages</li>
+      <li>An alternative way is to add a second argument to the <code>Object.create()</code> method containing properties that are
+        to be added to the new object
+        <ul>
+          <li>Example: <code>const jimmy = Object.create(Human, { name: { value: 'Jimmy Olsen', enumerable: true }, job: { value: 'Photographer', enumerable: true } });</code></li>
+        </ul>
+      </li>
+      <li>Can also act like a "super-class" through inheritance</li>
+    </ul>
+  </div>
+
+  <div class="chunk-8">
+    <h3 class="affected-h3">Mixins and Binding <i>this</i></h3>
+    <ul class="forms-objects">
+      <li><span class="emphasize">What is a mixin?</span> &#8594; A mixin is a way of adding properties and methods of some objects
+        to another object without using inheritance
+      </li>
+      <li>Basic mixin functionality is provided by the <code>Object.assign()</code> method &#8594; This will assign to the object 
+        provided as the first argument all of the properties from any objects provided as further arguments
+      </li>
+      <li>The <code>mixin()</code> function is a particular powerful way of dealing with objects
+        <ul>
+          <li>You can add a large number of properties to an object all at once (See <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/12/k01nwvh1/" target="_blank_">example of this in the book</a>)</li>
+          <li>You can create a <code>copy()</code> method that can be used to make an exact, deep copy of an object</li>
+        </ul>
+      </li>
+      <li><code>this</code> allows us to create generalized methods that refer to properties specific to a particular object</li>
+      <li>To solve the "this" that's referencing the property of the global window object, here are some solutions:
+        <ul>
+          <li>Set the variable <code>that</code> to equal <code>this</code> before the nested function, and refer to <code>that</code> the 
+            nested function instead of <code>this</code></li>
+          <li><code>bind()</code> &#8594; A method for all functions and is used to set the value of <code>this</code> in the function</li>
+          <li><code>for-of</code> &#8594; This syntax is for arrays and this does not require a nested function to be used</li>
+          <li>Use of arrow functions &#8594; They don't have their own <code>this</code> context</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="chunk-9">
+    <h3 class="affected-h3">Composition Over Inheritence</h3>
+    <ul class="forms-objects">
+      <li>There are a number of benefits to OOP, but there are also some problems that come with inheritence</li>
+      <li>Though you inherit the class to gain access to that method that inherits other properties and methods that you don't need,
+        it becomes unnecessarily bloated
+      </li>
+      <li>A design pattern that seeks to solve these problems is to use "composition over inheritence"</li>
+      <li>If you do classes, don't have them contain to many properties and methods</li>
+      <li>If you want to use a particular method from a class but has lots of properties and methods you don't need, then it would be
+        preferable to just "borrow" the method instead
+      </li>
+    </ul>
+  </div>
+
+  <hr class="line-breaker">
+
+  <div class="chunk-10">
+    <h3 class="affected-h3">Modular Javascript</h3>
+    <ul class="forms-objects">
+      <li><span class="emphasize">What is a module?</span> &#8594; It is a self-contained piece of code that provides functions and
+        methods that can then be used in other files and by other modules
+        <ul>
+          <li>Helps keep code organized in separate, reusable files, which improves code maintainability</li>
+          <li>Keeping code modular helps to make it more loosely coupled and interchangeable, meaning you can easily swap one module
+            for another without affecting other parts of a project
+          </li>
+          <li>Small single-purpose modules are the exact opposite of large monolithic libraries as they enable developers to use
+            the modules that are needed, avoiding any wasted code
+          </li>
+          <li>They also allow a public API to be exposed, while keeping the implementation hidden away inside the module</li>
+        </ul>
+      </li>
+      <li>For a long time, JavaScript didn't support modules, but native support for them was finally added in ES6
+        <ul>
+          <li>All code in modules is always in strict mode without the need for "use strict" and there is no way to opt out of this</li>
+          <li>A module has its own global scope, so any variables created in the top-level of a module can only be accessed within that module</li>
+          <li>The value of <code>this</code> in the top level of a module is <code>undefined</code>, rather than the global object</li>
+          <li>You can't use HTML-style comments in modules</li>
+        </ul>
+      </li>
+      <li>You can be selective in which values or functions to import from the module</li>
+      <li>If there are lots of values and functions that need to be imported, then everything in a module file can be imported using the
+        wildcard symbol <code>*</code> along with a namespace for the imported values and functions 
+        <ul>
+          <li>Example: <code>import * as stats from "./stats.js";</code></li>
+        </ul>
+      </li>
+      <li><span class="emphasize">Default Exports</span> &#8594; This refers to a single variable, function or class in a module that can
+        be improved without having to be explicitly named
+      </li>
+      <li>The big difference with default exports is that you don't need to use curley braces or make any mention of the value that is being
+        imported, making the statement read more elegantly
+      </li>
+    </ul>
+  </div>
+
+  <div class="chunk-11">
+    <h3 class="affected-h3">Node.js Modular</h3>
+    <ul class="forms-objects">
+      <li>Node.js had already implemented modules before they were introduced in ES6, and used a slightly different notation
+        called Common JS modules
+      </li>
+      <li>A Common JS module is created in a separate file, and the <code>module.exports</code> method is used to make any functions
+        available  to other files, in a similar way to ES6 modules
+      </li>
+    </ul>
+  </div>
+
+    <div class="next-page">
+      <p>Here's the <a href="exercise/exercise.html"> form and team exercises.</a></p>
+    </div> 
 
       
     <div class="go-back">

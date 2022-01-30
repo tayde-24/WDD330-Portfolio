@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+}
+body .content {
+  display: flexbox;
+}
+body .affected-h3 {
+  display: table;
+  max-width: 35ex;
+  border-radius: 0 10px 10px 0;
+  width: 100%;
+  font-size: 1.5rem;
+  font-family: "Ubuntu";
+  font-weight: 500;
+  background-color: #050448;
+  color: #dfdf1e;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.lesson-title {
+  border-top: 2.5rem double black;
+  border-bottom: 2.5rem double black;
+  background: #020024;
+  background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  padding: 0.2rem 3rem;
+}
+.lesson-title h2 {
+  color: #dfdf1e;
+  font-family: "Ubuntu";
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.middle-section {
+  margin: 4rem 20rem;
+  background-color: #bde1eb;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #9c9c9c;
+}
+.middle-section p {
+  font-family: "Oswald";
+  font-size: 1.5rem;
+}
+.middle-section h3 {
+  font-family: "Ubuntu";
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 4px #016363;
+}
+.middle-section .bigger {
+  font-size: 2.5rem;
+}
+.middle-section label {
+  font-family: "Oswald";
+  font-size: 1.2rem;
+}
+.middle-section legend {
+  font-family: "Ubuntu";
+  font-size: 1.4rem;
+  color: #090979;
+}
+.middle-section input[type=text], .middle-section input[type=password],
+.middle-section input[type=number], .middle-section textarea, .middle-section select {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 3px solid rgba(66, 66, 66, 0.664);
+}
+.middle-section .block {
+  display: inline-block;
+}
+.middle-section .block label {
+  display: block;
+}
+.middle-section .next {
+  margin-left: 10rem;
+}
+
+input[type=text]:focus, input[type=password]:focus,
+input[type=number]:focus, textarea:focus, select:focus {
+  border: 3px solid rgba(65, 19, 65, 0.555);
+  background-color: rgba(67, 67, 92, 0.171);
+  transition: 0.5s;
+}
+
+button {
+  margin-top: 2rem;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  color: #dfdf1e;
+  background-color: #090979;
+  transition: all 1s;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  background-color: #dfdf1e;
+  color: #050448;
+}
+
+button[type=submit]:disabled {
+  background-color: gray;
+  color: black;
+}
+
+.winner {
+  font-size: 1.5rem;
+  font-family: "Oswald";
+  border: 3px solid rgba(65, 19, 65, 0.555);
+  background-color: rgba(67, 67, 92, 0.171);
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+.go-back {
+  margin-left: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-family: "Oswald";
+}
+.go-back a {
+  color: teal;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+.go-back a:hover {
+  color: #dfdf1e;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 5px;
+}
+.go-back .space {
+  margin-top: 2rem;
+}
+
+.line-breaker {
+  margin-right: 8rem;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+.error {
+  background-color: #f99;
+  border: #900 1px solid;
+  display: none;
+}
+
+.make-center {
+  margin: 4rem 20rem;
+  background-color: #f5e5cd;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #9c9c9c;
+  padding: 3rem 4rem;
+}
+.make-center h3 {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 4px #633c01;
+  margin-bottom: 4rem;
+}
+.make-center button[type=button] {
+  display: table;
+  margin: 6rem auto 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+#tic-tac td {
+  width: 8rem;
+  height: 8rem;
+  text-align: center;
+  font-family: "Oswald";
+  font-size: 3rem;
+}
+
+td {
+  border-right: black 3px solid;
+  border-bottom: black 3px solid;
+  border-collapse: collapse;
+  transition: color 1s;
+}
+
+td:last-child {
+  border-right: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+footer .bottom-footer {
+  background-color: #050448;
+  padding: 1.5rem 1rem;
+}
+footer p {
+  font-family: "Oswald";
+  color: #dfdf1e;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+}
+
+.up {
+  margin-top: -1.5rem;
+  margin-bottom: 3rem;
+  line-height: 1.3rem;
+}
+.up a {
+  color: teal;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+.up a:hover {
+  color: #dfdf1e;
+  padding: 0.1rem 0.5rem 0.1rem 1rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 10px;
+}
+
+.make-centered {
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: rgba(65, 19, 65, 0.555);
+  margin: 2rem 20rem;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-bottom: 4rem;
+}
+
+/*# sourceMappingURL=exercise.css.map */
