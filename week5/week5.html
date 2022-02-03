@@ -3,24 +3,261 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 4 Notes and Questions</title>
+    <title>Week 5 Notes and Questions</title>
     <link rel="stylesheet" href="week5.css">
   </head>
   <body>
     <div class="lesson-title">
-      <h2>Week 04- Forms, OOP, and Modular JavaScript</h2>
+      <h2>Week 05- Testing and Debugging</h2>
     </div>
 
     <div class="content">
+        <div class="chunk-1">
+            <h3 class="affected-h3">Errors, Exceptions, and Warnings</h3>
+            <ul class="debugging">
+                <li><span class="emphasize">System Error</span> &#8594; There's a problem with the system or external devices with which the program is interacting</li>
+                <li><span class="emphasize">Programmer error</span> &#8594; The program contains incorrext syntax or fualty logic; it could even be as simple as a typo</li>
+                <li><span class="emphasize">User Error</span> &#8594; The user has entered data incorrectly, which the program is unable to handle</li>
+                <li>We should still be aware of these errors and attempt to reduce their impact by working around any problems they cause
+                    <ul>
+                        <li>Programmer errors are our responibility, so we must ensure they are minimized as much as possible and fixed promptly</li>
+                        <li>Should try to limit user errors by predicting any possible interactions that may throw an error, and ensure they are dealt
+                            with in a way that doesn't negatively affect the user experience
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-2">
+            <h3 class="affected-h3">Exceptions</h3>
+            <ul class="debugging">
+                <li>An <span class="emphasize">exception</span> is an error that produces a return value that can then be used by the program to deal with the error</li>
+                <li><span class="emphasize">Stack Trace</span> &#8594; A sequence of functions or method calls that lead to the point where the error occured
+                    <ul>
+                        <li>A stack trace will work backgrounds from the point at which the error occured to identify the original function or method that started the sequence</li>
+                    </ul>
+                </li>
+                <li>A <span class="emphasize">warning</span> can occur if there's an error in the code that isn't enough to cause the program to crash (will continue to run after a warning)
+                    <ul>
+                        <li>Warnings and exceptions are presented differently in various environments</li>
+                        <li>When a runtime error occurs in the browser, the HTML will still appear, but the JS code will stop working in the background, which isn't always obvious at first</li>
+                        <li>If a warning occurs, the JS will continue to run (although possibly incorrectly)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-3">
+            <h3 class="affected-h3">The Importance of Testing and Debugging</h3>
+            <ul class="debugging">
+                <li>JavaScript is a fairly forgiving language when it comes to errors
+                    <ul>
+                        <li>It just fails silently in the background</li>
+                        <li>The error might give unexpected or incorrect results that nobody spots, or lurk in the background for a long time before causing the program to crash spectacularly</li>
+                        <li>We should try to make the code fail gracefully (although not completely silently - we still need to know there's an error), so the user experience is not affected, if possible</li>
+                        <li>This is achieved by making sure exceptions are caught and dealt with, and code is tested rigorously</li>
+                    </ul>
+                </li>
+                <li>Strict Mode
+                    <ul>
+                        <li>Increasing the chance of errors might seem like a bad idea at first, but it's much better to spot errors early on, rather than have them cause problems later</li>
+                        <li>Can help improve its clarity and speed, since it follows conventions and will throw exceptions if any sloppy code practices are used</li>
+                        <li>Strict code encourages a better quality of JS to be written that befits any programmer, so it's use is recommended</li>
+                            <div class="h-container">
+                                <ul class="h-size">
+                                    <li><code>/*Strict mode simply requires the following  string to be added to the first line of a JS file:*/<br><br>
+                                        'use strict';<br><br>/*This will be picked up by any JS engine that uses strict mode.</code>
+                                    </li>        
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Ex: If you try to assign a value to a variable that is undeclared in strict mode, you'll get an exception instead of a warning:
+                            <div class="h-container">
+                                <ul class="h-size">
+                                    <li><code>'use strict';<br><br>e = 2.718;<br><br>//Result &#8594; ReferenceError: e is not defined</code>
+                                    </li>        
+                                </ul>
+                            </div>
+                        </li>
+                        <li>The same can be applied inside the function by adding that line first
+                        <li>Placing <code> 'use strict'</code> at the beginning of a file will enforce strict mode on all the JS in the file</li>
+                    </ul>
+                <li>Linting Tools
+                    <ul>
+                        <li>Linting tools such as <u>JS Lint, JS Hint</u> and <u>ES Lint</u> can be used to test the quality of JS code, beyond 
+                            simply using strict mode
+                        </li>
+                        <li>It highlights any sloppy programming practices or syntax errors, and will complain if certain style conventions are not followed
+                            such as how code is indented (they can be very unforgiving and picky)
+                        </li>
+                        <li>Linting tools are also useful for enforcing a programming <span class="emphasize">style guide</span></li>
+                        <li>Passing a lint test is no guarantee that your code is correct, but it will mean it will be more consistent
+                            and less likely to have problems
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-4">
+            <h3 class="affected-h3">Feature Detection</h3>
+                <ul class="debugging">
+                    <li>Browser vendors are constantly adding support for these new features, but they don't always keep up</li>
+                    <li>Some browsers will support certain features and others won't</li>
+                    <li>The recommended way to determine browser support for a feature is to use feature detection</li>
+                    <li>This is done using an <code>if</code> statement to check whether an object or method exists before trying to 
+                        actually call the method
+                    </li>
+                    <li><u>Modernizr</u> is a library that offers an easy way to implement feature detection and <u>Can I Use?</u> is another
+                        useful resource for checking which features are currently supported in different browsers.
+                    </li>
+                </ul>
+        </div>
+
+        <div class="chunk-5">
+            <h3 class="affected-h3">Debugging in the Browser</h3>
+            <ul class="debugging">
+                <li><span class="emphasize">Debugging</span> &#8594; It's the process of finding out where bugs occur in the code and then dealing
+                    with them
+                </li>
+                <li>Create what are known as breakpoints, which halts the progress of the code and allows us to view the value of different variables
+                    at that point in the program
+                </li>
+                <li>Alerts
+                    <ul>
+                        <li>The most basic form of debugging is to use the <code>alert()</code> method to show a dialog at certain points in the code</li>
+                        <li>This stops the  program from running until OK is clicked; it allows us to effectively put breakpoints in the code that let us 
+                            check the value of variables at that point to see if they're what we expect them to be
+                        </li>
+                        <li>Using alerts for debugging was the only option in the past, but JavaScript development has progressed since then and their use
+                            is discouraged for debugging purposes today
+                        </li>
+                    </ul>
+                </li>
+                <li>Console
+                    <ul>
+                        <li>Most modern JS environments have a <code>console</code> object that provides a number of methods for logging information and debugging</li>
+                        <li><code>console.log()</code> &#8594; Used to log the value of variables at different stages of the program, although it will not actually stop 
+                            the execution of the program
+                        </li>
+                        <li><code>console.trace()</code> &#8594; This method will log an interactive stack trace in the console</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-6">
+            <h3 class="affected-h3">Debugging Tools</h3>
+            <ul class="debugging">
+                <li>Most modern browsers also have a debugging tool that allows you to set <span class="emphasize">breakpoints</span> in your code that will pause it 
+                    at certain points
+                </li>
+                <li>One of the most useful commands is the <code>debugger</code> keyword
+                    <ul>
+                        <li>This will create a breakpoint in the code that will pause the execution of the code and will allow you to see where the program is currently up to</li>
+                        <li>You can also hover over any variables to see what value they hold at that point</li>
+                        <li>Remember to remove any reference to the <code>debugger</code> command before shipping any code, otherwise the program will appear to freeze when
+                            people try to use it!
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-7">
+            <h3 class="affected-h3">Error Objects</h3>
+            <ul class="debugging">
+                <li>An <code>error</code> object can be created by the host environment when an exception
+                    occurs, or it can be created in the code using a constructor function
+                    <div class="h-container">
+                        <ul class="h-size">
+                            <li><code>const error = new Error();</code></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>This can take a parameter that can be used as the error message</li>
+                <li><code>EvalError</code> &#8594; It was used to identify errors when using the global <code>eval()</code> function</li>
+                <li><code>RangeError</code> &#8594; Thrown when a number is outside an allowable range of values</li>
+                <li><code>ReferenceError</code> &#8594; Thrown when a reference is made to an item that doesn't exist</li>
+                <li><code>SyntaxError</code> &#8594; Thrown when there's an error in the code's syntax</li>
+                <li><code>TypeError</code> &#8594; Thrown when there's an error in the type of value used</li>
+                <li><code>URIError</code> &#8594; Thrown when there's a problem encoding or decoding the URI</li>
+                <li><code>InternalError</code> &#8594; A non-standard error that is thrown when an error occurs in the JS engine</li>
+                <li>Error objects can also be used as constructors to create custom error objects</li>
+                <li>Throwing Exceptions:
+                    <ul>
+                        <li>It is possible to throw your own exceptions using the <code>throw</code> statement</li>
+                        <li>The <code>throw</code> statement can be applied to any JS expression, causing the execution of the program to stop</li>
+                        <li>It is best practice, however, to throw an <code>error</code> object, which can be caught in a <code>catch</code> block</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-8">
+            <h3 class="affected-h3">Exception Handling</h3>
+            <ul class="debugging">
+                <li>When dealing with exceptions, this is ideal in development as it allows us to identify and fix errors, but not so much so in production
+                    (users will think the program has crashed)
+                </li>
+                <li>Any errors can be hidden from users, but still identified</li>
+                <li><code>try</code>, <code>catch</code>, and <code>finally</code>:
+                    <ul>
+                        <li>If we suspect a piece of code will result in an exception, we can wrap it in a <code>try</code> block</li>
+                        <li>A <code>finally</code> block can be added after a <code>catch</code> block (will always be executed after the
+                            <code>try</code> or <code>catch</code> block, regardless of whether an exception occurred or not
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-9">
+            <h3 class="affected-h3">Tests</h3>
+            <ul class="debugging">
+                <li>Testing is an important part of programming that can be often br overlooked</li>
+                <li>Writing good tests means your code will be less brittle as it develops, and any errors will be identified early on</li>
+                <li><span class="ephasize">Test-driven development</span> (TDD) is the process of writing tests before any actual code</li>
+                <li>This process should be followed in small piecemeal chunks every time a new feature is implemented, resulting in the following workflow:
+                    <ol>
+                        <li>Write tests (that initially fail)</li>
+                        <li>Write code to pass the tests</li>
+                        <li>Refractor the code</li>
+                        <li>Test refractored code</li>
+                        <li>Write more tests for new features</li>
+                    </ol>
+                    This is often referred to as the "red-green-refractor" cycle of TDD, as failing tests usually show up as red, and tests that pass show as green
+                </li>
+                <li>The TDD mindset can be hard to always use, and at the end of the day, any tests are better than no tests at all</li>
+            </ul>
+        </div>
+
+        <div class="chunk-10">
+            <h3 class="affected-h3">Testing Frameworks</h3>
+            <ul class="debugging">
+                <li>There are a large number of frameworks available for JS
+                    <ul>
+                        <li>Jest:
+                            <ul>
+                                <li><u>Jest</u> is a TDD framework, created by Facebook, that has gained a lot of popularity recently</li>
+                                <li>To use Jest, first we need to install it using <code>npm</code></li>
+                                <li><code>npm install -g jest</code> &#8594; This should install Jest globally</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
     </div>
 
 
-
+    <p class="">No questions at the moment.</p>
 
 
     <div class="next-page">
-        <p>Here's the <a href="exercise/exercise.html"> form and team exercises.</a></p>
+        <p>Here's the <a href="exercise/exercise.html"> debugging exercise.</a></p>
       </div> 
   
         

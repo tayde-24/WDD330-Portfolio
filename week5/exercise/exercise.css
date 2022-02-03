@@ -48,73 +48,6 @@ body .emphasize {
   font-size: 2.5rem;
 }
 
-.debugging {
-  margin-bottom: 4rem;
-}
-.debugging li {
-  margin-bottom: 10px;
-  font-family: "Oswald";
-  font-size: 1.3rem;
-  margin-left: 2rem;
-  margin-right: 11rem;
-}
-.debugging .emphasize {
-  background-color: #dfdf1e;
-}
-.debugging .h-container {
-  display: table;
-}
-.debugging .h-size {
-  list-style-type: none;
-  padding: 0.5rem 1.5rem;
-  background-color: #dddddd;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-.debugging .h-size li {
-  font-family: "Times New Roman", Times, serif;
-}
-.debugging code {
-  font-family: monospace;
-  color: crimson;
-  background-color: #dbdbdb;
-  padding: 2px;
-  font-size: 105%;
-  border-radius: 5px;
-}
-.debugging a {
-  color: teal;
-  transition: 0.2s ease-in-out;
-  text-decoration: none;
-}
-.debugging a:hover {
-  color: #dfdf1e;
-  padding: 0.1rem 0.5rem 0.1rem 1rem;
-  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
-  border-radius: 10px;
-}
-
-code {
-  font-family: monospace;
-  color: crimson;
-  background-color: #dbdbdb;
-  padding: 2px;
-  font-size: 105%;
-  border-radius: 5px;
-}
-
-.next-page a {
-  color: teal;
-  transition: 0.2s ease-in-out;
-  text-decoration: none;
-}
-.next-page a:hover {
-  color: #dfdf1e;
-  padding: 0.1rem 0.5rem 0.1rem 1rem;
-  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
-  border-radius: 10px;
-}
-
 .go-back {
   margin-left: 3rem;
   margin-top: 1.5rem;
@@ -154,4 +87,4 @@ footer p {
   margin-left: 2rem;
 }
 
-/*# sourceMappingURL=week5.css.map */
+/*# sourceMappingURL=exercise.css.map */
