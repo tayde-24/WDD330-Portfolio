@@ -12,7 +12,74 @@
     </div>
 
     <div class="content">
-        
+
+    <div class="chunk-1">
+        <h3 class="affected-h3">Console Information Exercise</h3>
+        <p>Check in the console where you can see what I put in this function. You can also test this 
+            out by simply writing "amIOldEnough({num})" in the console to see the results. I also tried
+            out the "use strict" text in three of my functions that can be seen in Sources, and the console
+            results I've tested out in Console.
+        </p>
+        <section class="debug-section">
+    <pre>
+        <code>
+            function amIOldEnough(age) {
+                console.log(age);
+                    if (age < 12) {
+                        console.log(`In the if with ${age}`);
+                        return 'No, sorry.';
+                    } else if (age < 18) {
+                        console.log(`In the else-if with ${age}`);
+                        return 'Only if you are accompanied by an adult';
+                    } else {
+                        console.log(`In the else with ${age}`);
+                        return 'Yep, come on in!';
+                    }
+            }
+        </code>
+    </pre>
+        </section>
+    </div>
+
+
+        <div class="chunk-2">
+            <h3 class="affected-h3">Quiz Ninja Exercise</h3>
+            <div>
+                <section>
+                    <!-- The HTML code that's commented out was from the Code Pen example but decided to do my own set up -->
+                    <!-- <div class='quiz-body'>
+                        <header>
+                          <h1>Quiz Ninja!</h1>
+                          <div id='timer'>Time: <strong>20</strong></div>
+                          <div id='score'>Score: <strong>0</strong></div>
+                        </header>
+                        <div id='question'></div>
+                        <form id='response'>
+                          <input name='answer' type='text'>
+                          <button type='submit'>Submit Answer</button>
+                        </form>  <div id='result'></div>
+                        <div id='info'></div>
+                        <button id='start'>Click to Start</button>
+                        </div> -->
+                    <div class="quiz-body">
+                        <div id="timer">Time: <strong>20</strong></div>
+                        <div id="score">Score: <strong>0</strong></div>
+                        <div class="quiz-container">
+                            <h1>Quiz Ninja!</h1>
+                        </div>   
+                        <div id="result"></div>
+                        <form id="response">
+                            <div id="question"></div>
+                            <input name="answer" type="text">
+                            <button type="submit">Submit Answer</button>
+                        </form>
+                        <div id="info"></div>
+                        <div class="center-button"><button id="start">Click to Start</button></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    
 
     </div>
 
@@ -27,5 +94,6 @@
     </div>
     </footer>
 </body>
+<script src="js/exercise.js"></script>
 </html>
   
