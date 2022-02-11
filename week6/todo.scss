@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Krona+One|Anton|Bebas+Neue|Staatliches|Abel|Cousine|Special+Elite|Changa|Covered+By+Your+Grace|Merriweather');
+
+
+* {
+    box-sizing: border-box;
+}
+
+$midnight-blue:#050448;
+$font-color:#090979; 
+$silver: #9cc0c9;
+$header: "Staatliches";
+$header-size-2: 3.5rem;
+$header-size-3: 1.5rem;
+$pararaph-text: "Oswald";
+$paragraph-size: 1.3rem;
+
+body {
+    margin: auto 0;   
+}
+header {
+    display: flexbox;
+    border-top: 1.5rem solid black;
+    border-bottom: 1.5rem solid black;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 150%);
+    padding: .2rem 3rem;
+    h1 {
+        color: $silver;
+        font-size: $header-size-2;
+        font-family: $header;
+        font-weight: 500;
+        text-align: center;
+    } 
+}
+
+main {
+    display: flexbox;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    background-color: #dbf3f3;
+    padding: 2rem 0 3rem;
+}
+
+section {
+    padding: .1rem 0 0 0;
+    margin: 3.5rem auto;
+    width: 50%;
+    max-width: 100%;
+    .button-section {
+        background-color: $midnight-blue;
+        padding: 1.5rem 2rem;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        box-shadow: 2px 2px 5px #597075;
+        button {
+            font-family: $header;
+            color: $midnight-blue;
+            background-color: $silver;
+            transition: .5s;
+            border-radius: 15px;
+            border: none;
+            font-size: 1.5rem;
+            padding: .5rem 1rem;
+            margin-left: 5px;
+        }
+        .whats-left {
+            text-align: left;
+            color: whitesmoke;
+            font-family: "Abel";
+            font-size: 1.5rem;
+            overflow: none;
+            padding: .5rem 1rem;
+            font-weight: 600;
+        }
+        .right {
+            text-align: right;
+        }
+    }
+    .todo-list {
+        ul {
+            padding-left: 0;
+            li {
+                display: grid;
+                grid-template-columns: .2fr 2fr auto;
+                list-style:none;
+                padding: 1.5rem 3rem;
+                font-family: "Abel";
+                font-weight: 600;
+                font-size: 1.7rem;
+                background-color: white;
+                width: 100%;
+                transition: all .5s;
+                border-radius: 10px;
+                box-shadow: 2px 2px 5px #83a4acb4;
+                margin-bottom: 1.2rem;
+                button {
+                    font-size: 1.2rem;
+                    border-radius: 5px;
+                    background-color: rgb(185, 19, 19);
+                    color: white;
+                    border-color: rgb(185, 19, 19);
+                }
+                input[type="checkbox"] {
+                    // -webkit-appearance:none;
+                    // border:2px solid rgba(85, 85, 85, 0.514);
+                    // background-color: white;
+                    width: 25px;
+                    height: 25px;
+                    // border-radius: 5px;
+                    
+                }
+                input[type='checkbox']:checked {
+                    background: #abd;
+                }
+            }
+            button {
+                text-align: right;
+            }
+        }
+    }   
+}
+
+footer {
+    background-color: $midnight-blue;
+    // position: fixed;
+    // bottom: 0;
+    text-align: center;
+    width: 100%;
+    .list-footer {
+        padding: 3.5rem 2rem;
+        height: 12rem;
+        input[type="text"] {
+            position: inherit;
+            width: 450px;
+            padding: 1rem 1.5rem;
+            font-size: 1.3rem;
+            outline: none;
+            border-radius: 30px;
+            transition: all .5s;
+            font-family: "Abel";
+            font-weight: 600;
+        }
+        input:hover {
+            background-color: rgba(233, 189, 253, 0.986);
+        }
+        input[type="text"]:focus {
+            background-color: rgb(166, 252, 255);
+            width: 500px;
+        }
+        button {
+            border-radius:50px;
+            border: none;
+            font-size: 2rem;
+            padding: .5rem 1rem;
+            margin-left: .8rem;
+            color: $midnight-blue;
+            background-color: $silver;
+            transition: .5s;
+        }
+        button:hover{
+            background-color: #9cc0c9a2;
+            border-radius:10px;
+        }
+    }
+    
+}

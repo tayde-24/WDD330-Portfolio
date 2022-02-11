@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MidCheck Challenge One: Todo</title>
+    <link rel="stylesheet" href="todo.css">
 </head>
 <body>
 
@@ -14,13 +15,28 @@
     </header>
 
     <main>
-        <div class="todo-list">
-
+        <section>
+            <div class="todo-list">
+                <ul id="todoList"></ul>
+            </div>
+            <div class="button-section">
+                <span id="taskLeft" class="whats-left"></span>
+                <span class="right">
+                    <button id="showAll">Show All</button>
+                    <button id="active">Active</button>
+                    <button id="completed">Completed</button>
+                </span>
+            </div>
+        </section>
+        <div class="go-back">
+            <a href="portfolio/../.."> &#8592; Go back to Portfolio page</a>
         </div>
     </main>
 
     <footer>
-        <div class="list-footer"></div>
+        <div class="list-footer">
+            <input type="text" placeholder="Write your task here..." id="addingList"><button id="addList">&plus;</button>
+        </div>
     </footer>
     
 </body>

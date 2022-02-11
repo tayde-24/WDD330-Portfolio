@@ -1,3 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Krona+One|Anton|Bebas+Neue|Staatliches|Abel|Cousine|Special+Elite|Changa|Covered+By+Your+Grace|Merriweather");
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: auto 0;
+}
+
+header {
+  display: flexbox;
+  border-top: 1.5rem solid black;
+  border-bottom: 1.5rem solid black;
+  background: #020024;
+  background: linear-gradient(180deg, #020024 0%, #090979 35%, #00d4ff 150%);
+  padding: 0.2rem 3rem;
+}
+header h1 {
+  color: #9cc0c9;
+  font-size: 3.5rem;
+  font-family: "Staatliches";
+  font-weight: 500;
+  text-align: center;
+}
+
+main {
+  display: flexbox;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background-color: #dbf3f3;
+  padding: 2rem 0 3rem;
+}
+
+section {
+  padding: 0.1rem 0 0 0;
+  margin: 3.5rem auto;
+  width: 50%;
+  max-width: 100%;
+}
+section .button-section {
+  background-color: #050448;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 2px 2px 5px #597075;
+}
+section .button-section button {
+  font-family: "Staatliches";
+  color: #050448;
+  background-color: #9cc0c9;
+  transition: 0.5s;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  margin-left: 5px;
+}
+section .button-section .whats-left {
+  text-align: left;
+  color: whitesmoke;
+  font-family: "Abel";
+  font-size: 1.5rem;
+  overflow: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+section .button-section .right {
+  text-align: right;
+}
+section .todo-list ul {
+  padding-left: 0;
+}
+section .todo-list ul li {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr auto;
+  list-style: none;
+  padding: 1.5rem 3rem;
+  font-family: "Abel";
+  font-weight: 600;
+  font-size: 1.7rem;
+  background-color: white;
+  width: 100%;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #83a4acb4;
+  margin-bottom: 1.2rem;
+}
+section .todo-list ul li button {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: #b91313;
+  color: white;
+  border-color: #b91313;
+}
+section .todo-list ul li input[type=checkbox] {
+  width: 25px;
+  height: 25px;
+}
+section .todo-list ul li input[type=checkbox]:checked {
+  background: #abd;
+}
+section .todo-list ul button {
+  text-align: right;
+}
+
+footer {
+  background-color: #050448;
+  text-align: center;
+  width: 100%;
+}
+footer .list-footer {
+  padding: 3.5rem 2rem;
+  height: 12rem;
+}
+footer .list-footer input[type=text] {
+  position: inherit;
+  width: 450px;
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  outline: none;
+  border-radius: 30px;
+  transition: all 0.5s;
+  font-family: "Abel";
+  font-weight: 600;
+}
+footer .list-footer input:hover {
+  background-color: rgba(233, 189, 253, 0.986);
+}
+footer .list-footer input[type=text]:focus {
+  background-color: #a6fcff;
+  width: 500px;
+}
+footer .list-footer button {
+  border-radius: 50px;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  margin-left: 0.8rem;
+  color: #050448;
+  background-color: #9cc0c9;
+  transition: 0.5s;
+}
+footer .list-footer button:hover {
+  background-color: #9cc0c9a2;
+  border-radius: 10px;
+}
 
 /*# sourceMappingURL=todo.css.map */
