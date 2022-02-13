@@ -57,6 +57,10 @@ section .button-section button {
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   margin-left: 5px;
+  transition: background-color 0.5s;
+}
+section .button-section button:hover {
+  background-color: #9cc0c9a2;
 }
 section .button-section .whats-left {
   text-align: left;
@@ -69,6 +73,12 @@ section .button-section .whats-left {
 }
 section .button-section .right {
   text-align: right;
+}
+section .todo-list .input-something {
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: "Abel";
+  font-weight: 600;
 }
 section .todo-list ul {
   padding-left: 0;
@@ -101,6 +111,13 @@ section .todo-list ul li input[type=checkbox] {
 }
 section .todo-list ul li input[type=checkbox]:checked {
   background: #abd;
+}
+section .todo-list ul li:hover {
+  background-color: rgba(233, 189, 253, 0.986);
+  margin-left: 0.5rem;
+}
+section .todo-list ul .make-Line {
+  text-decoration: line-through gray;
 }
 section .todo-list ul button {
   text-align: right;
@@ -146,6 +163,27 @@ footer .list-footer button {
 footer .list-footer button:hover {
   background-color: #9cc0c9a2;
   border-radius: 10px;
+}
+
+.go-back {
+  margin-left: 3rem;
+  margin-top: 4rem;
+  font-family: "Oswald";
+}
+.go-back a {
+  color: teal;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+.go-back a:hover {
+  color: #dfdf1e;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 5px;
+}
+.go-back .space {
+  margin-top: 2rem;
 }
 
 /*# sourceMappingURL=todo.css.map */
