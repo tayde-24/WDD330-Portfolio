@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto 0;
+}
+body .content {
+  display: flexbox;
+}
+body p {
+  font-family: "Oswald";
+  font-size: 1.5rem;
+  margin-left: 3rem;
+  margin-right: 12rem;
+}
+body .affected-h3 {
+  display: table;
+  max-width: 35ex;
+  border-radius: 0 10px 10px 0;
+  width: 100%;
+  font-size: 1.5rem;
+  font-family: "Ubuntu";
+  font-weight: 500;
+  background-color: #050448;
+  color: #dfdf1e;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+body .emphasize {
+  background-color: #dfdf1e;
+}
+
+.lesson-title {
+  border-top: 2.5rem double black;
+  border-bottom: 2.5rem double black;
+  background: #020024;
+  background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  padding: 0.2rem 3rem;
+}
+.lesson-title h2 {
+  color: #dfdf1e;
+  font-family: "Ubuntu";
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.functions-ajax {
+  margin-bottom: 4rem;
+}
+.functions-ajax li {
+  margin-bottom: 10px;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+  margin-left: 2rem;
+  margin-right: 11rem;
+}
+.functions-ajax .emphasize {
+  background-color: #dfdf1e;
+}
+.functions-ajax .h-container {
+  display: table;
+}
+.functions-ajax .h-size {
+  list-style-type: none;
+  padding: 0.5rem 1.5rem;
+  background-color: #dddddd;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.functions-ajax .h-size li {
+  font-family: "Times New Roman", Times, serif;
+}
+.functions-ajax code {
+  font-family: monospace;
+  color: crimson;
+  background-color: #dbdbdb;
+  padding: 2px;
+  font-size: 105%;
+  border-radius: 5px;
+}
+.functions-ajax a {
+  color: teal;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+.functions-ajax a:hover {
+  color: #dfdf1e;
+  padding: 0.1rem 0.5rem 0.1rem 1rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 10px;
+}
+
+code {
+  font-family: monospace;
+  color: crimson;
+  background-color: #dbdbdb;
+  padding: 2px;
+  font-size: 105%;
+  border-radius: 5px;
+}
+
+.next-page a {
+  color: teal;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+.next-page a:hover {
+  color: #dfdf1e;
+  padding: 0.1rem 0.5rem 0.1rem 1rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 10px;
+}
+
+.go-back {
+  margin-left: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-family: "Oswald";
+}
+.go-back a {
+  color: teal;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+.go-back a:hover {
+  color: #dfdf1e;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  background: linear-gradient(90deg, #020024 0%, rgba(5, 4, 72, 0.8214636196) 0%, rgba(9, 9, 121, 0.8186624992) 35%, #00d4ff 100%);
+  border-radius: 5px;
+}
+.go-back .space {
+  margin-top: 2rem;
+}
+
+.line-breaker {
+  margin-right: 8rem;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+footer .bottom-footer {
+  background-color: #050448;
+  padding: 1.5rem 1rem;
+}
+footer p {
+  font-family: "Oswald";
+  color: #dfdf1e;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+}
+
+/*# sourceMappingURL=week7.css.map */

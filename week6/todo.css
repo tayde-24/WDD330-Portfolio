@@ -116,7 +116,7 @@ section .todo-list ul li:hover {
   background-color: rgba(233, 189, 253, 0.986);
   margin-left: 0.5rem;
 }
-section .todo-list ul .make-Line {
+section .todo-list ul li.makeLine {
   text-decoration: line-through gray;
 }
 section .todo-list ul button {
