@@ -13,11 +13,892 @@
 
     <div class="content">
         <div class="chunk-1">
-            <h3 class="affected-h3">Further Functions</h3>
+            <h3 class="affected-h3">Function Properties and Methods</h3>
             <ul class="functions-ajax">
-                <li></li>
+                <li>The fact that functions are first-class objects means that they have properties and methods themselves</li>
+                <li>Call and Apply Methods
+                  <ul>
+                    <li>The <code>call()</code> method can be used to set the value of [this] inside a function to an object that is provided as the first argument</li>
+                    <li>Ex: <code>function sayHello() {return `Hello, my name is ${this.name}`;}</code></li>
+                    <li>Can create some objects that have a <code>name</code> property, then use the <code>call()</code> method to invoke the <code>sayHello()</code> function, providing each object as an argument. This will then take the value of <code>this</code>
+<div class="h-container">
+  <ul class="h-size">
+    <li>
+<pre>
+<code>const Clark = { name: "Clark"};
+const Bruce = {name: "Bruce"};
+
+sayHello.call(clark);
+>> "Hello, my name is Clark"
+
+sayHello.call(bruce);
+>> "Hello, my name is Bruce
+</code>
+</pre>
+    </li>
+  </ul>
+</div>
+                    </li>
+                    <li>If function that's called required any parameters, these need to be provided as arguments after the first argument, which is always the value of <code>this</code>
+<div class="h-container">
+  <ul class="h-size">
+    <li>
+<pre>
+<code>function sayHello(greeting-'Hello') {
+Return `${greeting}, my name is ${this.name}`;
+}
+
+sayHello.call(clark, 'How do you do');
+>> "How do you do, my name is Clark
+</code>
+</pre>
+    </li>
+  </ul>
+</div>
+                    </li>
+                    <li>If function doesn't refer to an object as <code>this</code> in it's body, it can still be called with the method, it you need to provide null as its first argument
+<div class="h-container">
+  <ul class="h-size">
+    <li>
+<pre>
+<code>square.call(null, 4)
+>>16  
+</code>
+</pre>
+    </li>
+  </ul>
+</div>
+                    </li>
+                    <li><code>apply()</code> &#8594; Works the same way, except the arguments of the function are provided as an array, even if there is only one argument
+<div class="h-container">
+  <ul class="h-size">
+    <li>
+<pre>
+<code>square.apply(null, [4]);
+>>16    
+</code>
+</pre>
+    </li>
+  </ul>
+</div>
+                    </li>
+                    <li>Can be useful if data you're using is already in the form of an array</li>
+                    <li>These are two powerful methods, as they allow generalized functions to be written that are not tied to specific objects by being methods of that object &#8594; More flexibility over how functions can be used</li>
+                  </ul>
+                </li>
             </ul>
         </div>
+
+        <div class="chunk-2">
+          <h3 class="affected-h3">Custom Properties</h3>
+          <ul class="functions-ajax">
+            <li>There is nothing to stop you adding your own properties to functions in the function in the same 
+              way that you can add properties to any object in JS.
+              <ul>
+                <li>Ex: you can add a <code>description</code> property to a function that describes what it does:
+                  <ul>
+                    <li><code>square.description = "Squares a num. That is provided as an argument"</code></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-3">
+          <h3 class="affected-h3">Memoization</h3>
+          <ul class="functions-ajax">
+            <li><span class="emphasize">Memoization</span> &#8594; a useful feature that it provides caching</li>
+            <li>If function takes some time to compute a return value, we can save the result in a cache property
+              <ul>
+                <li>Using it again for later &#8594; returns value from cache
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>
+function square(x) {
+  square.cache = super.cache || {};
+  if (!square.cache[x]) {
+    square.cache[x] = x*x;
+  }
+  return square.cache[x];
+}
+
+<i>square(3);</i>
+<< 9
+
+<i>square(-11);</i>
+<< 121
+
+<i>square.cache;</i>
+<< {"3": 9, "11": 121}
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-4">
+          <h3 class="affected-h3">Immediately Invoke Function Expressions</h3>
+          <ul class="functions-ajax">
+            <li><span class="emphasize">IIFE</span> &#8594; an anonymous function that, as the name suggests, is invoked as soon as it's defined
+              <ul>
+                <li>Can be achieved by placing () at the end of the func. Defin.</li>
+                <li>Needs to be made into an expression, which is done by placing the whole declaration inside parentheses
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>(function() {
+const temp = "World";
+console.log(`Hello ${temp}`);
+})();
+
+<< "Hello World"
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>Useful way of performing a task while keeping any variables wrapped up w/n the scope of the function</li>
+            <li>Means the global namespace is not polluted with lots of variable name</li>
+            <li>Temporary Variables
+              <ul>
+                <li>No way to remove a variable from a scope once it has been declared</li>
+                <li>Placing any code that uses the temporary variable inside an IIFE will ensure it's only available while the IIFE is invoked, then it will disappear
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>let a = 1;
+let b= 2;
+
+(() => {
+    const temp = a;
+    a = b;
+    b = temp;
+})();
+
+
+a;
+<< 2
+
+b;
+<< 1
+
+console.log(temp);
+<< Error: "temp is not defined"
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>  
+          </ul>
+        </div>
+
+        <div class="chunk-5">
+          <h3 class="affected-h3">Initialization Code</h3>
+            <ul class="functions-ajax">
+              <li>An IIFE can be used to set up any initialization code that there will be no need 
+                for it again &#8594; only runs once
+                <div class="h-container">
+                  <ul class="h-size">
+                    <li>
+                      <pre>
+<code>(() => {
+  const name = "Peter Parker";
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const date = new Date(), today = days[date.getDay()];
+  console.log(`Welcome back ${name}. Today is ${today}`);
+
+})();
+
+<< "Welcome back Peter Parker. Today is Tuesday"
+</code>
+                      </pre>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>Safe use of Strict Mode
+                <ul>
+                  <li>Problem with using 'use strict' at the beginning of code &#8594; <span class="emphasize">affects the whole file</span></li>
+                  <li>To avoid it, the recommended way to use strict mode is to place all your code inside an IIFE
+                    <div class="h-container">
+                      <ul class="h-size">
+                        <li>
+                          <pre>
+<code>(function() => {
+  "use strict";
+
+  <i>//All your code would go inside this function</i>
+
+})();
+</code>
+                          </pre>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>Creating Self-Contained Code Blocks
+                <ul>
+                  <li>Can be used to enclose a block of code inside its own private scope so it doesn't interfere any part of the program
+                    <div class="h-container">
+                      <ul class="h-size">
+                        <li>
+                          <pre>
+<code>(function() => {
+  <i>// Block A</i>
+  const name = "Block A";
+  console.log(`Hello from ${name}`);
+}());
+
+  (function() {
+    <i>// Block B</i>
+    const name = "Block B";
+    console.log(`Hello from ${name}`);
+})();
+
+<< Hello from Block A 
+   Hello from Block B
+</code>
+                          </pre>
+                        </li>
+                      </ul>
+                    </div>
+                    <span class="emphasize">Both blocks include a <code>name</code>, but the modules don't interfere with each other</span>
+                  </li>
+                  <li>Very useful approach for separating parts of a program into discrete sections, especially for coding purpose</li>
+                </ul>
+              </li>
+            </ul>  
+        </div>
+
+        <div class="chunk-6">
+          <h3 class="affected-h3">Functions that Define and Rewrite Themselves</h3>
+          <ul class="functions-ajax">
+            <li>The dynamic nature of JS means that a func. Is able to not only call itself, but define itself, and even redefine itself &#8594; for it to work make the variable the same name as the function
+              <div class="h-container">
+                <ul class="h-size">
+                  <li>
+                    <pre>
+<code>function party() {
+    console.log(`Wow this is amazing!`);
+    party = function() {
+      console.log(`Been there, got the T-Shirt!`);      
+    }
+};
+</code>
+                    </pre>
+                  </li>
+                </ul>
+              </div>
+              If function is assigned to another variable, this variable will maintain the original definition and not be rewritten
+              <div class="h-container">
+                <ul class="h-size">
+                  <li>
+                    <pre>
+<code>function party() {
+    console.log(`Wow this is amazing!`);
+    party = function() {
+      console.log(`Been there, got the T-Shirt!`);      
+    }
+};
+
+const beachParty = party; <i>//Note that the party function has not been invoked</i>
+
+beachParty(); <i>// The party() function has now been redefined, even though it hasn't been called</i>
+<< "Wow this is amazing!"
+
+party();
+<< "Been there, got the T-Shirt";
+
+beachParty(); <i>// But this function has not been redefined</i>
+<< "Wow this is amazing!"
+
+beachParty(); <i>//no matter how many times this is called it will remain the same</i>
+<< "Wow this is amazing!"
+
+</code>
+                    </pre>
+                  </li>
+                </ul>
+              </div>
+              <span class="emphasize">If you put properties there, it will be lost once it redefines itself</span>
+            </li>
+            <li>Init-Time Branching
+              <ul>
+                <li>Init-time branching &#8594; creates functions that rewrite themselves</li>
+                <li>Enables the functions to work more effectively in the browser, and avoid checking for features every time they're invoked</li>
+              </ul>
+            </li>
+            <li>Recursive Functions
+              <ul>
+                <li>A recursive function is one that invokes itself until a certain condition is met. It's a useful tool to use when iterative processes are involved
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>function factorial(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    return n * factorial(n-1);
+  }
+}</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-7">
+          <h3 class="affected-h3">Callbacks</h3>
+          <ul class="functions-ajax">
+            <li>Event-driven Asynchronous Programming
+              <ul>
+                <li>Callbacks can be used to facilitate event-driven asynchronous programming</li>
+                <li>The code is able to run out of order, or asynchronously</li>
+                <li>Can also be events such as completion of a file download, data returned from a database, or the result of a complex operation
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>function wait(message, callback, seconds) {
+  setTimeout(callback, seconds * 1000);
+  console.log(message);
+}
+
+<i>//Now let's create a callback function to use:</i>
+
+function selfDestruct() {
+  console.log("BOOOOOM!");
+}
+
+<i>//Now let's put this all together</i>
+
+wait("This tape will self-destruct in five seconds ...", selfDestruct, 5);
+console.log("Hmmm, should I accept this mission or not...?");
+
+<< "This tape will self-destruct in five seconds ..."
+<< "Hmmm, should I accept this mission or not...?"
+<< "BOOOOOM!"
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-8">
+          <h3 class="affected-h3">Promises</h3>
+          <ul class="functions-ajax">
+            <li>Promise &#8594 represents the future result of an asynchronous operation
+              <ul>
+                <li>They help simply the process, and avoid the convoluted code that can result from multiple callbacks</li>
+                <li>When a promise is created, it calls for an asynchronous operations and is then said to be pending.</li>
+                <li>One the operation has completed, the promise is said to have been settled
+                  <ul>
+                    <li><span class="emphasize">Resolved</span> &#8594 the asynchronous operation was completed successfully</li>
+                    <li><span class="emphasize">Rejected</span> &#8594 the asynchronous operation did not work as expected, wasn't successfully completed or resulted in an error</li>
+                  </ul>
+                </li>
+                <li>Both these outcomes will return any relevant data, and you can take the appropriate action based on the outcome of the promise</li>
+              </ul>
+            </li>
+            <li>Creating a promise:
+              <ul>
+                <li>A promise is created using a constructor function</li>
+                <li>This takes a function called an <code>executor</code>
+                  <ul>
+                    <li>It initializes the promise and starts the asynchronous operation</li>
+                    <li>It also accepts 2 argue.: the <code>resolve</code> (called if operation is successful) and <code>reject</code> (called if operation fails)
+                      <div class="h-container">
+                        <ul class="h-size">
+                          <li>
+                            <pre>
+<code>const promise = new Promise((resolve, reject) => {
+  //initialization code goes here
+  if (success) {
+    resolve(value);
+  } else {
+    reject(value);
+  }
+});</code>
+                            </pre>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Dealing With A Settled Promise
+              <ul>
+                <li>Once a promise has been settled, the <code>then()</code> method can be used to deal with the outcome</li>
+                <li>The first is a <span class="emphasize">fulfillment function</span> that's called when the promise is resolved </li>
+                <li>The second argument is a rejection function that's called if the promise is rejected</li>
+                <li>Alternatively, the <code>catch()</code> method can be used to specify what to do if the operation fails instead</li>
+              </ul>
+            </li>
+            <li>Chaining Multiple Promises
+              <ul>
+                <li>If each function that performs an asynchronous operation returns a promise, we can chain the <code>then()</code> methods together to form a sequential piece of code that's easy to read</li>
+              </ul>
+            </li>
+            <li>Asynchronous Function
+              <ul>
+                <li>Async functions &#8594 are preceded by the <code>async</code> keyword and allow you to write asynchronous code as if it was synchronous
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>async function loadGame(userName) {
+
+  try {
+    const user = await login(userName);
+    const info = await getPlayerInfo(user.id);
+    //load the game using the returned info
+  } else {
+  catch (error) {
+    throw error;
+  }
+}</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>Generalized Functions
+                  <ul>
+                    <li>Instead of having lots of specific functions, one function can be written that accepts a callback
+                      <div class="h-container">
+                        <ul class="h-size">
+                          <li>
+                            <pre>
+<code>function random(a,b,callback) {
+
+  if(b === undefined) b = a, a = 1; 
+    const result = Math.floor((b-a+1) * Math.random()) + a;
+  if(callback) {
+    result = callback(result);
+  }
+  return result;
+}
+</code>
+                            </pre>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li>Functions that Return Functions
+                  <ul>
+                    <li>They can also return a function
+                      <div class="h-container">
+                        <ul class="h-size">
+                          <li>
+                            <pre>
+<code>function returnHello() {
+  console.log("returnHello called");
+  return function() {
+    console.log("Hello World!");
+  }
+}
+
+<i>/*When function invoked -> returns "returnHello() called"*/</i>
+const hello = returnHello;
+hello();
+
+<< "Hello World!"
+</code>
+                            </pre>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-9">
+          <h3 class="affected-h3">Closures</h3>
+          <ul class="functions-ajax">
+            <li>Function Scope
+              <ul>
+                <li><span class="emphasize">Closure</span> &#8594 It is a reference to a variable that was created inside the scope of another function, but is then kept alive and used in another part of the program
+                </li>
+                <li>One thing to remember is that the inner function (declared inside another) has full access to all the variables inside the scope from the outside function.
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>function outer() {
+  const outside = "Outside";
+  function inner() {
+    const inside = "Inside";
+    console.log("outside");
+    console.log("inside");
+  }
+  console.log("returnHello called");
+  inner();
+}
+
+outer();
+<< Outside
+Inside!
+Outside!
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>Returning Functions
+              <ul>
+                <li>Same example from before, but it has the code <code>return inner;</code>, which points to the inner function first (now has access to both inner and outer functions)</li>
+              </ul>
+            </li>
+            <li>Generators
+              <ul>
+                <li>Generators &#8594 Special functions used to produce iterations that maintain the state of a value (an [*] is placed after the function declaration
+                  <ul>
+                    <li>It doesn't run the code</li>
+                    <li>Creates a Generator object that can be used to create an iteration that implements a <code>next()</code> method that returns a value every time the next() method is called</li>
+                  </ul>
+                </li>
+                <li><span class="emphasize">Yield keyword</span> &#8594 Used to return a value (the state of the value returned is remembered the next time yield is called)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-10">
+          <h3 class="affected-h3">Functional Programming</h3>
+          <ul class="functions-ajax">
+            <li>Functional programming is a programming paradigm
+              <ul>
+                <li>Pure Functions
+                  <ul>
+                    <li>A pure function is a function that adheres to the following rules:
+                      <ol>
+                        <li>Return value of a pure function should only depend on the values provided as arguments (does not rely elsewhere)</li>
+                        <li>No side-effects, does not change values, but produces non-destructive data a returns new values</li>
+                        <li>Same arguments &#8594 will always return the same result
+                          <div class="h-container">
+                            <ul class="h-size">
+                              <li>
+                                <pre>
+<code>function reverse(string) {
+  return string.split("").reverse().join("");
+}
+
+//Needs to have one argument and a return value</code>
+                                </pre>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ol>
+                    </li>
+                    <li>By only performing a single task, pure functions are more flexible</li>
+                    <li>Helps make your code more modular, as each code can be improved upon or replaced without interfering with any of the other functions</li>
+                  </ul>
+                </li>
+                <li>Higher-Order Functions
+                  <ul>
+                    <li>These are functions that accept another function as an argument, or return another function as a result, or both
+                      <div class="h-container">
+                        <ul class="h-size">
+                          <li>
+                            <pre>
+<code>function multiplier(x) {
+  return function(y) {
+    return x*y;
+  }
+}
+
+doubler = multiplier(2); //Assigns x as 2
+doubler(10); //Assigns this for y
+
+<< 20</code>
+                            </pre>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li>Curing
+                  <ul>
+                    <li>It is a process that involves the partial application of functions</li>
+                    <li>Currying allows you to turn a single function into a series of functions instead</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Getting Functional
+              <ul>
+                <li>By keeping some of its principles, such as keeping functions as pure as possible, and keeping changes in state to a minimum, will help improve the standard of your programming.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <hr class="line-breaker">
+        
+        <div class="chunk-11">
+          <h3 class="affected-h3">Ajax</h3>
+          <ul class="functions-ajax">
+            <li><span class="emphasize">Ajax</span> &#8594 It is a technique that allows web pages to communicate asynchronously with a server, and it dynamically updates web pages without reloading</li>
+            <li>Enables data to be sent and received in the background, as well as portions of a page to be updated in response to user events, while the rest of the program continues to run
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-12">
+          <h3 class="affected-h3">Clients and Servers</h3>
+          <ul class="functions-ajax">
+            <li><span class="emphasize">Client</span> &#8594 Web browser, will request a resource (usually a web page) from a server</li>
+            <li><span class="emphasize">Server</span> &#8594 The thing that processes the request and sends back a response to the client</li>
+            <li>JS originally designed as a client-side script language &#8594 Now Ajax allows JS to request  resources from a server on behalf of the client
+              <ul>
+                <li>Resource requested was usually JSON data or small fragments of text or HTML rather than a whole page</li>
+              </ul>
+            </li>
+            <li><span class="emphasize">Server-side</span>  &#8594 Involves PHP, Ruby, Node.JS, or .NET to serve the data response following an Ajax request (back-end)</li>
+            <li>To practice, you can either set up a local develop. Server on your own computer, or request files from an external website that uses cross-origin resources sharing (CORS) in order to avoid he same-origin policy that browsers enforce</li>
+            <li>AJAX
+              <ul>
+                <li><span class ="emphasize">Asynchronous</span> &#8594 When requesting for data is sent, the program doesn't have to sop and wait for the response (avoids lag as data is transferred back and forth</li>
+                <li><span class ="emphasize">JS</span> &#8594 Front-end language. Ajax enabled JS to send requests and receive responses from a server, allowing content to be updated in real time</li>
+                <li><span class ="emphasize">XML</span> &#8594 XML documents were often used to return data, but JSON has become popular since it's easier to parse through and is lightweight (and is supported in JS)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-13">
+          <h3 class="affected-h3">The Fetch API</h3>
+          <ul class="functions-ajax">
+            <li>The Fetch API uses promises to avoid callback hell, and Al's streamlines a number of concepts that had become cumbersome when using the XMLHttpRequest object</li>
+            <li>Basic Usage
+              <ul>
+                <li>The Fetch API provides a global <code>fetch()</code> method that only has one mandatory argument, which is the URL of the resource you wish to fetch
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>fetch("https://example.com/data")
+.then(//code that handles the response)
+.catch(//code that runs if the server returns an error)
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>Response Interface
+              <ul>
+                <li>Response objects have a number of properties and methods that allow us to process the responsive effectively</li>
+                <li><code>ok</code> property checks to see if the response is successful</li>
+                <li><code>status</code> &#8594 200 (request successful), 201(resource was created), 204(request successful but no content returned)</li>
+                <li>The <code>ok</code> would return true if status  property is between 200 and 299
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>const url= "https:example.com/data";
+
+fetch(url)
+.then ((response) => {
+  if(response.ok) {
+    return response;
+  }
+  throw Error(response.statusText);
+})
+.then(response => //do something with response)
+.catch( error => console.log("There is an error!")) 
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>Response object properties:
+              <ul>
+                <li><span class="emphasize">Headers</span> &#8594 A headers object containing any headers associated with the response</li>
+                <li><span class="emphasize">URL</span> &#8594 A string containing the URL of response</li>
+                <li><span class="emphasize">Type</span> &#8594 a string of “basic”, “cors”, “error” or “opaque”</li>
+              </ul>
+            </li>
+            <li>Redirects
+              <ul>
+                <li><span class="emphasize">redirect()</span> &#8594 Used to redirect to another URL (Creates a new promise that resolves to the response from the redirected URL</li>
+              </ul>
+            </li>
+            <li>Text Responses
+              <ul>
+                <li><span class="emphasize">text()</span> &#8594 Takes a stream of text from the response, reads it to completion and then returns a promise that resolves to a USVSting object that can be treated as a string in JS</li>
+              </ul>
+            </li>
+            <li>File Responses
+              <ul>
+                <li><span class="emphasize">blob()</span> &#8594 Used to read a file of the raw data, such as an image or a spreadsheetJSON Responses</li>
+              </ul>
+            </li>
+            <li>JSON Responses
+              <ul>
+                <li><span class="emphasize">json()</span> &#8594 Is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JS object</li>
+                <li>We can manipulate the object using JS</li>
+              </ul>
+            </li>
+            <li>Creating Response Objects
+              <ul>
+                <li>You can also create your own response objects using a constructor function
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>const response= new Response( "Hello", {
+  ok: true,
+  status: 200,
+  statusText: "OK",
+  type: "cors",
+  url: "/api"
+});
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>Request Interface
+              <ul>
+                <li>A constructor function is used to create a new Request object
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>const response= new Request( "https://example.com/data", {
+  ok: true,
+  method: "GET",
+  mode: "cors",
+  redirect: "follow",
+  cache: "no-cache"
+});
+
+fetch(request)
+.then(//do something with the response)
+.catch(//handle any errors)
+
+
+
+//OR...
+fetch("https://example.com/data", {
+  method: "GET",
+  mode: "cors",
+  redirect: "follow",
+  cache: "no-cache"
+})
+.then(//do something with the response)
+.catch(//handle any errors)
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>Headers Interface
+              <ul>
+                <li>HTTP headers &#8594 Used to pass on any additional info. About a request or response
+                  <ul>
+                    <li>They contain/include the file-type of the resource, cookie info., authentification info. And when th resource was last modified</li>
+                  </ul>
+                </li>
+                <li>A new Headers instance is created using a constructor function</li>
+                <li>A Headers object includes the following properties and methods that can be used to access info. About the headers, as well as edit the header info.</li>
+                <li><code>has()</code> &#8594 Can be used ti check if the headers object contains the header provided as an argument</li>
+                <li>Ex: <code>headers.has('Content-type'); << true</code></li>
+                <li><code>get()</code> &#8594 Returns the value of the header provided as an argument</li>
+                <li><code>set()</code> &#8594 Can be used ti set a value of an already existing header, or create a new header w/ the value provided as an argument if it does not exist</li>
+                <li><code>append()</code> &#8594 Adds a new header to the headers object</li>
+                <li><code>delete()</code> &#8594 Removes the header provided as an argument</li>
+                <li><code>keys()</code>, <code>values()</code>, <code>entries()</code> &#8594 this one takes both key and value pairs] -> Iterators that can be used to iterate over the headers key, values or eateries</li>
+              </ul>
+            </li>
+            <li>Put It All Together
+              <ul>
+                <li>It should look something similar to this:
+                  <div class="h-container">
+                    <ul class="h-size">
+                      <li>
+                        <pre>
+<code>const url = "https://example.com/data";
+const headers = new Headers({"Content-Type": "text/plain", "Accept-charset": ...});
+
+const request = {url, {
+  headers: headers
+}}
+
+fetch(request)
+.then(function(response) {
+  if(response.ok) {
+    return response;
+  }
+  throw Error(response.statusText);
+})
+.then( response => //do something with reponse)
+.catch(error => console.log("There was an error!"))
+</code>
+                        </pre>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
     </div>
 
 
@@ -25,7 +906,7 @@
 
 
     <div class="next-page">
-        <p>Here's the <a href="exercise/index.html"> debugging exercise.</a></p>
+        <p>Here's the <a href="exercise/index.html"> Further Function and Ajax Exercise.</a></p>
       </div> 
   
         

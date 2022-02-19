@@ -12,13 +12,73 @@
     </div>
 
     <div class="content">
+
+
+      <div class="chunk-1">
+        <h3 class="affected-h3">Quiz Ninja (Includes Further Function) Exercise</h3>
+        <div>
+            <section>
+                <div class="quiz-body">
+                    <div id="timer">Time: <strong>60</strong></div>
+                    <div id="score">Score: <strong>0</strong></div>
+                    <div class="quiz-container">
+                        <h1>Quiz Ninja!</h1>
+                    </div>   
+                    <div id="result"></div>
+                    <form id="response">
+                        <div id="question"></div>
+                        <input name="answer" type="text">
+                        <button type="submit">Submit Answer</button>
+                    </form>
+                    <div id="info"></div>
+                    <div class="center-button"><button id="start">Click to Start</button></div>
+                </div>
+            </section>
+            <div class="paragraph"> 
+              <p>From the exercise, I added two functions that would help randomize the questions. The first function was the one that establishes the randomizer formula, and the second function handles the
+                array by changing the position of each element. The little things I added was putting more DC character names in the quiz array and adding more to the timer. </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chunk-2">
+          <h3 class="affected-h3">Ajax Exercise</h3>
+          <div>
+            <section>
+              <div class="ajax-section">
+                <div>
+                  <h2>Receiving Information</h2>
+
+                  <div id="output" class="output">Ajax response will appear here....</div>
+
+                  <button id="number">Number Fact</button>
+                  <button id="chuck" disabled>Chuck Norris Fact</button>
+                  <br>
+                  <br>
+                  <h2>Sending Information</h2>
+                  <form id="todo" action="https://jsonplaceholder.typicode.com/todos" method="POST">
+                    <input type="text" name="task" placeholder="Add Task" autofocus required>
+                    <button type="submit">Add Task</button>
+                  </form>
+                  
+                </div>
+              </div>
+            </section>
+            <div class="paragraph">
+              <p>I tested out the Chuck Norris code part of the reading. It works, but I disabled the Chuck Norris button on purpose. Didn't really like what the text contained. If you would like to change
+                it and test it out, you can take off the disabled property from the Chuck Norris button.
+                <br><br>
+                For the other exercise below that, the result can be found on the console. It returns an ID of the task, but it looks like whatever you put down, it gives the same ID result for it.
+              </p>
+            </div>
+          </div>
+        </div>
+
     </div>
-
-
-    <p class="">No questions at the moment.</p>
         
     <div class="go-back">
     <a href="portfolio/../../../"> &#8592; Go back to Portfolio page</a>
+    <div class="space"><a href="../index.html"> &#8592; Chapter 10 Notes</a></div>
     </div>
     
     <footer>
@@ -27,4 +87,5 @@
     </div>
     </footer>
 </body>
+<script src="js/exercise.js"></script>
 </html>

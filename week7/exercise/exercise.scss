@@ -23,8 +23,8 @@ body {
     p {
         font-family: $pararaph-text;
         font-size: 1.5rem;
-        margin-left: 3rem;
-        margin-right: 12rem;
+        //margin-left: 3rem;
+        //margin-right: 12rem;
     }
     .affected-h3 {
         display: table;
@@ -156,6 +156,196 @@ code {
     margin-right: 8rem;
     margin-top: 5rem;
     margin-bottom: 4rem;
+}
+
+.quiz-body {
+    position: relative;
+    background-color: teal;
+    height: 680px;
+    padding: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border-bottom: 2rem solid black;
+    border-top: 2rem solid black;
+    h1 {
+        color: indigo;
+        font-family: $header;
+        font-size: $header-size-2;
+    }
+    .quiz-container {
+        display: table;
+        margin-top: 2.5rem;
+        padding: 2rem 5rem;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: rgb(39, 39, 39) 5px 5px 10px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .center-button {
+        display: table;
+        margin-left: auto;
+        margin-right:auto ;
+        margin-top: 1.5rem;
+        button {
+            display: table;
+            font-family: $pararaph-text;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            color: white;
+            background-color: orange;
+            border: 1px solid orange;
+            box-shadow: 2px 2px 5px black;
+            transition: 1s;
+        }
+        button:hover { 
+            background-color: rgb(163, 110, 10);
+            border: 1px solid rgb(163, 110, 10);
+        }
+    } 
+    #timer, #score {
+        text-align: center;
+        display: table;
+        margin: .5rem auto 0 auto;
+        padding: .5rem 9rem;
+        font-size: 1.3rem;
+        font-family: $pararaph-text;
+        background-color: white;
+    }
+    #timer {
+        background-color: #4dd87b;
+        transition: background-color .5s;
+    }
+    #score {
+        transition: background-color .5s;
+    }
+    #question {
+        font-size: 24px;
+        font-family: $pararaph-text;
+        margin-bottom: 1rem;
+    } 
+    form {
+        text-align: center;
+        margin-top: 1rem;
+        input {
+            text-align: center;
+            text-align: left;
+            border: none;
+        }
+        input[type="text"]{
+            padding: .3rem .5rem;
+            font-family: $pararaph-text;
+            font-size: 1rem;
+            border: 4px groove rgba(11, 77, 77, 0.774);
+        }
+        button {
+            display: table;
+            margin: 1rem auto 0 auto;
+            font-family: $pararaph-text;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            color: white;
+            background-color: orange;
+            border: 1px solid orange;
+            box-shadow: 2px 2px 5px black;
+            transition: 1s;
+        }
+        button:hover { 
+            background-color: rgb(163, 110, 10);
+            border: 1px solid rgb(163, 110, 10);
+        }
+    }
+    #result{
+        margin-top: 1.5rem;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        font-family: $pararaph-text;
+        transition: .5s;
+    }
+    #info {
+        margin-top: 1rem;
+        text-align: center;
+        font-family: $pararaph-text;
+        font-size: 1.5rem;
+        color: rgb(253, 224, 143);
+        text-align: center;
+        transition: color 2s;
+    }
+    .correct {
+        background-color: #0c0;
+        font-family: $pararaph-text;
+        font-size: 1.5rem;
+    }
+    .wrong {
+        color: #fff;
+        background-color: #c00;
+        font-family: $pararaph-text;
+        font-size: 1.5rem;
+    }
+}
+
+
+
+.ajax-section {
+    background-color: blanchedalmond;
+    padding: 2rem 5rem 4rem 5rem;
+    margin: 0 3rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px gray;
+    h2 {
+        font-family: $header;
+        font-size: $header-size-2;
+        color: white;
+        background-color: rgb(134, 100, 15);
+        display: table;
+        padding: 1rem 2rem 1rem .5rem;
+        border-left: 15px solid rgb(70, 53, 10);
+    }
+    button {
+        border: none;
+        font-family: $pararaph-text;
+        font-size: $paragraph-size;
+        border-radius: 5px;
+        color: white;
+        padding: .5rem 1rem;
+        background-color: gray;
+        transition: background-color .5s;
+    }
+    button:hover {
+        background-color: rgb(88, 88, 88);
+    }
+    .output {
+        color: rgb(134, 100, 15);
+        font-family: $pararaph-text;
+        font-size: $paragraph-size;
+        margin-bottom: 1rem;
+        transition: all .5s;
+    }
+    input {
+        border: none;
+    }
+    input[type="text"] {
+        padding: .3rem .5rem;
+        outline: hidden;
+        border: 3px groove rgba(98, 0, 128, 0.404);
+        font-family: $pararaph-text;
+        font-size: $paragraph-size;
+        width: 25%;
+    }
+}
+
+.paragraph {
+    display: table;
+    text-align: center;
+    background-color: rgba(98, 0, 128, 0.404);
+    border: 2px solid rgba(98, 0, 128, 0.664);
+    border-radius: 15px;
+    margin: 1rem 3rem;
+    padding: .5rem 2rem;
 }
 
 footer {
