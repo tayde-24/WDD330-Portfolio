@@ -3,30 +3,178 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 7 Notes and Questions</title>
+    <title>Transforms/Translation, Canvas, and SVG Exercises.</title>
     <link rel="stylesheet" href="exercise.css">
   </head>
   <body>
     <div class="lesson-title">
-      <h2>Week 07- Further Function and Ajax</h2>
+      <h2>Transforms/Translation, Canvas, and SVG Exercises</h2>
     </div>
 
     <div class="content">
         <div class="chunk-1">
-            <h3 class="affected-h3">Function Properties and Methods</h3>
-            <ul class="functions-ajax"></ul>
-    </div>
+            <h3 class="affected-h3">Transform and Translate Exercises</h3>
+            <div>
+              <section class="tt-section">
+                <h3>Transform, Translate, and Animation</h3>
+                <p>Hover on each square to see what happens. For "Animation 2", hover on the ball to stop it from rolling around for a bit.</p>
+                <div>
+                <span class="container">
+                  <p>SkewX()</p>
+                  <div class="demo-1"></div>
+                </span>
 
-    <p class="">No questions at the moment.</p>
+                <span class="container m-l">
+                  <p>Rotate()</p>
+                  <div class="demo-2 inline"></div>
+                </span>
 
+                <span class="container m-l">
+                  <p>Scale()</p>
+                  <div class="demo-3"></div>
+                </span>
 
-    <div class="next-page">
-        <p>Here's the <a href="exercise/index.html"> Further Function and Ajax Exercise.</a></p>
-      </div> 
-  
-        
+                <span class="container m-l">
+                  <p>SkewY()</p>
+                  <div class="demo-4"></div>
+                </span>
+
+                <span class="container m-l">
+                  <p>Scale()</p>
+                  <div class="demo-5"></div>
+                </span>
+
+                <span class="container m-l">
+                  <p>RotateX()</p>
+                  <div class="demo-6 inline"></div>
+                </span>
+
+                <span class="container m-l">
+                  <p>RotateY()</p>
+                  <div class="demo-7"></div>
+                </span>
+              </div>
+              
+              <div class="block">
+                
+                <span class="container">
+                  <p>TranslateX()</p>
+                  <div class="demo-8"></div>
+                </span>
+
+                <span class="container m-l">
+                  <p>TranslateY()</p>
+                  <div class="demo-9"></div>
+                </span>
+
+                <span class="container m-l">
+                  <p>Translate()</p>
+                  <div class="demo-10"></div>
+                </span>
+
+                <span class="container m-l">
+                  <p>Animation 1</p>
+                  <div class="demo-11">
+                    
+                  </div>
+                </span>
+
+                <span class="container m-l">
+                  <p>Animation 2</p>
+                  <div class="demo-12">
+                    <div class="circle"></div>
+                  </div>
+                </span>
+
+                <span class="container m-l">
+                  <p>Animation 3</p>
+                  <div class="demo-13"></div>
+                </span>
+
+                <span class="container m-l">
+                  <p class="small">Animation 4<br>Angry Square</p>
+                  <div class="demo-14"></div>
+                </span>
+              </div>
+                
+                
+              </section>
+            </div>
+        </div>
+
+        <div class="paragraph">
+          <p>Don't mind me. Just biking along. You may proceed.</p>
+          <div class="biker"></div>
+        </div>
+        <div class="chunk-2">
+          <h3 class="affected-h3">Canvas and SVG Exercises</h3>
+          <div>
+            <section class="CSVG-section">
+              <h3>Canvas and SVG</h3>
+              <span class="container">
+                <p>Little house drawing</p>
+                <canvas id="myCanvas" class="myCanvas" width="200" height="200">
+                  Sorry! Your browser doesn't support Canvas!
+                </canvas>
+              </span>
+
+              <span class="container m-l">
+                <p>Patterns with bike boy</p>
+                <canvas id="myCanvas2" class="myCanvas" width="200" height="200">
+                  Sorry! Your browser doesn't support Canvas!
+                </canvas>
+              </span>
+
+              <span class="container m-l">
+                
+                <p>SVG Exercise 1</p>
+                <div class="box-1">
+                  <svg viewBox="0 0 200 200">
+                    <circle cx="60" cy="50" r="40" fill="orange"/>
+                    <circle cx="60" cy="50" r="35" fill="red"/>
+                    <circle cx="60" cy="50" r="25" fill="yellow"/>
+                    <circle cx="60" cy="50" r="10" fill="red"/>
+                   
+                    <polygon points="40,140 0,140 70,170 150,110 110,90" style="fill:rgb(158, 98, 9);stroke:purple;stroke-width:3"/>
+                    
+                    <polygon points="20,120 40,140 70,170 150,110 110,90" style="fill:rgb(158, 98, 9);stroke:purple;stroke-width:2"/>
+                    <polygon points='-5,100 150,200 0,200' style='fill:rgb(209, 147, 12);stroke:purple;stroke-width:3' />
+                    <polygon points="20,170 190,80 290,190" style="fill:rgb(247, 153, 12);stroke:purple;stroke-width:3"/>
+                    <rect x="-5" y="170" width="210" height="100" style='fill:rgb(233, 174, 13);stroke:rgb(88, 1, 88);stroke-width:3'/>
+                  </svg>
+              </div>
+              </span>
+
+              <span class="container m-l">
+                <p>SVG Loading Spinner</p>
+                <div class="box">
+                  <svg viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="40"/>
+                  </svg>
+                </div>
+              </span>
+
+              <span class="container m-l">
+                <p>SVG Border Animation</p>
+                <div class="box-3">
+                  <svg viewBox="0 0 200 200">
+                    <rect class="shape" x="20" y="60" width="160" height="80" />
+                  </svg>
+                  <div class="text">HOVER</div>
+                </div>
+              </span>
+
+            </section>
+          </div>
+          <p class="move-left">The SVG Loading Spinner idea came from seeing <a href="https://codepen.io/supah/pen/BjYLdW" target="_blank">Fabio Ottaviani's Code Pen.</a> 
+            The other code I tried out was <a href="https://codepen.io/seanmccaffery/pen/kWWxzQ">Sean McCaffery's Code Pen</a> for the last SVG exercise. It looked so cool that I wanted to try it out. I had 
+            to make some adjustments so it could fit in the square.
+          </p>
+        </div>
+
     <div class="go-back">
     <a href="portfolio/../../../"> &#8592; Go back to Portfolio page</a>
+    <div class="space"><a href="../index.html"> &#8592; Week 8 Notes</a></div>
     </div>
     
     <footer>
@@ -35,4 +183,5 @@
     </div>
     </footer>
 </body>
+<script src="js/exercise.js"></script>
 </html>

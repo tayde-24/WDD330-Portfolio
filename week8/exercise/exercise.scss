@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,500;1,400&display=swap');
+
+@function get-dash-value($radius, $percentage) {
+$circumference: 2* 3.1415927 * $radius;
+$percentage-as-decimal: $percentage/100%;
+@return $circumference * $percentage-as-decimals;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+$midnight-blue:#050448;
+$font-color:#090979; 
+//#191970;
+$yellowish: #dfdf1e;
+$header: "Ubuntu";
+$header-size-2: 2.5rem;
+$header-size-3: 1.5rem;
+$pararaph-text: "Oswald";
+$paragraph-size: 1.3rem;
+body {
+    margin: auto 0;
+    .content {
+        display: flexbox;
+        //margin-right: 25%;
+    }
+    p {
+        font-family: $pararaph-text;
+        font-size: 1.5rem;
+        //margin-left: 3rem;
+        //margin-right: 12rem;
+    }
+    .affected-h3 {
+        display: table;
+        max-width: 35ex;
+        border-radius: 0 10px 10px 0;
+        width: 100%;
+        font-size: $header-size-3;
+        font-family: $header;
+        font-weight: 500;
+        background-color: $midnight-blue;
+        color: $yellowish;
+        padding-left: 1.5rem;
+        padding-top: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+    }
+    .emphasize {
+        background-color: $yellowish;
+    }   
+}
+
+.lesson-title {
+    border-top: 2.5rem double black;
+    border-bottom: 2.5rem double black;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    padding: .2rem 3rem;
+    h2 {
+        color: $yellowish;
+        font-family: $header;
+        font-weight: 500;
+        font-size: $header-size-2;  
+    }
+}
+
+.tt-section {
+    background-color: rgba(138, 223, 223, 0.438);
+    margin: 1rem 3rem;
+    padding: 1rem 4rem 4rem 4rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px gray;
+    overflow:auto;
+    h3 {
+        font: 1.8rem $header;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    .container {
+        float: left;
+        .demo-1 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+            color: rgb(216, 216, 216);
+            padding: .7rem;
+            font: 1rem $pararaph-text;
+            
+        }
+        .demo-1:hover {
+            transform: skewX(-45deg);
+        }
+        .demo-2 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+        }
+        .demo-2:hover {
+            transform: rotate(-90deg);
+        }
+        .demo-3 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: all .5s;
+        }
+        .demo-3:hover {
+            transform: scale(.5);
+            background-color: purple;
+        }
+        .demo-4 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+        }
+        .demo-4:hover {
+            transform: skewY(-45deg);
+        }
+        .demo-5 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: all .5s;
+        }
+        .demo-5:hover {
+            transform: scale(1.5);
+            background-color: $yellowish;
+        }
+        .demo-6 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+        }
+        .demo-6:hover {
+            transform: rotateX(-90deg);
+        }
+        .demo-7 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+        }
+        .demo-7:hover {
+            transform: rotateY(90deg);
+        }
+        .demo-8 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+        }
+        .demo-8:hover {
+            transform: translateX(30px);
+        }
+        .demo-9 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+        }
+        .demo-9:hover {
+            transform: translateY(30px);
+        }
+        .demo-10 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+        }
+        .demo-10:hover {
+            transform: translate(30px, 30px);
+        }
+        .demo-11 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            animation: infiniteRotater ease-in-out;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+        }
+        .demo-11:hover {
+            animation-play-state: running;
+        }
+        .demo-12 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            transition: transform .5s;
+            .circle {
+                width: 25%;
+                height: 25%;
+                background-color: $yellowish;
+                border-radius: 50%;
+                animation: orbit 3s ease-in-out infinite;
+            }
+            .circle:hover {
+                animation-play-state: paused;
+            }
+        }
+        .demo-13 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            //transition: transform .5s;
+            animation: folder 3s ease-in infinite;
+            animation-play-state: paused;
+        }
+        .demo-13:hover {
+            animation-play-state: running;
+        }
+        .demo-14 {
+            width: 8rem;
+            height: 8rem;
+            background-color: $midnight-blue;
+            //transition: transform .5s;
+            animation: angrySquare 2s ease-in infinite;
+            animation-play-state: paused;
+        }
+        .demo-14:hover {
+            animation-play-state: running;
+        }
+    }
+    .m-l {
+        margin-left: 3.5rem;
+    }
+    .block {
+        display: block;
+    }
+    .small {
+        font-size: 1.1rem;
+    }
+}
+
+.paragraph{
+    p {
+        margin-left: 3rem;
+    }
+}
+.biker {
+    margin: 1rem 0 4rem 0;
+    padding: 1.5rem 0 0 0;
+    overflow: hidden;
+    background-color: rgba(196, 196, 196, 0.637);
+    border-bottom: 2rem solid black;
+}
+.biker:after {
+    content: "";
+    width: 90px;
+    height: 92px;
+    background-image: url(../exercise/images/bike_sprite.png);
+    display: block;
+    margin: auto;
+    animation: 0.4s steps(4, end) infinite 50ms bike,
+                8s linear infinite 5s move;
+}
+
+@keyframes orbit {
+    0% {transform: translate(0,0);}
+    5% {transform: translate(0,0);}
+    25% {transform: translate(300%,0);}
+    30% {
+        transform: translate(300%,0);
+        background-color: aqua;
+    }
+    50% {transform: translate(300%,300%);}
+    55% {
+        transform: translate(300%,300%);
+        background-color: purple;
+    }
+    75% {transform: translate(0%,300%);}
+    80% {
+        transform: translate(0%,300%);
+        background-color: $midnight-blue;
+    }
+    100% {transform: translate(0%,0%);}
+}
+
+@keyframes folder {
+    0% {
+        border-radius: 0 0 0 0;
+    }
+    10% {
+        border-radius: 75% 0 0 0;
+    }
+    25% {
+        border-radius: 0 75% 0 0;
+    }
+    40% {
+        border-radius: 0 0 75% 0;
+        background-color: $yellowish;
+    }
+    55% {
+        border-radius: 0 0 0 75%;
+    }
+    70% {
+        border-radius: 0 0 0 0;
+        transform: rotateX(0deg);
+    }
+    85% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes angrySquare {
+    0% { background-color: $midnight-blue;}
+    20% {
+        //background-color: $midnight-blue;
+        transform: rotate(0deg);
+    }
+    30% {
+        //background-color: $midnight-blue;
+        transform: rotate(0deg);
+    }
+    35% {
+        //background-color: $midnight-blue;
+        transform: rotate(0deg);
+    }
+    40% {
+        background-color: red;
+        transform: rotate(0deg);
+    }
+    45% {
+        background-color: red;
+        transform: rotate(0deg);
+    }
+    50% {
+        background-color: red;
+        transform: rotate(-25deg);
+    }
+    55% {
+        background-color: red;
+        transform: rotate(25deg);
+    }
+    60% {
+        background-color: red;
+        transform: rotate(-25deg);
+    }
+    65% {
+        background-color: red;
+        transform: rotate(25deg);
+    }
+    70% {
+        background-color: red;
+        transform: rotate(-25deg);
+    }
+    80% {
+        background-color: red;
+        transform: rotate(0);
+    }
+    85% {
+        background-color: red;
+        transform: translateY(0px);
+    }
+    87%{
+        background-color: red;
+        transform: translateY(-20px);
+    }
+    89% {
+        background-color: red;
+        transform: skewX(10deg) translateY(0px) ;
+        
+    }
+    92% {
+        transform: translateY(-10px);
+        //transform: translateY(0px);
+    }
+    94% {
+       
+        transform: translateY(-40px);
+    }
+    96% {
+       
+        transform: translateY(-50px);
+    }
+    98% {
+        
+        transform: translateY(-10px);
+    }
+    100% {
+        
+        transform: skewX(-10deg) translate(0px);
+    }
+}
+
+@keyframes infiniteRotater {
+    0% {
+        transform: rotate(360deg);
+       // border-radius: 50% 0 50% 0;
+    }
+    30% {
+        background-color: purple;
+        border-radius: 0 50% 0 50%;
+        transform: rotate(0);
+    }
+    60% {
+        background-color: purple;
+        border-radius: 0 50% 0 50%;
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(0);
+        background-color: $midnight-blue;
+        border-radius: 0 0 0 0;
+    }
+}
+
+@keyframes bike {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -360px 0;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(-750px);
+    }
+    100% {
+        transform: translateX(750px);
+    }
+}
+
+.CSVG-section {
+    background-color: rgba(128, 0, 128, 0.219);
+    margin: 1rem 3rem;
+    padding: 1rem 4rem 4rem 4rem;
+    border-radius: 10px;
+    padding: 1rem 4rem 4rem 4rem;
+    box-shadow: 2px 2px 5px rgb(95, 95, 95);
+    overflow: auto;
+    h3 {
+        font: 1.8rem $header;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    .container {
+        float: left;
+        .myCanvas {
+            border: dotted 2px black;
+            background-color: rgba(255, 255, 255, 0.582);
+        }
+    }
+    .m-l {
+        margin-left: 3.5rem;
+    }
+    .box-1 {
+        border: dotted 2px black;
+        width: 200px;
+        height: 200px;
+        background: rgb(2,0,36);
+        background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(255,235,1,1) 0%, rgba(255,209,0,1) 40%, rgba(200,0,0,1) 100%);
+    }
+    .box {
+        //overflow: auto;
+        border: dotted 2px black;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(255, 255, 255, 0.582);
+        circle {
+            //max-width: 200px;
+            fill: transparent;
+            stroke: #2f3d4c;
+            stroke-width: 10;
+            stroke-dasharray: 283;
+            stroke-dashoffset: 280;
+            stroke-linecap: round;
+            transform-origin: 50% 50%;
+            animation: 1.4s ease-in-out infinite rotated;
+        }
+        svg{
+            animation: 2s linear infinite svg-ani;
+        }
+    
+    }
+    .box-3 {
+        overflow: hidden;
+        //position: relative;
+        margin: 0 auto;
+        border: dotted 2px black;
+        width: 200px;
+        height: 200px;
+        background-color: #333;
+        .shape {
+            fill: transparent;
+            //stroke-dasharray: 140 540;
+            stroke-dasharray: 140 540;
+           // stroke-dashoffset: -474;
+            stroke-dashoffset: -250;
+            stroke-width: 8px;
+            stroke:#19f6e8; 
+        }
+        .text {
+            color: white;
+            font-family: $pararaph-text;
+            font-size: 22px;
+            letter-spacing: 8px;
+            position: relative;
+            top: -118px;
+            left: 55px;
+        }
+    }
+    .box-3:hover .shape {
+        animation: 0.5s draw linear forwards;
+    }
+}
+
+@keyframes draw {
+    0%{
+        stroke-dasharray: 140 540;
+        stroke-dashoffset: -250;
+        stroke-width: 8px;
+    }
+    100% {
+        stroke-dasharray: 760;
+        stroke-dashoffset: 0;
+        stroke-width: 4px;
+    }
+}
+
+.chunk-2 {
+    a {
+        color: teal;
+        transition: .2s ease-in-out;
+        text-decoration: none;
+    }
+    a:hover {
+        color: $yellowish;
+        padding: .1rem .5rem .1rem 1rem;
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(5,4,72,0.8214636196275386) 0%, rgba(9,9,121,0.8186624991793592) 35%, rgba(0,212,255,1) 100%);
+        border-radius: 10px;
+    }
+    .move-left {
+        margin: 2rem 3rem;
+    }
+}
+@keyframes rotated {
+    0% {
+        stroke-dasharray: 1, 1250;
+        stroke-dashoffset: 0;
+        //transform: rotate(0);
+        // transform: rotate(0deg);
+        // transform-origin: 0% 0%;
+    }
+    50%{
+        //transform: rotate(45deg);
+        //transform-origin: 0% 0%;
+        stroke-dasharray: 1190, 1250;
+        stroke-dashoffset: -45;
+    }
+
+    100% {
+        stroke-dasharray: 1190, 1250;
+        stroke-dashoffset: -243;
+    }
+}
+
+@keyframes svg-ani {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+//OneDrive\Documents\WDD 330\portfolio\week8\exercise
+.next-page {
+    a {
+        color: teal;
+        transition: .2s ease-in-out;
+        text-decoration: none;
+    }
+    a:hover {
+        color: $yellowish;
+        padding: .1rem .5rem .1rem 1rem;
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(5,4,72,0.8214636196275386) 0%, rgba(9,9,121,0.8186624991793592) 35%, rgba(0,212,255,1) 100%);
+        border-radius: 10px;
+    }
+}
+
+.go-back {
+    margin-left: 3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-family: $pararaph-text;
+
+    a {
+        color: teal;
+        transition: .2s ease-in-out;
+        text-decoration: none;
+        font-size: 1.3rem;
+    }
+    a:hover {
+        color: $yellowish;
+        padding: 1rem .5rem 1rem .5rem;
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(5,4,72,0.8214636196275386) 0%, rgba(9,9,121,0.8186624991793592) 35%, rgba(0,212,255,1) 100%);
+        border-radius: 5px;
+    }
+    .space {
+        margin-top: 2rem;
+    }
+}
+
+footer {
+    .bottom-footer {
+        background-color: $midnight-blue;
+        padding: 1.5rem 1rem;
+    }
+    p {
+        font-family: $pararaph-text;
+        color: $yellowish;
+        font-size: 1.2rem;
+        margin-left: 2rem;
+    }
+}
