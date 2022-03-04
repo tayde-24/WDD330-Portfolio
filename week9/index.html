@@ -3,25 +3,596 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 7 Notes and Questions</title>
-    <link rel="stylesheet" href="week7.css">
+    <title>Week 9 Notes and Questions</title>
+    <link rel="stylesheet" href="week9.css">
   </head>
   <body>
     <div class="lesson-title">
-      <h2>Week 09- Further Function and Ajax</h2>
+      <h2>Week 09- The Window Object and HTML5 APIs</h2>
     </div>
 
     <div class="content">
         <div class="chunk-1">
-            <h3 class="affected-h3">Function Properties and Methods</h3>
-            <ul class="functions-ajax"></ul>
-    </div>
+            <h3 class="affected-h3">The Browser Object Model</h3>
+            <ul class="bom">
+              <li><span class="emphasize">The Browser Object Model (BOM)</span> &#8594; A collection of properties and methods that contain information about the browser and computer screen</li>
+              <li>The BOM properties and methods are made available through the <code>window</code> object</li>
+              <li>Every browser window, tab, popup, frame, and iframe has a <code>window</code> object</li>
+            </ul>
+        </div>
+
+        <div class="chunk-2">
+          <h3 class="affected-h3">Going Global</h3>
+          <ul class="bom">
+            <li>Global variables are created without using the <code>const</code>, <code>let</code> or <code>var</code> keywords
+              (can be accessed in all parts of the program)
+            </li>
+            <li>Global variables are actual properties of a global object</li>
+            <li>In a browser environment, the global object is the <code>window</code> object &#8594; meaning that any global variable created
+              is actually a property of the <code>window</code> object
+<div class="h-container">
+<pre class="h-size">
+<code>x = 6; //Global variable created
+<< 6
+
+window.x //Same variable can be accessed as a property of the window object
+<< 6
+
+//Both variables are exactly the same
+window.x === x;
+<< true
+</code>
+</pre>
+</div>
+              In general, you should refer to global variables without using <code>window</code> object;
+              it's less typing and your code will be more portable between environments
+            </li>
+            <li>Some functions we've already met, such as <code>parseInt()</code> and <code>isNaN()</code>, are actually methods of the global object,
+              which in a browser environment makes them methods of the <code>window</code> object
+<div class="h-container">
+<pre class="h-size">
+<code>window.parseInt(4.2);                                                      
+<< 4
+
+window.isNaN(4.2);
+<< false
+</code>
+</pre>
+</div>
+              <span class="emphasize">ES6 made <code>parseInt(4.2)</code> and <code>isNaN</code> methods of the <code>Number</code> object, so they can be both be 
+                called using the following code:</span>
+<div class="h-container">
+<pre class="h-size">
+<code>Number.parseInt(4.2);                                                      
+<< 4
+
+Number.isNaN(4.2);
+<< false
+</code>
+</pre>
+</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-3">
+          <h3 class="affected-h3">Dialogs</h3>
+          <ul class="bom">
+            <li><code>window.alert()</code> &#8594; This method will pause the execution of the program and display a message in a dialog box; message is provided
+              as an argument to the method, and <code>undefined</code> is always returned
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.alert("Hello");                                                      
+<< undefined
+</code>
+</pre>
+</div>
+            </li>     
+            <li><code>window.confirm()</code> &#8594; This method stops the execution of the program and display a confirmation dialog that shows the message provided
+              as an argument, and giving the options of OK or Cancel
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.confirm("Do you wish to cancel?");                                                      
+<< undefined
+</code>
+</pre>
+</div>              
+            </li>
+            <li><code>window.prompt()</code> &#8594; This method will stop the execution of the program and displays a dialog that shows a message provided as an argument,
+              as well as an input field that allows the user to enter text; the text is then returned as a string when the user clicks OK (if user clicks Cancel, null is returned):
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.prompt("Please enter your name:");                                                      
+</code>
+</pre>
+</div>
+                There are some occasions when this functionality can be used as an advantage, for example, a <code>window.confirm</code> dialog can be  used as a final check to see if a 
+                user wants to delete a resource. This will stop the program from going ahead and deleting a resource while the user decides what to do
+              <span class="emphasize"></span>
+            </li>
+            <li>Which Browser:
+              <ul>
+                <li><code>Navigator</code> &#8594; This object contains information about the browser being used</li>
+                <li><code>userAgent</code> &#8594; This property will return information about the browser and operating system being used</li>
+                <li><span class="emphasize">Don't rely on the information result that comes out, as it can b modified by a user to masquerade as a different browser</span></li>
+              </ul>
+            </li>
+            <li>Location, Loction, Location
+              <ul>
+                <li><code>window.location</code> &#8594; This property is an object that contains information about the URL of the current page (contains a number of properties that provide 
+                  information about different fragments of the URL
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.location.href
+<< "https://www.sitepoint.com/premium/books/javascript-novice-to-ninja"
+</code>
+</pre>
+</div>
+                This property (as well as most of the others in this section) is a read/write property, which means it can also be changed by assignment
+                </li>
+                <li><code>protocol</code> &#8594; This propert returns a string describing the protocol used (such as http, https, pop2, ftp etc.). Note that there is a colon (:) at the end:
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.location.protocol
+<< "https:"
+</code>
+</pre>
+</div>
+                </li>
+                <li><code>host</code> &#8594; This property returns a string describing the domain of the current URL and the port number (this is often omitted if the defualt port 80 is used):
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.location.host
+<< "www.sitepoint.com"
+</code>
+</pre>
+</div>             
+            <code>hostname</code> &#8594; This property returns a string describing the domain of the current URL     
+                </li>
+                <li><code>port</code> &#8594; This property returns a string describing the port number, although it will return an empty string if the port is not explicitly stated in the URL</li>
+                <li><code>pathname</code> &#8594; THis property returns a string of the path that follows the domain</li>
+                <li><code>search</code> &#8594; This property returns a string with a "?" followed by the query string parameters</li>\
+                <li><code>hash</code> &#8594; This returns a string with a "#" followed by a fragment idetinfiier</li>
+                <li><code>origin</code> &#8594; This returns a string that shows the protocol and domain where the current page originated from (read only)</li>
+                <li><code>reload()</code> &#8594; This method can be used to force a reload of the current page (If parameter returns true, it will force the browser
+                  to reload the page from the server, instead f using a cached page
+                </li>
+                <li><code>assign()</code> &#8594; This method can be used to load another resource from a URL provided as a parameter
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.location.assign("https://www.sitepoint.com/");
+</code>
+</pre>
+</div>
+                </li>
+                <li><code>replace()</code> &#8594; This method is almost the same as the assign method, except the current page will not be stored in the session history, so the user will be unable
+                  to navigate back to it using the back button
+                </li>
+                <li><code>toString()</code> &#8594; This method returns a string containing the whole URL</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-4">
+          <h3 class="affected-h3">The Browser History</h3>
+          <ul class="bom">
+            <li><code>window.history</code> &#8594; This property can be used to access information about any previously visited pages in the current browser session</li>
+            <li><code>window.history.length</code> &#8594; This property shows how many pages have been visited before</li>
+            <li><code>window.history.go()</code> &#8594; This can be used to go to a specific page, where 0 is the current page
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.history.go(1); //Goes forward 1 page
+window.history.go(0); //Reloads the current page
+window.history.go(-1); //Goes back 1 page
+</code>
+</pre>
+</div>
+            There are also the <code>window.history.forward()</code> and <code>window.history.back()</code> methods that can be used to navigate forwards and backwards by one page
+            </li>
+            <li>Controlling Windows:
+              <ul>
+              <li>A new window can be opened using the <code>window.open()</code> method &#8594; Takes the URL of the page to be opened as its first parameter, the window title as its
+                second parameter, and a list of attributes as the third parameter
+<div class="h-container">
+<pre class="h-size">
+<code>
+const popup = window.open("https://sitepoint.com", "SitePoint", "width=400,height=400,resizable=yes");
+</code>
+</pre>
+</div>
+              </li>
+              <li>The <code>close()</code> method can be used to close a window, assuming you have a reference to it; it's also possible to move a window
+                using the <code>window.moveTo()</code> method (takes two parameters that are the X and Y coordinates of the screen that the window is to be moved to)
+              </li>
+              <li>You can resize a window using the <code>window.resizeTo()</code> method; it takes two parameters that pecify the width and height of the resized window's dimensions
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.resizeTo(600,400);
+</code>
+</pre>
+</div>
+              </li>
+            </ul>
+            </li>
+            <li>Screen Information:
+              <ul>
+                <li>The <code>window.screen</code> object contains information about the screen the browser is displayed on (can find the height and width properties respectively)</li>
+                <li>The <code>availHeight</code> and <code>availWidth</code> can be used to find the height and width of the screen, excluding any operating system menus
+<div class="h-container">
+<pre class="h-size">
+<code>
+window.screen.height
+<< 1024
+
+window.screen.width
+<< 1280
+
+window.screen.availWidth
+<< 1280
+
+window.screen.availHeight
+<< 995
+</code>
+</pre>
+</div>
+                </li>
+                <li>The <code>colorDepth</code> property can be used to find the color depth of the user's monitor, although there are few use cases for doing this other than
+                  collecting user statistics
+                </li>
+              </ul>
+            </li>
+            <li>The Document Object
+              <ul>
+                <li>Each <code>window</code> object contains a document object</li>
+                <li><code>document.write()</code> &#8594; This method simply writes a string of text to the page (if a page has already loaded,
+                  it will completely replace the current document
+                </li>
+                <li>The <code>document.write()</code> method can also be used within a document inside <code>&lt;script&gt;</code> tags to inject a string into the markup</li>
+                <li><span class="emphasize">The use of <code>document.write()</code> is heavily frowned upon as it can only be realistically used by mixing JavaScipt within an HTML document</span></li>
+              </ul>
+            </li>
+            <li>Cookies:
+              <ul>
+                <li><span class="emphasize">Cookies</span> &#8594; These are small files that are saved locally on a user's computer</li>
+                <li>Browsers do not remember anything from one request to another, so everytime a user visits a page, nothing about any previous visits is remembered</li>
+                <li>Cookies can be used to sidestep this problem by storing information that can be retrieved between requests</li>
+                <li>A restriction of cookies is that they can only be read by a web page from the same domain that set them</li>
+                <li>They can be used for personalizing a user's browsing experience, storing user preferences, keeping track of user choices, authentication and tracking users</li>
+                <li>They're still useful for retaining state information (such as if a user is logged in) because they're passed between the client and server on every HTTP request</li>
+                <li>Creating Cookies:
+                  <ul>
+                    <li>To create it, you assign it to JavaScipt's "cookie jar", using the <code>document.cookie</code> property
+<div class="h-container">
+<pre class="h-size">
+<code>
+document.cookie = "name=Superman";
+<< "name=Superman"
+</code>
+</pre>
+</div>
+                    </li>
+                  </ul>
+                  The <code>document.cookie</code> property acts like a special type of string. Assigning another cookie to it won't overwrite the entire property, it will just append it
+                  to the end of the string
+                </li>
+                <li>Changing Cookie Values
+                  <ul>
+                    <li>A cookie's value can be changed by reassigning it to <code>document.cookie</code> using the same name but a different value</li>
+                  </ul>
+                </li>
+                <li>Reading Cookies
+                  <ul>
+                    <li>
+                      To see the current contents of the cookie jar, simply enter <code>document.cookie</code>:
+<div class="h-container">
+<pre class="h-size">
+<code>
+document.cookie:
+<< "name=Batman; hero=true; city=Gotham"
+</code>
+</pre>
+</div>
+                      We can use the <code>split</code> method to break the string into an array containing each name/value pair, then use a <code>for of</code> to iterate through the array
+<div class="h-container">
+<pre class="h-size">
+<code>
+const cookies = documents.cookie.split("; ");
+for (crumb of cookies) {
+  const [key, value] = crumb.split("=");
+  console.log(`The value of ${key} is ${value}`);
+}
+
+<< The value of name is Batman
+The value of hero is true
+The value of city is Gotham
+</code>
+</pre>
+</div>
+                    </li>
+                  </ul>
+                </li>
+                <li>Cookie Expiry Dates
+                  <ul>
+                    <li>Cookies are sessions cookies by default &#8594; Meaning they are deleted once a browser session is
+                      finished (when the user closes the browser tab or window)
+                    </li>
+                    <li>An alternative is to set the <code>max-age</code> value. This takes a value in seconds, but it wasn't supported in IE before version 10</li>
+                  </ul>
+                </li>
+                <li>The Path and Domain of Cookies:
+                  <ul>
+                    <li>By default, cookies can only be read by pages inside the same directory and domain as the file was set</li>
+                    <li>The path can be changed so that any page in the root directory can be read the cookie. It's done by adding the string "; path=/" to the end of the cookie when it is set
+<div class="h-container">
+<pre class="h-size">
+<code>
+document.cookie = "name=Batman; path=/"
+</code>
+</pre>
+</div>
+                      A cookie can only be read by the domain that created it anyway, but doing this will allow all subdomains of sitepoint.com to read it 
+                    </li>
+                  </ul>
+                </li>
+                <li>Secure Cookies:
+                  <ul>
+                    <li>Adding the string ";secure" to the end of a cookie will ensure it's only transmitted over a secure HTTPS network:
+<div class="h-container">
+<pre class="h-size">
+<code>
+document.cookie = "name=Batman; secure";
+</code>
+</pre>
+</div>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Deleting Cookies:
+                  <ul>
+                    <li>To remove a cookie, you need to set it to expire at a time in the past:
+<div class="h-container">
+<pre class="h-size">
+<code>
+document.cookie = "name=Batman; expires= Thu, 01 Jan 1970 00:00:01 GMT";
+</code>
+</pre>
+</div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-5">
+          <h3 class="affected-h3">Timing Functions</h3>
+          <ul class="bom">
+            <li><code>window.setTimeout()</code> &#8594; This method accepts a callback to a function as its first parameter and a number of milliseconds as its second parameter</li>
+            <li>It can also cancel the timeout using the <code>window.clearTimeout()</code> method</li>
+            <li><code>setInterval()</code> &#8594; This method works in a similar way to <code>window.setTimeout(), except that it will repeatedly invoke the callback function after every given number milliseconds</code></li>
+            <li>Animations:
+              <ul>
+                <li>The <code>setTimeout()</code> and <code>setInterval()</code> methods can be used to animate elements on a webpage</li>
+                <li>The <code>requestAnimationFrame</code> of the <code>window</code> object works the same way as the <code>window.setInterval()</code> method, although it has a number of improvements to optimize its performance</li>
+                <li>These include making the most of the browser's built-in graphics-handling capabilities, and not running the animation when the tab is inactive, resulting in a much smoother performance</li>
+                <li>To start the animation, we need to call this method, giving the <code>rotate()</code> function as an argument</li>
+                <li>This will return a unique ID that can be employed to stop the animation using the <code>window.cancelAnimationFrame()</code> method</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <hr class="line-breaker">
+
+        <div class="chunk-6">
+          <h3 class="affected-h3">The data- Attribute</h3>
+          <ul class="bom">
+            <li><code>data-</code> &#8594; This attribute is a way of embedding data in a web page using custom attributes that are ignored by the the browser</li>
+            <li>They're also private to a page, so they are not intended to be used by an external service-their sole purpose is to be used by a JS program</li>
+            <li>The names of these attributes can be decide by the developer, but they must use the following format:
+              <ol>
+                <li>Start with <code>data-</code></li>
+                <li>Contain only lowercase letters, numbers, hyphens, dot, colons, or underscores</li>
+                <li>Include an optional string value
+<div class="h-container">
+<pre class="h-size">
+<code>
+data-powers = "flight superSpeed"
+data-rating = "5"
+data-dropdown
+data-user = "DAZ"
+data-max-length = "32"
+</code>
+</pre>
+</div>
+                </li>
+              </ol>
+            </li>
+            <li>The information contained in the attributes can be used to identify particular elements</li>
+            <li>Each element has a <code>dataset</code> property that can be used to access any <code>data-</code> attributes it contains</li>
+            <li>The restriction of only using a string value can be overcome by encoding any JS object or value as a JSON string, then performing type-conversion later, as required</li>
+          </ul>
+        </div>
+
+        <div class="chunk-7">
+          <h3 class="affected-h3">HTML5 APIs</h3>
+          <ul class="bom">
+            <li>The HTML5 specification contains a number of APIs that help to gain access to hardware, such as cameras, batteries, geolocation, and the graphics card</li>
+            <li>HTML5 Web Storage:
+              <ul>
+                <li>The Web Storage API provides a key-value store on the client's computer that is similar to using cookies but has fewer restrictions, more storage capacity, and is generally easier to use</li>
+                <li>The crucial differences with cookies:
+                  <ul>
+                    <li>Information stored is <i>not</i> shared with the server on every request</li>
+                    <li>Information is available in multiple windows of the browser (but only if the domain is the same)</li>
+                    <li>Storage capacity limit is much larger than the 4KB limit for cookies</li>
+                    <li>Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a better choice for something like showing a popup once a day</li>
+                  </ul>
+                </li>
+                <li>If a browser supports the Web Storage API, <code>window</code> object will have a property called <code>localStorage</code>, which is a native object with a number of properties and methods used to store data</li>
+                <li>There is also a <code>sessionStorage</code> object that works in the same way, although the data is only saved for the current session</li>
+                <li>Rather than using the <code>getItem()</code> and <code>setItem()</code> methods, assignment can be used instead</li>
+                <li>To remove an entry from local storage, use the <code>removalItem</code> method</li>
+                <li>To completely remove everything stored in local storage, use the <code>clear()</code></li>
+                <li>Every time a value is saved to local storage, a <code>storage</code> event is fired</li>
+                <li>The event object sent by the event listener to the callback has a number of properties that provide information about the updated item
+                  <ul>
+                    <li><code>key</code> tells us the key of the item that changed</li>
+                    <li><code>newValue</code> tells us the new value to which it has been changed</li>
+                    <li><code>oldValue</code> tells us the previous value before it was changed</li>
+                    <li><code>storageArea</code> tells us if it is stored in local or session storage</li>
+                  </ul>
+                </li>
+                <li>The fact that only strings can be saved might seem like a restriction at first, but by using JSON, we can store any JS object in local storage</li>
+                <li>The Web Storage API provides a useful way of storing various types of information on a user's computer without the restriction of cookies</li>
+              </ul>
+            </li>
+            <li>Geolocation
+              <ul>
+                <li>The Geolocation API is used to obtain the geographical position of the device</li>
+                <li>It can be used to find the user's exact location, then link to nearby places or measure the speed at which the user is moving</li>
+                <li>It can then be used to filter data based on the user's location or speed and direction of travel</li>
+                <li>Because of privacy concerns, permission to use this has to be granted by the user first</li>
+                <li>If it's available, it will be a property of the <code>navigator</code> object</li>
+                <li>This property has a method called <code>getCurrentPosition()</code> that will return a <code>position</code> object to a specified callback function called youAreHere()
+<div class="h-container">
+<pre class="h-size">
+<code>
+navigator.geolocation.getCurrentPosition(youAreHere);
+</code>
+</pre>
+</div>
+                  The <code>position</code> object passed to the <code>youAreHere()</code> function has a <code>coords</code> property with a <code>latitude</code> and <code>longitude</code>
+                  property, which together give the coordinates of the device
+<div class="h-container">
+<pre class="h-size">
+<code>
+function youAreHere(position) {
+  console.log(`Latitude: ${position.coords.latitude}, Longitude: ${positions.coords.longitude});
+}
+</code>
+</pre>
+</div>
+                </li>
+                <li><code>position.speed</code> property returns the ground speed of the device in meters per second</li>
+                <li><code>position.altitude</code> property returns an estimate of the device's altitude in meters above the WGS84 ellipsoid, which is a standard measurement for the center of the Earth</li>
+                <li><code>position.heading</code> property returns the direction the device is moving in. This is measured as a bearing in degrees, clockwise from North</li>
+                <li><code>position.timestamp</code> property returns the time that the position information was recorded</li>
+                <li>It also has other properties that calculate the accuracy of the measurements; it can be useful, as sometimes you only need to know the town or city users are in, while at other times you many need their
+                  exact position
+                </li>
+                <li><code>position.accuracy</code> property returns the accuracy of the latitude and longitude properties in meters</li>
+                <li>The <code>geolocation</code> object has a <code>watchPostition()</code> method that will call a callback function every time the position of the device is updated</li>
+                <li>The <code>clearWatch()</code> method can be used to stop the callback being called, using the ID of the watch as an argument</li>
+              </ul>
+            </li>
+            <li>Web Workers
+              <ul>
+                <li>Web workers allow processes to be run in the background, adding support for concurrency in JavaScript</li>
+                <li>To get started, use the <code>Worker()</code> constructor function to create a new worker:
+<div class="h-container">
+<pre class="h-size">
+<code>
+const worker = new Worker("task.js");
+</code>
+</pre>
+</div>
+                </li>
+                <li>If the file exists, it will be downloaded asynchronously</li>
+                <li>The worker will only start once the file has finished downloading completely (otherwise, and error is thrown)</li>
+                <li>Web workers use the concept of messages to communicate back and forth between the main script and worker script</li>
+                <li>The <code>postMessage()</code> method can be used to send a message and start the worker working</li>
+                <li>When a message is posted, a message event is fired, so they can be dealt with using an event listener</li>
+                <li>When a worker has completed its task, it can be stopped using the <code>terminate()</code> method from within the main script</li>
+                <li>Or using the <code>close()</code> method from inside the worker script</li>
+              </ul>
+            </li>
+            <li>Shared Web Workers
+              <ul>
+                <li>You can also create shared web workers that allow lots of different scripts on the same domain to access the same worker object</li>
+                <li>Web workers allow computationally complex operations to be performed in a separate thread, meaning that the flow of a program won't suffer interruptions,
+                  and an application will not freeze or hang
+                </li>
+              </ul>
+            </li>
+            <li>Service Workers
+              <ul>
+                <li>The Service Worker API allows a worker script to run in the background with the added benefit of being able to intercept network requests</li>
+                <li>Service workers require a secure network to run on HTTPS to avoid any malicious code hijacking networking requests</li>
+              </ul>
+            </li>
+            <li>Websockets
+              <ul>
+                <li>Websocket is an new protocol that allows two-way communication with a server-also known as push messaging, meaning that a connection is kept open and resonses are "pushed" to the client as soon as they are received</li>
+                <li>When the code <code>new WebSocket(URL) runs, it creates an instance of a WebSocket object and tries to connect to the URL</code></li>
+              </ul>
+            </li>
+            <li>Notifications
+              <ul>
+                <li>The Notification API allows you to show messages using the system's notifications</li>
+                <li>An advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab</li>
+                <li>This can be achieved using the <code>requestPermission()</code> method of a <code>Notification</code> global object</li>
+                <li>The notification instance has a number of events that it can react to, including <code>click</code>, <code>show</code> and <code>close</code></li>
+              </ul>
+            </li>
+            <li>Multimedia
+              <ul>
+                <li>HTML5 introduced the <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags used to insert audio and video clips into a web page</li>
+                <li>It also introduced a Media API for controlling the playback of the clips using JavaScript</li>
+                <li>Any content inside the <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags will only display if the browser does not support them; hence it can be used to 
+                  display a message to users of older browsers without support for these features
+                </li>
+                <li>The play() method will start the clip playing from its current position:</li>
+                <li>The pause() method will pause the clip at its current position:</li>
+                <li>The volume property is a number that can be used to set the audio volume:</li>
+                <li>The muted property is a boolean value that can be used to mute the audio:</li>
+                <li>The currentTime property is a number value that can be used to jump to another
+                  part of the clip:</li>
+                <li>The playbackRate property is used to fast-forward or rewind the clip by changing its value. A value of
+                  1 is playback at normal speed:</li>
+                <li>The duration property can be used to see how long the clip lasts</li>
+                <li>The audio and video elements bring native support for multimedia into the
+                  browser, and the API gives developers full control of the playback of audio tracks
+                  and video clips.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chunk-8">
+          <h3 class="affected-h3">Shims and Polyfills</h3>
+          <ul class="bom">
+            <li>There is where a shim or a polyfill comes in handy &#8594; These are libraries of code that allow you to use the APIs as usual</li>
+            <li>They then fill in the necessary code that's not provided natively by the user's browser</li>
+            <li>The main difference between shim and polyfill is that a shim is a piece of code that adds some missing functionality to a browser, although the implementation method may differ slightly from the
+              standard API
+            </li>
+            <li>A polyfill is a shim that achieves the same functionality, while also using the API commands that would be used if the feature was supported natively</li>
+            <li>This means that your code can use the APIs as normal and it should work as expected in older browsers</li>
+            <li>The advantage here is that the same set of standard API commands can be used-you don't need to write additional code to deal with different levels of support</li>
+          </ul>
+        <p></p>
+        </div>
+      
+      </div>
 
     <p class="">No questions at the moment.</p>
 
 
     <div class="next-page">
-        <p>Here's the <a href="exercise/index.html"> Further Function and Ajax Exercise.</a></p>
+        <p>Here's the <a href="exercise/index.html"> Window Object and HTML5 API Exercise.</a></p>
       </div> 
   
         

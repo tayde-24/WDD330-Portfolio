@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Window Object, HTML5 APIs, and Event Listeners</title>
+    <link rel="stylesheet" href="exercise.css">
+  </head>
+  <body>
+    <div class="lesson-title">
+      <h2>The Window Object, HTML5 APIs/Event Listeners Exercises</h2>
+    </div>
+
+    <div class="content">
+        <div class="chunk-1">
+            <h3 class="affected-h3">Event Listeners/Window Object</h3>
+            <section>
+              <div class="cnt">
+              <div class="m-l">
+                <p>Keydown</p>
+                <div class="box">
+                <label>
+                  Type to see the border color change
+                  <input id="inputListener" class="input-L" type="text">
+                </label>
+              </div>
+              </div>
+              
+              <div class="m-l m ">
+                <p>requestAnimationFrame()</p>
+                <div class="box">
+                  <div id="square" class="center"></div>
+                </div>
+              </div>
+
+              <div class="m-l m">
+                <p>Toggle/onclick</p>
+                <div class="box">
+                  <label>Click button to toggle </label>
+                  <div id="btn" class="button">
+                    <div class="i-b">See what happens</div>
+                  </div>
+                  <span id="hiddenM"></span>
+                  <button class="btn" onclick="disappear()">Click me</button>
+                </div>
+              </div>
+              
+              <div class="m-l m">
+                <p>Drop/Drag Over</p>
+                <div class="box">
+                  <label>Drag text to the next rectangle!</label>
+                  <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <p class="small" ondragstart="dragStart(event)" ondragend="dragEnd(event)" draggable="true" id="dragtarget">Drag me!</p>
+                  </div>
+
+                  <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                  <p class="small" id="result"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="cnt down">
+              <div class="m-l">
+                <p>Focus</p>
+                <div class="box">
+                  <label>Click on input to trigger focus</label>
+                  <input id="focusMe" placeholder="Click on me" class="focusMe" type="text">
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+
+              <div class=" m-l m">
+                <p>Mousemove/Mouseout</p>
+                <div class="box">
+                  <div class="hoverBox" onmousemove="wordsP(event)" onmouseout="clearWords()" id="hover">
+                    Hover over me
+                  </div>
+                </div>
+              </div>
+
+              <div class=" m-l m">
+                <p>Touchstart</p>
+                <div class="box">
+                  <label>Touch the box to change color</label>
+                  <div class="touchBox" id="touch">
+                    See colors change
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+            
+        </div>
+    </div>
+
+    <div class="go-back">
+    <a href="portfolio/../../../"> &#8592; Go back to Portfolio page</a>
+    <div class="space"><a href="../index.html"> &#8592; Week 9 Notes</a></div>
+    </div>
+    
+    <footer>
+    <div class="bottom-footer">
+        <p>Copyright 2022 Brigham Young University-Idaho</p>
+    </div>
+    </footer>
+</body>
+<script src="js/exercise.js"></script>
+</html>
