@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 Notes and Questions</title>
+    <link rel="stylesheet" href="week10.css">
+  </head>
+  <body>
+    <div class="lesson-title">
+      <h2>Week 10- Validating Froms and Using Fetch</h2>
+    </div>
+
+    <div class="content">
+        <div class="chunk-1">
+            <h3 class="affected-h3">What is Form Validation</h3>
+            <ul class="validate-forms">
+                <li><span class="emphasize">Client-side for validation</span> &#8594; Where it ensures all required
+                    form controls are filled out, in the correct format; and it helps ensure data submitted matches
+                    the requirements set forth in the various form controls
+                </li>
+                <li>Client-side validation <i>should not be considered</i> an exhaustive security measure (server-side
+                    should do most of the work)!</li>
+                <li><span class="emphasize">Form-validation</span> &#8594; This is where you enter data and the browser
+                    and/or web server will check to see that ther data is in the correct format and within the constraints
+                    set by the application
+                </li>
+                <li>Validation done in the browser is called <span class="emphasize"><strong>client-side</strong>
+                </span> validation, while validation done on the server is called <span class="emphasize"><strong>server-side 
+                    </strong></span> validation</li>
+                <li><strong>Why do we insist on validating our forms?</strong>
+                    <ul>
+                        <li>We want to get the right data, in the right format</li>
+                        <li>We want to protect our users' data</li>
+                        <li>We want to protect ourselves</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-2">
+            <h3 class="affected-h3">Different Types of Client-Side Validation</h3>
+            <ul class="validate-forms">
+                <li>Two types of client-side validation that one encounters on the web:
+                    <ul>
+                        <li><span class="emphasize">Built-in form validation</span> &#8594; It uses HTML5 form validation features that
+                            doesn't generally require much JavaScript (Built-in form validation has better performance than JS, but it is
+                            not as customizable as JS validation)
+                        </li>
+                        <li><span class="emphasize">JavaScript</span> &#8594; This validation is coded using JS. This validation is customizable,
+                            but you need to create it all (or use a library)</li>
+                    </ul>
+                </li>
+                <li><strong>Built-in Form Validation Attributes:</strong>
+                    <ul>
+                        <li><code>required</code> &#8594; Specifies whether a form field need to be filed in before the form can be submitted</li>
+                        <li><code>minlength</code> and <code>maxlength</code> &#8594; Specifies the min. and max. length of textual data (strings)</li>
+                        <li><code>min</code> and <code>max</code> &#8594; Specifies the minimum and maximum values of numerical input types</li>
+                        <li><code>type</code> &#8594; Specifies whether the data needs to be a number, an email address, or some other specific preset type</li>
+                        <li><code>pattern</code> &#8594; Specifies a regular expression that defines a pattern the entered data needs to follow</li>
+                    </ul>
+                </li>
+                <li>To make your input mandatory, add the <code>required</code> attribute to the element</li>
+                <li>A <span class="emphasize">regular expression</span> (regex) is a pattern that can be used to match character combinations in text strings, so 
+                    regexps are ideal for form validation and serve a variety of other uses in JavaScript</li>
+                <li>Here's a link to some of the Regex expressions for HTML(they can be quite complex): <a href="https://www.w3schools.com/tags/att_input_pattern.asp" target="_blank">w3school.com</a>
+                    <ul>
+                        <li>This one shows different patterns for JS: <a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">w3schools.com</a></li>
+                    </ul>
+                </li>
+                <li>You can constrain the character length of all text fields created by <code>input</code> or <code>textarea</code> by using the <code>minlength</code> and <code>maxlength</code> attributes</li>
+                <li><strong>Validating Forms Using JavaScript:</strong>
+                    <ul>
+                        <li>You must use JS if you want to take control over the look and feel of native error messages or to deal with legacy browsers that do not support HTML's built-in form validation</li>
+                        <li>Here's a link to the methods and properties available for the Constrained Validation Api: <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript" target="_blank">Constrained Validation API</a></li>
+                        <li>Customizing error messages is one of the most common use cases of the constrained validation API</li>
+                        <li>When using the <code>novalidate</code> attribute, it turns off the browser's automatic validation and lets our sccript take control over validation
+                            <ul>
+                                <li><span class="emphasize">However, this doesn't disable support for the constraint validation API nor the application of CSS pseudo-classes like <code>:valid</code>, etc.</span></li>
+                            </ul>
+                        </li>
+                        <li>The constrained validation API gives you a powerful tool to handle form validation, letting you have enormous control over the user interface above and beyond what you can do with with HTML and CSS alone</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-3">
+            <h3 class="affected-h3">Validating Forms Without a Built-In API</h3>
+            <ul class="validate-forms">
+                <li>To validate a form, ask yourself a few questions (when you can't or won't be able to use Constraint Validation API):
+                    <ul>
+                        <li>What kind of validation should I perform?</li>
+                        <li>What should I do if the form doesn't validate?</li>
+                        <li>How can I help the user to correct invalid data?</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="line-breaker">
+
+        <div class="chunk-4">
+            <h3 class="affected-h3">Using the Fetch API</h3>
+            <ul class="validate-forms">
+                <li>The <span class="ephasize">Fetch API</span> provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline,
+                    such as requests and responses
+                </li>
+                <li>Fetch provides a better alternative that can be easily used by other technologies such as <code>Service Workers</code></li>
+                <li>Fetch also provides a single logical place to define other HTTP-related concepts such as CORS and extensions to HTTP</li>
+                <li>A basic fetch request is really simple to set up
+<div class="h-container">
+<pre class="h-size">
+<code>
+fetch("http://example.com/movies.json")
+.then(response => response.json())
+.then(data => console.log(data));
+</code>
+</pre>
+</div>
+                </li>
+                <li>The <code>Response</code> object, in turn, does not directly contain the actual JSON response body but is instead a representation of the 
+                    entire HTTP response
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-5">
+            <h3 class="affected-h3">Supply Request Options</h3>
+            <ul class="validate-forms">
+                <li>The <code>fetch()</code> method can optionally accept a second parameter, and <code>init</code> object that allows you to control a number
+                    of different settings:
+<div class="h-container">
+<pre class="h-size">
+<code>
+async function postData(url= "", data = {}) {
+    const response = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify(data)
+    });
+    return response.json();
+}
+
+postData("https://example.com/answer", {answer:42})
+.then(data => {
+    console.log(data);
+});
+</code>
+</pre>
+</div>
+                </li>
+                <li><strong>Uploading a File:</strong>
+                    <ul>
+                        <li>Files can be uploaded using HTML <code>input type="file"</code> input element,
+                            <code>FormData()</code> and <code>fetch</code>
+<div class="h-container">
+<pre class="h-size">
+<code>
+const formData = new FormData();
+const fileField = document.querySelector("input[type="file"]");
+
+formData.append("username", "abc123");
+formData.append("avatar", fileField.files[0]);
+
+fetch("https://example.com/profile/avatar", {
+    method: "PUT",
+    body: formData
+})
+.then(respond => response.json())
+.then(result => {
+    console.log("Success:", result);
+})
+.catch(error => {
+    console.error("Error", error);
+})
+</code>
+</pre>
+</div>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Uploading Multiple Files:</strong>:
+                    <ul>
+                        <li>Files can be uploaded using an HTML <code>input type="file" multiple</code>
+                            input element, <code>FormData()</code> and <code>fetch()</code>
+                            <div class="h-container">
+<pre class="h-size">
+<code>
+const formData = new FormData();
+const photos = document.querySelector("input[type="file"][multiple]");
+
+formData.append("title", "My Vegas Vacation");
+for (let i=0; i < photo.files.length; i++) {
+    formData.append(`photos_${i}`, photos.files[i]);
+}
+
+fetch("https://example.com/posts", {
+    method: "POST",
+    body: formData,
+})
+.then(response => response.json())
+.then(result => {
+    console.log("Success:", result);
+})
+.catch(error => {
+    console.error("Error:", error)
+});
+</code>
+</pre>
+</div>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Supplying Your Own Request Object:</strong>
+                    <ul>
+                        <li>Instead of passing a path to the resource you want to request into the <code>fetch()</code> call,
+                            you can create a request object using the <code>Request()</code> constructor, and pass that in as a 
+                            <code>fetch()</code> method argument
+                            <div class="h-container">
+<pre class="h-size">
+<code>
+const myHeaders = new Headers();
+
+const myRequest = new Request("flowers.jpg", {
+    method: "GET,
+    headers: myHeaders,
+    mode: "cors",
+    cache: "default"
+});
+
+fetch(myRequest)
+.then(response => response.blob())
+.then(myBlob => {
+    myImage.src = URL.createObjectURL(myBlob);
+});
+</code>
+</pre>
+</div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chunk-6">
+            <h3 class="affected-h3">Headers</h3>
+            <ul class="validate-forms">
+                <li>The <code>Headers</code> interface allows you to create your own headers object via the <code>Headers()</code> constructor
+                    <div class="h-container">
+<pre class="h-size">
+<code>
+const content = "Hello World";
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+myHeaders.append("Content-Length", content.length.toString());
+myHeaders.append("X-Custom-Header", "ProcessThisImmediately");
+</code>
+</pre>
+</div>
+                </li>
+                <li><strong>Guard:</strong>
+                    <ul>
+                        <li>Since headers can be sent in requests and recieved in responses, and have various limitations about what infromation can and should be mutable,
+                            headers' objects have a guard property
+                        </li>
+                    </ul>
+                </li>
+                <li>Possible guard values are:
+                    <ol>
+                        <li><code>none</code> &#8594; Default</li>
+                        <li><code>request</code> &#8594; guard for a headers object obtained from a request</li>
+                        <li><code>request-no-cors</code> &#8594; Guard for a headers object obtained ffrom a request created with <code>Request.mode</code> <code>no-cors</code></li>
+                        <li><code>response</code> &#8594; Guard for a headers object obtained from a response</li>
+                        <li><code>immutable</code> &#8594; Guard that renders a headers object read-only; mostly used for ServiceWorkers</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+        <p class="">No questions at the moment.</p>
+    
+    
+        <div class="next-page">
+            <p>Here's the <a href="exercise/index.html"> Validating Forms and Using Fetch Exercise.</a></p>
+          </div> 
+      
+            
+        <div class="go-back">
+        <a href="portfolio/../../"> &#8592; Go back to Portfolio page</a>
+        </div>
+        
+        <footer>
+        <div class="bottom-footer">
+            <p>Copyright 2022 Brigham Young University-Idaho</p>
+        </div>
+        </footer>
+    </body>
+    </html>

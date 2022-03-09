@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 Notes and Questions</title>
+    <link rel="stylesheet" href="exercise.css">
+  </head>
+  <body>
+    <div class="lesson-title">
+      <h2>Week 10- Validating Froms and Using Fetch</h2>
+    </div>
+
+    <div class="content">
+        <div class="chunk-1">
+        <h3 class="affected-h3">Part one</h3>
+        <section>
+            <form>
+                <div>
+                    <label for="choose">Would you prefer a banana or cherry? (required)</label>
+                    <input id="choose" name="i-like" required pattern="[Bb]anana|[Cc]herry" minlength="6" maxlength="6">
+                </div>
+                <div>
+                    <label for="number">How many would you like?</label>
+                    <input type="number" id="number" name="amount" value="1" min="1" max="10">
+                </div>
+                <div>
+                    <button>Submit</button>
+                </div>
+            </form>
+
+            <form novalidate>
+                <!-- <label for="mail">I would like you to provide me with an e-mail address:</label>
+                <input type="email" id="mail" name="mail">
+                <button>Submit</button> -->
+                <!-- <p>
+                    <label for="mail">
+                        <span>Please enter an email address:</span>
+                        <input type="email" id="mail" name="mail" required minlength="8">
+                        <span class="error" aria-live="polite"></span>
+                    </label>
+                </p> -->
+                <label for="mail">
+                    <span>Please enter an email address:</span>
+                    <input type="text" id="mail" name="mail">
+                    <span class="error" aria-live="polite"></span>
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        </div>
+    </div>
+
+        <p class="">No questions at the moment.</p>
+    
+    
+        <div class="next-page">
+            <p>Here's the <a href="exercise/index.html"> Window Object and HTML5 API Exercise.</a></p>
+          </div> 
+      
+            
+        <div class="go-back">
+        <a href="portfolio/../../"> &#8592; Go back to Portfolio page</a>
+        <div class="space"><a href="../index.html"> &#8592; Week 10 Notes</a></div>
+        </div>
+        
+        <footer>
+        <div class="bottom-footer">
+            <p>Copyright 2022 Brigham Young University-Idaho</p>
+        </div>
+        </footer>
+    </body>
+    <script src="js/exercise.js"></script>
+    </html>
