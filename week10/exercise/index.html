@@ -13,54 +13,103 @@
 
     <div class="content">
         <div class="chunk-1">
-        <h3 class="affected-h3">Part one</h3>
+        <h3 class="affected-h3">Validating Forms</h3>
         <section>
+            <h3>With and Without Built-In API Example</h3>
             <form>
+                <fieldset>
+                    <legend>Form Exercise 1 Without JavaScript</legend>
                 <div>
-                    <label for="choose">Would you prefer a banana or cherry? (required)</label>
-                    <input id="choose" name="i-like" required pattern="[Bb]anana|[Cc]herry" minlength="6" maxlength="6">
+                    <label for="choose">Would you prefer a banana or cherry? <span class="required">(required)</span></label>
+                    <input id="choose" name="i-like" required pattern="[Bb]anana|[Cc]herry" minlength="6" maxlength="6" type="text">
                 </div>
                 <div>
                     <label for="number">How many would you like?</label>
                     <input type="number" id="number" name="amount" value="1" min="1" max="10">
                 </div>
                 <div>
-                    <button>Submit</button>
+                    <button class="btn-1">Submit</button>
                 </div>
+
+            </fieldset>
             </form>
+            <p class="notes"><i>By putting the word "required" inside the input tag and putting a pattern as well, the browser automatically creates a message if there's no input or if the input does not match the input required. After inputing the correct option and clicking the button, the key-and-value pairs appear in the website.</i></p>
+
+
+            <form>
+                <fieldset>
+                    <legend>Form Exercise 2 Using JavaScript</legend>
+                    <label for="mail">I would like you to provide me with an e-mail address:</label>
+                    <input type="email" id="mail" name="mail">
+                    <button class="btn-2">Submit</button>
+                </fieldset>
+            </form>
+            <p class="notes"><i>In this exercise, I learned how to create customized error messages. When you don't
+                follow the "type email" form, the customized error shows up. This exercise didn't have a customized error
+                message for when the user doesn't input their email, so I tried doing it with "validity.valueMissing", but it
+                didn't work. I later then discovered that it will only work if the "required" attribute was inside the input tag.
+                I did include it in, but after testing it out, I think this would have confused the user a bit, so I commented it
+                out from the code.
+            </i></p>
 
             <form novalidate>
-                <!-- <label for="mail">I would like you to provide me with an e-mail address:</label>
-                <input type="email" id="mail" name="mail">
-                <button>Submit</button> -->
-                <!-- <p>
-                    <label for="mail">
+                <fieldset>
+                <legend>Form Exercise 3 Using JavaScript</legend>
+                <p class="form-p">
+                    <label for="mail-2">
                         <span>Please enter an email address:</span>
-                        <input type="email" id="mail" name="mail" required minlength="8">
+                        <input type="email" id="mail-2" name="mail-2" required minlength="8">
                         <span class="error" aria-live="polite"></span>
                     </label>
-                </p> -->
-                <label for="mail">
-                    <span>Please enter an email address:</span>
-                    <input type="text" id="mail" name="mail">
-                    <span class="error" aria-live="polite"></span>
-                </label>
-                <button type="submit">Submit</button>
+                </p>
+                <button class="btn-3">Submit</button>
+                </fieldset>
             </form>
+            <p class="notes"><i>In this exercise, this uses the built-in API, so it gives you some sense of control when making these error messages. In the exercise, we made it this input act like it's required. It won't let you 
+                submit it blank and gives you a message right away for it.
+            </i></p>
+
+            <form>
+                <fieldset>
+                <legend>Form Exercise 4 Using JavaScript</legend>
+                <p class="form-p">
+                    <label for="mail-3">
+                        <span>Please enter an email address: (optional)</span>
+                        <input type="text" id="mail-3" name="mail-3" class="email">
+                        <span class="error" aria-live="polite"></span>
+                    </label>
+                </p>
+                <button type="submit" class="btn-4">Submit</button>
+            </fieldset>
+            </form>
+            <p class="notes"><i>In this exercise, this does not use the built-in API here. Unlike the other form, it's not a required input, so it's made optional. If 
+                the user does want to fill it out, the code expects an email and no value else, otherwise, it will give an error message when you try to submit text that's
+                not an email with the use of the Regex pattern value.
+            </i></p>
         </section>
         </div>
-    </div>
 
-        <p class="">No questions at the moment.</p>
-    
-    
-        <div class="next-page">
-            <p>Here's the <a href="exercise/index.html"> Window Object and HTML5 API Exercise.</a></p>
-          </div> 
+        <div class="chunk-2">
+            <h3 class="affected-h3">Using Fetch</h3>
+            <section>
+                <h3>Fetch Text Example</h3>
+                <p class="stand-alone">Click on any of the pages from this list to get some article text.</p>
+                <p class="stand-alone">Then, click on article text to make it disappear and go back to the original state.</p>
+                <ul>
+                    <li><a data-page="page1">Page 1</a></li>
+                    <li><a data-page="page2">Page 2</a></li>
+                    <li><a data-page="page3">Page 3</a></li>
+                </ul>
+                <article>
+                    <i>Text will appear here...</i>
+                </article>
+            </section>
+        </div>
+    </div>
       
             
         <div class="go-back">
-        <a href="portfolio/../../"> &#8592; Go back to Portfolio page</a>
+        <a href="portfolio/../../../"> &#8592; Go back to Portfolio page</a>
         <div class="space"><a href="../index.html"> &#8592; Week 10 Notes</a></div>
         </div>
         

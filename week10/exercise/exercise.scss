@@ -63,9 +63,6 @@ body {
 form {
     max-width: 100%;
 }
-// p * {
-//     display: block;
-// }
 
 input.mail {
     -webkit-appearance: none;
@@ -73,7 +70,7 @@ input.mail {
     border: 1px solid #333;
     margin: 0;
 
-    font-family: inherit;
+    font-family: $pararaph-text;
     font-size: 90%;
 
     box-sizing: border-box;
@@ -97,54 +94,155 @@ input.mail {
 .error.active {
     padding: 0.3em;
 }
-// p * {
-//     display: block;
-// }
-// input[type="email"] {
-//     -webkit-appearance: none;
-//     appearance: none;
-//     width: 100%;
-//     border: 1px solid #333;
-//     margin: 0;
-
-//     font-family: inherit;
-//     font-size: 90%;
-
-//     box-sizing: border-box;
-// }
-// input:invalid {
-//     border-color: #900;
-//     background-color: #FDD;
-// }
-// input:focus:invalid {
-//     outline: none;
-// }
-
-// .error {
-//     width: 100%;
-//     padding: 0;
-
-//     font-size: 80%;
-//     color: white;
-//     background-color: #900;
-//     border-radius: 0 0 5px 5px;
-
-//     box-sizing: border-box;
-// }
-// .error.active {
-//     padding: 0.3em;
-// }
+/*Styling of section and form*/
+section {
+    background-color: rgb(207, 207, 207);
+    margin: 0 3rem;
+    padding: 2rem 3rem;
+    font-family: $pararaph-text;
+    font-size: $paragraph-size;
+    legend {
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 2rem;
+        background-image: linear-gradient(to bottom right, $midnight-blue, #cfcfcf);
+        margin-left: -3rem;
+        display: table;
+        padding: 1rem 10rem 1rem 3rem;
+        text-align: right;
+        color: white;
+    }
+}
 
 /*First part of the exercise*/
-// input:invalid {
-//     border:2px dashed red;
-// }
-// input:valid {
-//     border: 2px solid black;
-// }
-// input:invalid:required {
-//     background-image: linear-gradient(to right, pink, lightgreen);
-// }
+input[type="text"]:invalid {
+    border:2px dashed red;
+}
+input[type="text"]:valid {
+    border: 2px solid black;
+}
+input[type="text"]:invalid:required {
+    background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+.btn-1, .btn-2, .btn-3, .btn-4 {
+    display: table;
+    outline: none;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    background-color: greenyellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 5px grey;
+    transition: all .5s;
+}
+.btn-1:hover {
+    background-color: rgb(127, 187, 36);
+}
+.btn-2 {
+    background-color: rgb(68, 68, 126);
+    color: white;
+}
+.btn-2:hover {
+    background-color: rgb(33, 33, 66);
+}
+.btn-3 {
+    background-color: purple;
+    color: white;
+}
+.btn-3:hover {
+    background-color: rgb(65, 0, 65);
+}
+.btn-4 {
+    background-color: orange;
+}
+.btn-4:hover {
+    background-color: rgb(170, 111, 0);
+}
+
+.form-p, .notes, .stand-alone {
+    margin: 0;
+}
+
+.notes {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    background-color: rgba(128, 0, 128, 0.349);
+    border: 2px solid rgb(90, 0, 90);
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.35rem;
+}
+
+.art {
+    background-color:white;
+    border-radius:10px;
+    padding-bottom: 2rem;
+    box-shadow:2px 2px 10px gray;
+}
+
+ .form-p{
+     display: block;
+ }
+ input[type="email"], input.email {
+     -webkit-appearance: none;
+     appearance: none;
+     width: 100%;
+     border: 1px solid #333;
+     margin: 0;
+     font-family: inherit;
+     font-size: 90%;
+     box-sizing: border-box;
+ }
+ input:invalid, input.email:invalid {
+     border-color: #900;
+     background-color: #FDD;
+ }
+ input:focus:invalid, input.email:focus:invalid {
+     outline: none;
+ }
+ .error {
+     width: 100%;
+     padding: 0;
+     font-size: 80%;
+     color: white;
+     background-color: #900;
+     border-radius: 0 0 5px 5px;
+     box-sizing: border-box;
+ }
+ .error.active {
+     padding: 0.3em;
+     
+ }
+
+ul {
+    display: table;
+    background-color: rgba(72, 72, 131, 0.712);
+    padding: 0;
+    li {
+        list-style: none;
+        cursor: pointer;
+        transition: all .5s;
+    }
+    li:hover {
+        background-color: #dfdf1e;
+    }
+    li a {
+        display: block;
+        padding: 1rem 5rem 1rem 1rem;
+    }
+}
+
+article {
+    h2 {
+        background-color: orange;
+        padding: 1rem 3rem;
+        border-radius: 10px 10px 0 0;
+    }
+}
 
   .next-page {
     a {

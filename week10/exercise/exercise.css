@@ -57,7 +57,7 @@ input.mail {
   width: 100%;
   border: 1px solid #333;
   margin: 0;
-  font-family: inherit;
+  font-family: "Oswald";
   font-size: 90%;
   box-sizing: border-box;
 }
@@ -80,7 +80,167 @@ input.mail {
   padding: 0.3em;
 }
 
+/*Styling of section and form*/
+section {
+  background-color: #cfcfcf;
+  margin: 0 3rem;
+  padding: 2rem 3rem;
+  font-family: "Oswald";
+  font-size: 1.3rem;
+}
+section legend {
+  font-weight: 600;
+}
+section h3 {
+  font-size: 2rem;
+  background-image: linear-gradient(to bottom right, #050448, #cfcfcf);
+  margin-left: -3rem;
+  display: table;
+  padding: 1rem 10rem 1rem 3rem;
+  text-align: right;
+  color: white;
+}
+
 /*First part of the exercise*/
+input[type=text]:invalid {
+  border: 2px dashed red;
+}
+
+input[type=text]:valid {
+  border: 2px solid black;
+}
+
+input[type=text]:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+.btn-1, .btn-2, .btn-3, .btn-4 {
+  display: table;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: greenyellow;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  margin-top: 1rem;
+  box-shadow: 2px 2px 5px grey;
+  transition: all 0.5s;
+}
+
+.btn-1:hover {
+  background-color: #7fbb24;
+}
+
+.btn-2 {
+  background-color: #44447e;
+  color: white;
+}
+
+.btn-2:hover {
+  background-color: #212142;
+}
+
+.btn-3 {
+  background-color: purple;
+  color: white;
+}
+
+.btn-3:hover {
+  background-color: #410041;
+}
+
+.btn-4 {
+  background-color: orange;
+}
+
+.btn-4:hover {
+  background-color: #aa6f00;
+}
+
+.form-p, .notes, .stand-alone {
+  margin: 0;
+}
+
+.notes {
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  background-color: rgba(128, 0, 128, 0.349);
+  border: 2px solid #5a005a;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1.35rem;
+}
+
+.art {
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 2rem;
+  box-shadow: 2px 2px 10px gray;
+}
+
+.form-p {
+  display: block;
+}
+
+input[type=email], input.email {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+  font-family: inherit;
+  font-size: 90%;
+  box-sizing: border-box;
+}
+
+input:invalid, input.email:invalid {
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid, input.email:focus:invalid {
+  outline: none;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+
+ul {
+  display: table;
+  background-color: rgba(72, 72, 131, 0.712);
+  padding: 0;
+}
+ul li {
+  list-style: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+ul li:hover {
+  background-color: #dfdf1e;
+}
+ul li a {
+  display: block;
+  padding: 1rem 5rem 1rem 1rem;
+}
+
+article h2 {
+  background-color: orange;
+  padding: 1rem 3rem;
+  border-radius: 10px 10px 0 0;
+}
+
 .next-page a {
   color: teal;
   transition: 0.2s ease-in-out;
