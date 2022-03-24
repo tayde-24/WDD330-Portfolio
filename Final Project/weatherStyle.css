@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&family=Hanuman:wght@100;300;400;700;900&family=Livvic:wght@100;300;400;500;600;700;900&family=Manjari:wght@100;400;700&family=Mukta:wght@200;300;400;500;600;700;800&family=NTR&family=Secular+One&family=Titillium+Web:wght@200;300;400;600;700&display=swap");
+/*Heading: Mukta, Secular One, Livvic, Bakbak One
+Regular paragraph: Titillium Web, Barlow, NTR, Hanuman, Manjari */
+ul li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  grid-column-gap: 20px;
+  font-family: "NTR";
+  font-size: 2.5rem;
+  background-color: white;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+}
+
+@media (min-width: 751px) {
+  ul {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  ul li {
+    display: inline;
+    margin-right: 1rem;
+    flex: 0 0 auto;
+  }
+}
+ul::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto 0;
+  background: linear-gradient(to bottom, #F1F0EA, rgba(206, 206, 206, 0.664));
+}
+
+header {
+  padding: 1.5rem 2rem;
+}
+header h1 {
+  color: orange;
+  font-family: "Secular one";
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+header p {
+  font-size: 1.5rem;
+  font-family: "NTR";
+}
+
+main {
+  margin: 0 2rem 4rem 2rem;
+}
+main p {
+  font-size: 1.5rem;
+  font-family: "NTR";
+}
+
+.search {
+  background: url("images-icons/Search-icon.svg") no-repeat;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: contain;
+  display: inline-block;
+  text-align: center;
+}
+
+@media (min-width: 751px) {
+  footer {
+    background-color: orange;
+    text-align: center;
+    width: 100%;
+  }
+  footer .list-footer {
+    padding: 3.5rem 2rem;
+  }
+  footer .list-footer input[type=text] {
+    position: inherit;
+    width: 450px;
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+    outline: none;
+    border-radius: 40px;
+    transition: all 0.5s;
+    font-family: "Titillium Web";
+    font-weight: 600;
+  }
+  footer .list-footer input:hover {
+    background-color: #fffed7;
+  }
+  footer .list-footer input[type=text]:focus {
+    background-color: #cbfdff;
+    width: 500px;
+  }
+  footer .list-footer button {
+    border-radius: 100px;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    margin-left: -4rem;
+    color: #F1F0EA;
+    background-color: #949494;
+    transition: 0.5s;
+  }
+  footer .list-footer button:hover {
+    background-color: #c9c89ca2;
+  }
+}
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  footer {
+    background-color: orange;
+    width: 100%;
+  }
+  footer .list-footer {
+    transition: 1s;
+    padding: 3.5rem 2rem;
+  }
+  footer .list-footer input[type=text] {
+    position: inherit;
+    width: 450px;
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+    outline: none;
+    border-radius: 40px;
+    transition: all 0.5s;
+    font-family: "Titillium Web";
+    font-weight: 600;
+  }
+  footer .list-footer input:hover {
+    background-color: #fffed7;
+  }
+  footer .list-footer input[type=text]:focus {
+    background-color: #cbfdff;
+    width: 500px;
+  }
+  footer .list-footer button {
+    border-radius: 100px;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    margin-left: -4rem;
+    color: #F1F0EA;
+    background-color: #949494;
+    transition: 0.5s;
+  }
+  footer .list-footer button:hover {
+    background-color: #c9c89ca2;
+  }
+}
+
+/*# sourceMappingURL=weatherStyle.css.map */

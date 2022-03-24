@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&family=Hanuman:wght@100;300;400;700;900&family=Livvic:wght@100;300;400;500;600;700;900&family=Manjari:wght@100;400;700&family=Mukta:wght@200;300;400;500;600;700;800&family=NTR&family=Secular+One&family=Titillium+Web:wght@200;300;400;600;700&display=swap');
+@import "variables/variables";
+@import "list-style/list-style";
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto 0;
+    //background-color: $l-color-1;
+    background: linear-gradient(to bottom, $l-color-1, rgba(206, 206, 206, 0.664));
+}
+
+header {
+    padding: 1.5rem 2rem;
+    h1 {
+        color: $l-color-2;
+        font-family: $header;
+        font-size: 3.5rem;
+        font-weight: 500;
+    }
+    p {
+        font-size: 1.5rem;
+        font-family: $primary-font;
+    }
+}
+
+main {
+    margin: 0 2rem 4rem 2rem;
+    p {
+        font-size: 1.5rem;
+        font-family: $primary-font;
+    }
+}
+
+// footer {
+//     background-color: $l-color-2;
+//     text-align: center;
+//     width: 100%;
+//     .list-footer {
+//         padding: 3.5rem 2rem;
+//         input[type="text"] {
+//             position: inherit;
+//             width: 450px;
+//             padding: 1rem 1.5rem;
+//             font-size: 1.3rem;
+//             outline: none;
+//             border-radius: 40px;
+//             transition: all .5s;
+//             font-family: $secondary-font;
+//             font-weight: 600;
+//         }
+//         input:hover {
+//             background-color: rgb(255, 254, 215);
+//         }
+//         input[type="text"]:focus {
+//             background-color: rgb(203, 253, 255);
+//             width: 500px;
+//         }
+//         button {
+//             border-radius:100px;
+//             border: none;
+//             width: 3rem;
+//             height: 3rem;
+//            // font-size: 1.7rem;
+//             //padding: .5rem 1rem;
+//             margin-left: -4rem;
+//             color: $l-color-1;
+//             background-color: rgb(148, 148, 148);
+//             transition: .5s;
+//         }
+//         button:hover{
+//             background-color: #c9c89ca2;
+//         }
+//     }  
+// }
+
+
+.search { 
+    background: url("images-icons/Search-icon.svg") no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: contain;
+    display: inline-block;
+    text-align: center;
+}
+
+//Smaller Screens
+@media (min-width:751px) {
+    footer {
+        background-color: $l-color-2;
+        text-align: center;
+        width: 100%;
+        // position: fixed;
+        // bottom: 0;
+        .list-footer {
+            padding: 3.5rem 2rem;
+            
+            input[type="text"] {
+                position: inherit;
+                width: 450px;
+                padding: 1rem 1.5rem;
+                font-size: 1.3rem;
+                outline: none;
+                border-radius: 40px;
+                transition: all .5s;
+                font-family: $secondary-font;
+                font-weight: 600;
+            }
+            input:hover {
+                background-color: rgb(255, 254, 215);
+            }
+            input[type="text"]:focus {
+                background-color: rgb(203, 253, 255);
+                width: 500px;
+            }
+            button {
+                border-radius:100px;
+                border: none;
+                width: 3rem;
+                height: 3rem;
+                margin-left: -4rem;
+                color: $l-color-1;
+                background-color: rgb(148, 148, 148);
+                transition: .5s;
+            }
+            button:hover{
+                background-color: #c9c89ca2;
+            }
+        }  
+    }
+}
+
+//Bigger screens
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    footer {
+        background-color: $l-color-2;
+        //text-align: center;
+        width: 100%;
+        // position: fixed;
+        // bottom: 0;
+        .list-footer {
+            transition: 1s;
+            padding: 3.5rem 2rem;
+            input[type="text"] {
+                position: inherit;
+                width: 450px;
+                padding: 1rem 1.5rem;
+                font-size: 1.3rem;
+                outline: none;
+                border-radius: 40px;
+                transition: all .5s;
+                font-family: $secondary-font;
+                font-weight: 600;
+            }
+            input:hover {
+                background-color: rgb(255, 254, 215);
+            }
+            input[type="text"]:focus {
+                background-color: rgb(203, 253, 255);
+                width: 500px;
+            }
+            button {
+                border-radius:100px;
+                border: none;
+                width: 3rem;
+                height: 3rem;
+                margin-left: -4rem;
+                color: $l-color-1;
+                background-color: rgb(148, 148, 148);
+                transition: .5s;
+            }
+            button:hover{
+                background-color: #c9c89ca2;
+            }
+        }
+        
+    }
+}
+
+
