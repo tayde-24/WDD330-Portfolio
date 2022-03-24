@@ -1,9 +1,10 @@
+import { writeToLS, readFromLS } from "./localStorage";
 
 const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
 const forecastUrl= "https://api.openweathermap.org/data/2.5/forecast";
 //?q={city}&apiKey={key}&units=imperial
-const key = "898f2ddbf4eac9fea85f9525f87370a8";
 
+let savedCities = [];
 
 export function getInfo() {
     const search = document.getElementById("searchingCity").value;
