@@ -1,50 +1,144 @@
 ul {
     //display: flex;
+    transition: flex-wrap 1s;
     li {
         display: grid;
-        grid-template-columns: 2fr 1fr 1.5fr;
+        grid-template-columns: 2fr 1fr 1.5fr 1fr;
         grid-column-gap: 20px;
         font-family: $primary-font;
         font-size: 2.5rem;
         background-color: $d-color-3;
         margin-bottom: 1.5rem;
-        padding: .5rem 2rem;
+        padding: 1rem 2rem;
         border-radius: 20px;
+        box-shadow: 3px 3px 10px gray;
     }
 }
 
 @media (min-width:751px) {
-    // main {
-    //     display: grid;
-    //     grid-gap: 20px 0;
-    //     grid-template-columns: 20px 1fr 20px;
-    //     align-content: start;
-    // }
-
-    // main > .full {
-    //     grid-column: 1/-1;
-    // }
+    
 
     ul {
-        display: flex;
-        overflow-x:auto;
-        white-space: nowrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        //grid-gap: 5px;
+        //overflow-x:auto;
+        //white-space: nowrap;
         //box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
         li {
-            display: inline;
+            display: grid;
+            grid-template-columns: 1fr;
             margin-right: 1rem;
-            flex:0 0 auto;
+            text-align: center;
+            //padding-bottom: 2rem;
+            padding-top: 2rem;
+            button {
+                width: 2.5rem;
+                height: 2.5rem;
+                border: none;
+                display: table;
+                border-radius: 30px;
+                margin-left: auto ;
+                margin-top: -1.3rem;
+                background-color: transparent;
+                //background-color: white;
+            }
+            .delete {
+                border: none;
+                background-image: url("images-icons/icons8-cancel-48.svg");
+                width: 2.5rem;
+                height: 2.5rem;
+                background-size: contain;
+                display: inline-block;
+                margin-left:-.4rem;
+                transition: .5s;
+               // margin-top: -1.3rem;
+            }
+            .delete:hover {
+                transform: rotate(90deg);
+                background-image: url("images-icons/icons8-cancel-48r.svg");
+            }
         }
-    } 
+        li span:nth-child(1) {
+            order:4;
+        }
+        li span:nth-child(2) {
+            order: 3;
+            img {
+                width: 6.5rem;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        li span:nth-child(3) {
+            order:2;
+            font-size: 4rem;
+        }
+        li span:nth-child(4) {
+            order:1;
+        }
+    }
 }
 ul::-webkit-scrollbar {
     display: none;
 }
 //Bigger screens
 @media 
-only screen and (max-width: 760px),
+only screen and (max-width: 751.10px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
     
+    ul {
+        li {
+           font-size: 2.5rem;
+            margin-right: 0;
+            display: grid;
+            grid-template-columns: 4fr 1fr 1fr 1fr;
+            padding-top: 1.5rem;
+            span{
+                margin-bottom: -1rem;
+            }
+            span img {
+                width: 5.5rem;
+                margin-top: -.2rem;
+            }
+            button {
+                width: 2.5rem;
+                height: 2.5rem;
+                border: none;
+                display: table;
+                border-radius: 30px;
+                //margin-left: auto ;
+                margin-top: .6rem;
+                background-color: transparent;
+                //background-color: white;
+            }
+            .delete {
+                border: none;
+                background-image: url("images-icons/icons8-cancel-48.svg");
+                width: 2.5rem;
+                height: 2.5rem;
+                background-size: contain;
+                display: inline-block;
+                margin-left:-.4rem;
+                transition: .5s;
+               // margin-top: -1.3rem;
+            }
+            .delete:hover { 
+                transform: rotate(90deg);
+                background-image: url("images-icons/icons8-cancel-48r.svg");
+            }
+        }
+        .item {
+            padding-bottom: 0;
+        }
+    } 
 }
+
+// @media screen and (min-width:852px) {
+//     ul {
+//         display: flex;
+//         flex-wrap: wrap;
+//     }
+// }
 
 

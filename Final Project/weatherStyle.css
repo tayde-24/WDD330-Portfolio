@@ -1,34 +1,123 @@
 @import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&family=Hanuman:wght@100;300;400;700;900&family=Livvic:wght@100;300;400;500;600;700;900&family=Manjari:wght@100;400;700&family=Mukta:wght@200;300;400;500;600;700;800&family=NTR&family=Secular+One&family=Titillium+Web:wght@200;300;400;600;700&display=swap");
 /*Heading: Mukta, Secular One, Livvic, Bakbak One
 Regular paragraph: Titillium Web, Barlow, NTR, Hanuman, Manjari */
+ul {
+  transition: flex-wrap 1s;
+}
 ul li {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr;
   grid-column-gap: 20px;
   font-family: "NTR";
   font-size: 2.5rem;
   background-color: white;
   margin-bottom: 1.5rem;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   border-radius: 20px;
+  box-shadow: 3px 3px 10px gray;
 }
 
 @media (min-width: 751px) {
   ul {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
   ul li {
-    display: inline;
+    display: grid;
+    grid-template-columns: 1fr;
     margin-right: 1rem;
-    flex: 0 0 auto;
+    text-align: center;
+    padding-top: 2rem;
+  }
+  ul li button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    display: table;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-top: -1.3rem;
+    background-color: transparent;
+  }
+  ul li .delete {
+    border: none;
+    background-image: url("images-icons/icons8-cancel-48.svg");
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: contain;
+    display: inline-block;
+    margin-left: -0.4rem;
+    transition: 0.5s;
+  }
+  ul li .delete:hover {
+    transform: rotate(90deg);
+    background-image: url("images-icons/icons8-cancel-48r.svg");
+  }
+  ul li span:nth-child(1) {
+    order: 4;
+  }
+  ul li span:nth-child(2) {
+    order: 3;
+  }
+  ul li span:nth-child(2) img {
+    width: 6.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+  ul li span:nth-child(3) {
+    order: 2;
+    font-size: 4rem;
+  }
+  ul li span:nth-child(4) {
+    order: 1;
   }
 }
 ul::-webkit-scrollbar {
   display: none;
 }
 
+@media only screen and (max-width: 751.1px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  ul li {
+    font-size: 2.5rem;
+    margin-right: 0;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr;
+    padding-top: 1.5rem;
+  }
+  ul li span {
+    margin-bottom: -1rem;
+  }
+  ul li span img {
+    width: 5.5rem;
+    margin-top: -0.2rem;
+  }
+  ul li button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    display: table;
+    border-radius: 30px;
+    margin-top: 0.6rem;
+    background-color: transparent;
+  }
+  ul li .delete {
+    border: none;
+    background-image: url("images-icons/icons8-cancel-48.svg");
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: contain;
+    display: inline-block;
+    margin-left: -0.4rem;
+    transition: 0.5s;
+  }
+  ul li .delete:hover {
+    transform: rotate(90deg);
+    background-image: url("images-icons/icons8-cancel-48r.svg");
+  }
+  ul .item {
+    padding-bottom: 0;
+  }
+}
 html,
 body,
 div,
@@ -162,17 +251,45 @@ table {
 
 body {
   margin: auto 0;
-  background: linear-gradient(to bottom, #F1F0EA, rgba(206, 206, 206, 0.664));
+  background-color: #F1F0EA;
+}
+
+nav {
+  background-color: skyblue;
+  padding: 1.5rem 4rem;
+  box-shadow: 0 7px 8px -2px rgba(206, 206, 206, 0.705);
+  transition: padding 1s;
+}
+nav .today-date {
+  font-family: "Titillium Web";
+  font-size: 2.8rem;
+  color: white;
+  font-weight: 600;
+}
+nav .metrics {
+  padding: 0.5rem 0.7rem;
+  margin-left: auto;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: orange;
+  font-family: "NTR";
+  font-size: 1.1rem;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 7px #517d8f;
 }
 
 header {
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 0;
 }
 header h1 {
   color: orange;
   font-family: "Secular one";
   font-size: 3.5rem;
   font-weight: 500;
+  margin-bottom: 2rem;
 }
 header p {
   font-size: 1.5rem;
@@ -180,11 +297,17 @@ header p {
 }
 
 main {
-  margin: 0 2rem 4rem 2rem;
+  margin: 0 4rem 15rem 4rem;
+  padding-top: 2rem;
+  transition: margin 1s;
 }
 main p {
   font-size: 1.5rem;
   font-family: "NTR";
+}
+
+footer input[type=text] {
+  transition: width 0.5s;
 }
 
 .search {
@@ -197,7 +320,19 @@ main p {
 }
 
 @media (min-width: 751px) {
+  nav {
+    display: grid;
+    grid-template-columns: 2fr auto auto;
+  }
+  nav .next {
+    display: flex;
+  }
+  nav .btn-left {
+    margin-right: 1rem;
+  }
+
   footer {
+    box-shadow: 0 -7px 8px -2px rgba(182, 182, 182, 0.705);
     background-color: orange;
     text-align: center;
     width: 100%;
@@ -237,18 +372,52 @@ main p {
     background-color: #c9c89ca2;
   }
 }
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (max-width: 751.1px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  nav .today-date {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  nav .metrics {
+    display: table;
+    margin: 0 auto;
+  }
+  nav .next {
+    display: flex;
+    margin-left: 4.5rem;
+    margin-right: 4.5rem;
+  }
+  nav .btn-left {
+    margin-right: 0;
+  }
+
+  main {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  main header {
+    text-align: center;
+  }
+
   footer {
+    box-shadow: 0 -7px 8px -2px rgba(206, 206, 206, 0.705);
     background-color: orange;
+    text-align: center;
     width: 100%;
   }
   footer .list-footer {
     transition: 1s;
-    padding: 3.5rem 2rem;
+    padding: 3.5rem 1rem;
   }
   footer .list-footer input[type=text] {
     position: inherit;
-    width: 450px;
+    width: 400px;
     padding: 1rem 1.5rem;
     font-size: 1.3rem;
     outline: none;
@@ -262,7 +431,7 @@ main p {
   }
   footer .list-footer input[type=text]:focus {
     background-color: #cbfdff;
-    width: 500px;
+    width: 450px;
   }
   footer .list-footer button {
     border-radius: 100px;
@@ -276,6 +445,17 @@ main p {
   }
   footer .list-footer button:hover {
     background-color: #c9c89ca2;
+  }
+}
+@media screen and (max-width: 1100px) {
+  nav {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  main {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
 }
 

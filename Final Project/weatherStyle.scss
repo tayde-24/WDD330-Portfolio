@@ -132,17 +132,45 @@ table {
 
 body {
     margin: auto 0;
-    //background-color: $l-color-1;
-    background: linear-gradient(to bottom, $l-color-1, rgba(206, 206, 206, 0.664));
+    background-color: $l-color-1;
+    //background: linear-gradient(180deg, $l-color-1, rgba(206, 206, 206, 0.664)) repeat-y bottom;
+}
+
+nav {
+    background-color: $l-color-3;
+    padding: 1.5rem 4rem;
+    box-shadow: 0 7px 8px -2px rgba(206, 206, 206, 0.705);
+    transition: padding 1s;
+    .today-date {
+        font-family: $secondary-font;
+        font-size: 2.8rem;
+        color: $l-color-4;
+        font-weight: 600;
+    }
+    .metrics {
+        padding: .5rem .7rem;
+        margin-left:auto;
+        color: $l-color-4;
+        font-weight: 600;
+        text-transform: uppercase;
+        background-color: $l-color-2;
+        font-family: $primary-font;
+        font-size: 1.1rem;
+        outline: none;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 2px 2px 7px rgb(81, 125, 143);
+    }
 }
 
 header {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 0;
     h1 {
         color: $l-color-2;
         font-family: $header;
         font-size: 3.5rem;
         font-weight: 500;
+        margin-bottom: 2rem;
     }
     p {
         font-size: 1.5rem;
@@ -151,10 +179,18 @@ header {
 }
 
 main {
-    margin: 0 2rem 4rem 2rem;
+    margin: 0 4rem 15rem 4rem;
+    padding-top: 2rem;
+    transition: margin 1s;
     p {
         font-size: 1.5rem;
         font-family: $primary-font;
+    }
+}
+
+footer {
+    input[type="text"] {
+        transition: width .5s;
     }
 }
 
@@ -210,14 +246,25 @@ main {
     text-align: center;
 }
 
-//Smaller Screens
+//Smaller Screens/ bigger
 @media (min-width:751px) {
+    nav {
+        display: grid;
+        grid-template-columns: 2fr auto auto;
+        .next {
+            display: flex;
+        }
+        .btn-left {
+            margin-right: 1rem;
+        }
+    }
     footer {
+        box-shadow: 0 -7px 8px -2px rgba(182, 182, 182, 0.705);
         background-color: $l-color-2;
         text-align: center;
         width: 100%;
-        // position: fixed;
-        // bottom: 0;
+        //  position: fixed;
+        //  bottom: 0;
         .list-footer {
             padding: 3.5rem 2rem;
             
@@ -256,22 +303,57 @@ main {
     }
 }
 
-//Bigger screens
+//Bigger screens/smaller
 @media 
-only screen and (max-width: 760px),
+only screen and (max-width: 751.10px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        .today-date {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .metrics {
+            display: table;
+            margin: 0 auto;
+        }
+        .next {
+            display: flex;
+            margin-left: 4.5rem;
+            margin-right: 4.5rem;
+        }
+        .btn-left {
+            margin-right: 0;
+        }
+        
+    }
+
+    main {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        header {
+            text-align: center;
+        }
+    }
+    
     footer {
+        box-shadow: 0 -7px 8px -2px rgba(206, 206, 206, 0.705);
         background-color: $l-color-2;
-        //text-align: center;
+        text-align: center;
         width: 100%;
-        // position: fixed;
-        // bottom: 0;
+        //  position: fixed;
+        //  bottom: 0;
         .list-footer {
             transition: 1s;
-            padding: 3.5rem 2rem;
+            padding: 3.5rem 1rem;
             input[type="text"] {
                 position: inherit;
-                width: 450px;
+                width: 400px;
                 padding: 1rem 1.5rem;
                 font-size: 1.3rem;
                 outline: none;
@@ -285,7 +367,7 @@ only screen and (max-width: 760px),
             }
             input[type="text"]:focus {
                 background-color: rgb(203, 253, 255);
-                width: 500px;
+                width: 450px;
             }
             button {
                 border-radius:100px;
@@ -302,6 +384,17 @@ only screen and (max-width: 760px),
             }
         }
         
+    }
+}
+
+@media screen and (max-width:1100px) {
+    nav {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    main {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
     }
 }
 

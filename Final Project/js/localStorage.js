@@ -1,3 +1,4 @@
+import { cityWeather } from "./weatherApp.js";
 //saves
 export function writeToLS() {
     localStorage.setItem("cityList", JSON.stringify(cityWeather)); //sets data into memory

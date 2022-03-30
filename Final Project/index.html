@@ -8,24 +8,27 @@
   </head>
   <body>
 
-    <!-- <nav>
-      
-    </nav> -->
-
-    <header>
-      <h1>Weather</h1>
-      <p>Something here</p>
-    </header>
+    <nav>
+      <div class="today-date" id="today-date"></div>
+      <div class="next"><button class="metrics btn-left l-btn" id="metric">Metric: &#176;C</button><button class="metrics btn-right l-btn" id="imperial">Imperial: &#176;F</button></div>
+    </nav>
 
     <main>
+      <header>
+        <h1>Weather</h1>
+        <span class="error" id="error"></span>
+      </header>
       <!-- <p>Something here</p> -->
-      <span class="error"></span>
+      <!-- <a target="_blank" href="https://icons8.com/icon/83143/cancel">Cancel</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+      <!-- <a target="_blank" href="https://icons8.com/icon/83143/cancel">Cancel</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+      <!-- <a target="_blank" href="https://icons8.com/icon/83143/cancel">Cancel</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
       <ul id="weatherList hs full">
-        <li class="item">Helo <span>hello</span><span>90deg</span></li><button>Delete</button>
-        <li class="item">Helo <span>hello</span><span>90deg</span></li><button>Delete</button>
-        <li class="item">Helo <span>hello</span><span>90deg</span></li><button>Delete</button>
-        <li class="item">Helo <span>hello</span><span>90deg</span></li><button>Delete</button>
+        <li class="item"><span class="spacing">Oxnard</span><span><image src="http://openweathermap.org/img/w/10n.png"></span><span class="block">12&#176;C</span><button src=""><span class="delete"><span></button></li>
+        <li class="item"><span class="spacing">Camarillo</span><span><image src="http://openweathermap.org/img/w/01n.png"></span><span class="block">13&#176;C</span><button src=""><span class="delete"><span></button></li>
+        <li class="item"><span class="spacing">Salt Lake</span><span><image src="http://openweathermap.org/img/w/04n.png"></span><span class="block">0&#176;C</span><button src=""><span class="delete"><span></button></li>
+        <li class="item"><span class="spacing">Chicago</span><span><image src="http://openweathermap.org/img/w/11n.png"></span><span class="block">-12&#176;C</span><button src=""><span class="delete"><span></button></li>
       </ul>
+
     </main>
 
     <footer>
