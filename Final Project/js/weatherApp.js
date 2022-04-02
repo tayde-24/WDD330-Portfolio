@@ -1,13 +1,13 @@
 import { writeToLS, readFromLS } from "./localStorage.js";
-import { getInfo, getInfoForecast } from "./getJson.js";
+import { getInfo, getInfoCurrent, getInfoForecast } from "./getJson.js";
 import { blank, makeBlank } from "./utilities.js";
 
-const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
-const forecastUrl= "https://api.openweathermap.org/data/2.5/forecast";
-//?q={city}&apiKey={key}&units=imperial
+// const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
+// const forecastUrl= "https://api.openweathermap.org/data/2.5/forecast";
 
-const metric = document.getElementById("metric");
-const imperial = document.getElementById("imperial");
+// const metric = document.getElementById("metric");
+// const imperial = document.getElementById("imperial");
+
 export let cityWeather = [];
 
 // export function addCity() {
@@ -61,10 +61,12 @@ export class ForecastWeather {
     getForecast() {
         let c = new City;
         this.name = c.cityName();
-        const baseUrl = "https://api.openweathermap.org/data/2.5/forecast";
-        let url = baseUrl + `?q=${this.name}&cnt=7&apiKey=${key}&units=imperial`;
+        //const baseUrl = "https://api.openweathermap.org/data/2.5/forecast";
+        const baseUrl = "https://api.openweathermap.org/data/2.5/weather";
+        let url = baseUrl + `?q=${this.name}&apiKey=${key}&units=imperial`;
         //blank(); 
-        let weather = new getInfo(url);
+        let forecast = new getInfoForecast(url);
+        // let weather = new getInfoCurrent(url);
 
         // metric.addEventListener("click", function() {
         //     let c = new City;
@@ -78,7 +80,7 @@ export class ForecastWeather {
         // })
 
         //const search = document.getElementById("searchingCity").value;
-        console.log(weather);
+        console.log(forecast);
     }
 }
 

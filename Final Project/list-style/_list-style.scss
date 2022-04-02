@@ -1,10 +1,9 @@
-ul {
+.weatherList {
     //display: flex;
     transition: flex-wrap 1s;
     li {
         display: grid;
         grid-template-columns: 2fr 1fr 1.5fr 1fr;
-        grid-column-gap: 20px;
         font-family: $primary-font;
         font-size: 2.5rem;
         background-color: $d-color-3;
@@ -18,7 +17,7 @@ ul {
 @media (min-width:751px) {
     
 
-    ul {
+    .weatherList {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         //grid-gap: 5px;
@@ -33,24 +32,24 @@ ul {
             //padding-bottom: 2rem;
             padding-top: 2rem;
             button {
-                width: 2.5rem;
-                height: 2.5rem;
+                width: 2rem;
+                height: 2rem;
                 border: none;
                 display: table;
                 border-radius: 30px;
                 margin-left: auto ;
-                margin-top: -1.3rem;
+                margin-top: -1.7rem;
                 background-color: transparent;
                 //background-color: white;
             }
             .delete {
                 border: none;
                 background-image: url("images-icons/icons8-cancel-48.svg");
-                width: 2.5rem;
-                height: 2.5rem;
+                width: 2rem;
+                height: 2rem;
                 background-size: contain;
                 display: inline-block;
-                margin-left:-.4rem;
+                margin-left:1rem;
                 transition: .5s;
                // margin-top: -1.3rem;
             }
@@ -60,26 +59,39 @@ ul {
             }
         }
         li span:nth-child(1) {
-            order:4;
+            order:5;
         }
         li span:nth-child(2) {
-            order: 3;
+            order: 4;
             img {
-                width: 6.5rem;
-                max-width: 100%;
-                height: auto;
+                //width: 6.5rem;
+                //max-width: 100%;
+                //height: auto;
+                background-color:rgba(109, 121, 128, 0.432);
+                border-radius: 60px;
             }
         }
         li span:nth-child(3) {
             order:2;
-            font-size: 4rem;
+            font-size: 5rem;
+            margin-top: -3rem;
         }
         li span:nth-child(4) {
             order:1;
         }
+        li span:nth-child(5) {
+            order: 3;
+            margin-top: -3rem;
+        }
+        .small-font {
+            font-size: 1.3rem;
+        }
+        span {
+            white-space: nowrap;
+        }
     }
 }
-ul::-webkit-scrollbar {
+.weatherList::-webkit-scrollbar {
     display: none;
 }
 //Bigger screens
@@ -87,19 +99,26 @@ ul::-webkit-scrollbar {
 only screen and (max-width: 751.10px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
     
-    ul {
+    .weatherList {
         li {
            font-size: 2.5rem;
             margin-right: 0;
             display: grid;
             grid-template-columns: 4fr 1fr 1fr 1fr;
+            grid-column-gap: 20px;
+            //grid-template-rows: .5fr .5fr;
+            grid-row-gap: -40px;
             padding-top: 1.5rem;
+            //padding-bottom: 1.5rem;
             span{
                 margin-bottom: -1rem;
+                white-space: nowrap;
             }
             span img {
                 width: 5.5rem;
                 margin-top: -.2rem;
+                background-color:rgba(109, 121, 128, 0.432);
+                border-radius: 60px;
             }
             button {
                 width: 2.5rem;
@@ -129,16 +148,21 @@ only screen and (max-width: 751.10px),
             }
         }
         .item {
-            padding-bottom: 0;
+            padding-bottom: 32px;
+        }
+        .small-font {
+            font-size: 1.2rem;
+            margin-top: -2.5rem;
         }
     } 
 }
 
-// @media screen and (min-width:852px) {
-//     ul {
-//         display: flex;
-//         flex-wrap: wrap;
-//     }
-// }
+@media screen and (max-width:980px) {
+    .weatherList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+//make smaller screen versions
 
 
