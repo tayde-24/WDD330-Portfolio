@@ -1,9 +1,14 @@
 //import { getInfo } from "./weatherApp.js";
+import * as toMemory from "./localStorage.js";
+import { displayCities } from "./render.js";
 import { CurrentWeather, ForecastWeather } from "./weatherApp.js";
+import { cityWeather } from "./weatherApp.js";
+
 
 export function Errors() {
     //document.querySelector(".error").classList.add("markError");
-    document.querySelector(".error").setAttribute("style", "padding:1rem 3rem;background-color:red;color:white;font-family:'Titillium Web';font-weight:600;text-transform:uppercase;");
+    document.getElementById("searchingCity").value = "";
+    document.querySelector(".error").setAttribute("style", "padding:1rem 3rem;background-color:red;color:white;font-family:'Titillium Web';font-weight:600;text-transform:uppercase;width:25rem;display:table;margin-left:auto;margin-right:auto;");
     //document.querySelector(".markError").setAttribute("style", "padding:1rem 3rem;background-color:red;color:white;");
     //document.getElementById("searchingCity").setAttribute("focus", "background-color:red;");
 }
@@ -30,7 +35,8 @@ function showDate() {
     var d = today.getDate();
 
     date.innerHTML = `${day}, ${month} ${d}`;
-    console.log(`${day}, ${month} ${d}`);
+    //console.log(`${day}, ${month} ${d}`);
+    return date;
 }
 
 //Make sure to put this in a function.
@@ -125,11 +131,116 @@ export function readableDate(date, offset) {
     day = days[day.getDay()];
     return day;
 }
-showDate();
 
+function loadTime() {
+    
+        showDate();
+        var today = new Date();
+        var hours = today.getHours();
+        var minutes =today.getMinutes();
+        var sec = today.getSeconds();
+
+        var amPM = "am";
+        if(hours > 12) {
+            amPM = "pm";
+            hours = hours -12;
+        }
+        if( minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (sec < 10) {
+            sec = "0" + sec;
+        }
+        var time = hours + ":" + minutes + " : " + sec + " " + amPM;
+        //console.log(time);
+        //console.log(showDate());
+        setTimeout(function(){loadWindow()}, 1000);
+        document.getElementById("time").innerHTML = time;
+        document.getElementById("time").classList.add("hide");
+        document.querySelector(".hide").setAttribute("style", "display:none;")
+
+    // let arrayItems = memory.readFromLS('todoList');
+    // if(arrayItems === null) {
+    //     arrayItems = [];
+    //  }
+    // console.log(arrayItems);
+    // displayItems(arrayItems);
+    //renderList(arrayItems);
+}
+
+export function loadWindow() {
+//     window.addEventListener("DOMContentLoaded", () => {
+//     let arrayItems = toMemory.readFromLS('cityList');
+//     // if(arrayItems === null) {
+//     //     arrayItems = [];
+//     //  }
+//     console.log(arrayItems);
+//     return arrayItems === null ? []:arrayItems;
+    
+//     //displayItems(arrayItems);
+//     //renderList(arrayItems);
+// });
+let n = new CurrentWeather();
+let arrays = toMemory.readFromLS("cityList");
+n.getI(arrays);
+}
+
+loadTime();
+loadWindow();
+// let deleteB = document.getElementById("delete");
+// deleteB.addEventListener("click", () => {
+//     deleteItems();
+// })
+
+// function deleteItems() {
+
+// }
+// let arrays = toMemory.readFromLS("cityList");
+// n.getI(arrays);
+
+
+
+
+/*------------------------------------------------------------------------
+Note to teacher:
+So, the one I'm having trouble at the moment is having the add button save
+the info. For now, what I'm doing is that at the beggining of the app,
+when the user types the city name, it renders the information of 
+current, hourly, and daily.
+
+Under the forecast, there's a disabled input with the value set to the city 
+name and an animated button. What I was trying to do was save the value of 
+the disabled input after pressing the button, but after doing so, I checked 
+localStorage and it wasn't saving anything. I'm not sure why that is. If you'd like
+to take a look, uncomment lines 179-188 in the render.js file.
+
+Anyways, because that didn't work, I made the "getInfoForecast" do the saving
+there and it worked. But, I really want the "add button" to work, so I need some
+help with that part. 
+
+Also, I keep getting two bugs that I don't know how to resolve.
+
+One: When clicking on the metric button for the full forecast part, some of the 
+daily forecast don't change into metrics like I want them to. This is found
+in @render.js file in lines 165-170.
+
+Second: I keep having issues with localStorage. It seems to overwrite the cities
+after inputing a new city each time I refresh it (same issue I had with the Todo List
+assignment). The localStorage.js file should be fine. I'm not sure where the problem
+is occuring for this one.
+
+For now, I'm working on the first part where I'm inputing the cities in the first
+part so I can try to figure out how to get them to show up in the list and then
+get the delete button to work. The ones you'll see when you open the page are just 
+placeholders for now. 
+
+--------------------------------------------------------------------------*/
 const btn = document.getElementById("searchCity");
 let n = new CurrentWeather();
-let f = new ForecastWeather();
 //btn.addEventListener("click", n.getCurrentWeather);
+
+let f = new ForecastWeather();
 btn.addEventListener("click", f.getForecast);
+
+
 
