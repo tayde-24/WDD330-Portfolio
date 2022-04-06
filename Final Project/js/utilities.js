@@ -195,7 +195,9 @@ in @render.js file in lines 178-183.
 Second: I keep having issues with localStorage. It seems to overwrite the cities
 after inputing a new city each time I refresh it (same issue I had with the Todo List
 assignment). The localStorage.js file should be fine. I'm not sure where the problem
-is occuring for this one.
+is occuring for this one. I'm also having issues with the delete button for the first part.
+It does seem to erase from the local storage, but the render doesn't go away. It also doensn't
+seem to get the button id for it either, so it's getting the wrong item.
 
 For now, I'm working on the first part where I'm inputing the cities in the first
 part so I can try to figure out how to get them to show up in the list and then
