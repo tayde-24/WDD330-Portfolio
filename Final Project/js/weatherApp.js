@@ -36,16 +36,27 @@ export class CurrentWeather {
         //It seemed to store Oxnard three times, but then when I add another city
         //and refresh it, Oxnard remains but not the other cities
         //not sure why that is
-        let ul = document.getElementById("listss");
         const baseUrl = "https://api.openweathermap.org/data/2.5/weather";
-        var units = `imperial`;
-        const item = c.map(newTask => baseUrl + `?q=${newTask.city}&cnt=7&apiKey=${key}&units=${units}`);
+        //var units = `imperial`;
+        let item;
+        if(c === null) {
+            return;
+        } else {
+            item = c.map(newTask => baseUrl + `?q=${newTask.city}&cnt=7&apiKey=${key}&units=imperial`);
+            console.log("Check if it went through");
+        }
+        //item = c.map(newTask => baseUrl + `?q=${newTask.city}&cnt=7&apiKey=${key}&units=imperial`);
         let weather = new getInfo(item);
         //const item = c.map(newTask => `<li>${newTask.city}</li>`);
-
-        console.log(item);
+        
+        //console.log(item);
         //ul.innerHTML = item;
         //return item;
+    }
+    deleteI(c) {
+        const index = c.findIndex(name => name.city === c.city);
+        console.log(index);
+        //c.splice(index, 1);
     }
 }
 

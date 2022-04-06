@@ -15,7 +15,32 @@ Regular paragraph: Titillium Web, Barlow, NTR, Hanuman, Manjari */
   border-radius: 20px;
   box-shadow: 3px 3px 10px gray;
 }
+.weatherList .big-font {
+  overflow: hidden;
+  background-color: white;
+  font-family: "Titillium Web";
+  font-size: 1.8rem;
+  padding: 2rem 3rem;
+  margin-right: 1rem;
+  grid-column: 1/2;
+  border-radius: 15px;
+  box-shadow: 0 5px 5px -2px gray;
+  animation: disappear 8s linear;
+}
 
+@keyframes disappear {
+  0% {
+    display: inline;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 @media (min-width: 751px) {
   .weatherList {
     display: grid;

@@ -29,15 +29,24 @@ export function getInfo(url) {
         }
     })
     .then (data => {
-        console.log(data);
-        displayCities(data); //Displays the list render on webpage
+        
+         //Displays the list render on webpage
+        /*Demonstration-----------------------
+        
         blank(); //Blanks out the input
         let newCity = {
             city: data.name,
             id : data.id
         }
         cityWeather.push(newCity);
+        readFromLS(cityWeather);
+        //displayCities(data);
         writeToLS(cityWeather);
+        //readFromLS(cityWeather);
+        ------------------------------------*/
+       
+        displayCities(data);
+        //loadWindow();
     })
     .catch(error => console.log(error))
 }
@@ -62,8 +71,7 @@ export function getInfoForecast(url) {
         document.querySelector(".error").innerHTML = "No numbers. Enter city name."
         Errors();
         return;
-    }
-     else {
+    } else {
         makeBlank(); //If the user inputs a city, the error message goes away along with it's styling
     }
     return fetch(url) //Fetches the information
@@ -96,13 +104,16 @@ export function getInfoForecast(url) {
                 }
             }).then(data => displayForecast(name, id, data)).catch(error => console.log("Something went wrong here.", error)); //Made it get the name, id, and the new data to get the render function to work
         //displayForecast(name, id, newF);
-        let newCity = {
-            city: name,
-            id : id
-        }
-        cityWeather.push(newCity);
-        writeToLS(cityWeather);
+        // let newCity = {
+        //     city: name,
+        //     id : id
+        // }
+        // cityWeather.push(newCity);
+        // writeToLS(cityWeather);
         console.log(newF);
+        document.querySelector(".original").classList.add("hidden-o");
+        document.querySelector(".hidden-o").setAttribute("style", "display:none;");
+        //displayCities(cityWeather);
         //return data.coord;
     })
     .catch(error => console.log(error));

@@ -12,18 +12,39 @@
         border-radius: 20px;
         box-shadow: 3px 3px 10px gray;
     }
+    .big-font {
+        overflow: hidden;
+        background-color: $l-color-4;
+        font-family: $secondary-font;
+        font-size: 1.8rem;
+        padding: 2rem 3rem;
+        margin-right: 1rem;
+        grid-column: 1/2;
+        border-radius: 15px;
+        box-shadow: 0 5px 5px -2px gray; 
+        animation: disappear 8s linear;
+    }  
+}
+
+@keyframes disappear {
+    0% {
+        display: inline;
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
 }
 
 @media (min-width:751px) {
     
-
     .weatherList {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        //grid-gap: 5px;
-        //overflow-x:auto;
-        //white-space: nowrap;
-        //box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
         li {
             display: grid;
             grid-template-columns: 1fr;
