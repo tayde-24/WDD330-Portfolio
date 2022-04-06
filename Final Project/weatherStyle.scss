@@ -161,6 +161,10 @@ nav {
         border-radius: 10px;
         border: none;
         box-shadow: 2px 2px 7px rgb(81, 125, 143);
+        transition: background-color .5s;
+    }
+    .metrics:hover {
+        background-color: rgba(180, 108, 20, 0.733);
     }
 }
 
@@ -301,10 +305,12 @@ footer {
                 margin-left: -4rem;
                 color: $l-color-1;
                 background-color: rgb(148, 148, 148);
+                //background-color: rgb(110, 191, 223);
                 transition: .5s;
             }
             button:hover{
-                background-color: #c9c89ca2;
+                //background-color: #c9c89ca2;
+                background-color: rgb(98, 142, 160);
             }
         }  
     }
