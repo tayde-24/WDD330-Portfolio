@@ -2,7 +2,7 @@ import { writeToLS, readFromLS } from "./localStorage.js";
 import { getInfo, getInfoForecast } from "./getJson.js";
 import { blank, makeBlank } from "./utilities.js";
 
-export const key = "898f2ddbf4eac9fea85f9525f87370a8";
+
 export let cityWeather = [];
 
 /*This class deals with the first part when the app opens*/
