@@ -21,22 +21,22 @@ export function displayCities(data) {
     let temper = Math.round(data.main.temp); //Gets current temperature
     let description = data.weather[0].description; //Gets description
     
-    /*No tampering for this code-----------------------------------------------------------------------------------
-     ----------------------------------------------------------------------------*/
+    /*No tampering for this code-------------------------------------------------------------------------
+    In the future, I want to fix this issue that's creating duplicates of each city.
+     ---------------------------------------------------------------------------------------------------*/
     let list = `<li class="item" id=city${id}><span class="spacing">
                 ${name}</span><span><image src="http://openweathermap.org/img/wn/${icon}@2x.png"></span>
                 <span class="f-c">${temper}&#176;F</span>
                 <button value=${id} id="btn${id}"><span class="delete"></span></button>
                 <span class="small-font">${(description).toUpperCase()}</span></li>`;  //HTML for li
     wholeList.innerHTML += list; //Adds inner HTML list in ul
-    //data = Array.from(data);
     
-    let dBtn = document.getElementById(`btn${id}`);
-    dBtn.addEventListener("click", () => {deleteI(id)});
-    // let dBtn = document.createElement("button");
-    // dBtn.value = `${id}`;
-    // dBtn.id = `btn${id}`;
-    // dBtn.innerHTML = "<span class='delete'></span>";
+
+    cityWeather.forEach(li => {
+        console.log(li);
+        let dBtn = document.getElementById(`btn${li.id}`);
+        dBtn.addEventListener("click", () => {deleteI(li.id)});
+    })
     
     //Event listener for metric button
     metric.addEventListener("click", function() {
@@ -71,11 +71,13 @@ export function displayCities(data) {
 
 function deleteI(key) {
     let p = cityWeather.findIndex(item => item.id === key);
-    console.log(p);
+    console.log(p, key);
     cityWeather.splice(p, 1);
     toMemory.writeToLS(cityWeather);
-    const aBtn = document.getElementById("addCity");
-    aBtn.classList.remove("stop");
+    // const aBtn = document.getElementById("addCity");
+    // aBtn.classList.remove("stop");
+    // let n = new CurrentWeather();
+    // n.getI(cityWeather);
     displayCities(cityWeather);
     loadWindow();
 }
@@ -128,16 +130,40 @@ export function displayForecast(name, id, data) {
                 </div>
             </div>
 
-        </div>
-        <div class="centered">
+        </div>`
+
+    try {
+        if(data.alerts[0]) {
+       tForecast += `<button type="button" class="collapse">Alerts</button>
+                    <div class="content">
+                    ${data.alerts[0].event}: <span>${data.alerts[0].description}</span>
+                </div>`;
+        //console.log(i);
+    }
+    }
+    catch(err) {
+        
+        console.log("No alerts today", err);
+    } 
+    finally {
+        if(undefined){
+        tForecast += ` <button type="button" class="collapse">Alerts</button>
+                    <div class="content">
+                    <span>No alerts today<span>
+                    </div>`;
+                }
+        console.log(`I was here.`)
+    }
+
+    tForecast+= ` <div class="centered">
     <div><input type="text" id="cName" value="${name}" class="cName" disabled><div>
          <button id="addCity">Add City</button>
      </div>
 
     <div><span class="error" id="error"></span></div>
     </li>
-    </ul>`; //Added the last bits of the forecast and added the "Add City" button (Check lines 209-214 for note)
-    //Put it all together in main
+    </ul>`;
+
     main.innerHTML = `<ul id="weather-forecast" class="weather-forecast">
              <li class="forecast">
              <button class="go-back" id="goBack">&#8592; Go Back</button>
@@ -247,8 +273,45 @@ export function displayForecast(name, id, data) {
         let n = new CurrentWeather()
         n.getI(cityWeather);
         //displayCities(cityWeather);
+        //displayCities(n);
         loadWindow();
     })
+
+    try{
+        if(data.alerts[0]){
+        const coll = document.querySelector(".collapse");
+        coll.addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if(content.style.display === "grid") {
+            content.style.display = "none";
+            coll.style.borderRadius = "10px";
+        } else {
+            content.style.display = "grid";
+            coll.style.borderRadius = "10px 10px 0 0";
+        }
+        })
+    }
+    } catch(err) {
+        console.log("Alert is not here");
+    } 
+    finally {
+        if(undefined) {
+        const coll = document.querySelector(".collapse");
+        coll.addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if(content.style.display === "grid") {
+            content.style.display = "none";
+            coll.style.borderRadius = "10px";
+            content.innerText = "no alerts";
+        } else {
+            content.style.display = "grid";
+            coll.style.borderRadius = "10px 10px 0 0";
+        }
+        })
+    }
+    }
 
     blank();
     scrollers(); //This function from utilities.js helps with the scroller event listener

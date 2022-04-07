@@ -183,20 +183,16 @@ export function loadWindow() {
     if(cityWeather === null) {
         cityWeather = [];
      }
-    //console.log(arrayItems);
-    let n = new CurrentWeather();
-    n.getI(cityWeather);
-    //return cityWeather === null ? []:cityWeather;
     
-    
-    
-    //let cityWeather = toMemory.readFromLS("cityList");
-    
+    // let n = new CurrentWeather();
+     n.getI(cityWeather);
+    //displayCities(cityWeather)
 });
 // let n = new CurrentWeather();
 // n.getI(cityWeather);
     //displayCities(cityWeather);
 }
+
 
 setTimeout(() => {
     document.querySelector(".big-font").classList.add("hide-i");
@@ -231,7 +227,4 @@ let n = new CurrentWeather();
 
 let f = new ForecastWeather();
 btn.addEventListener("click", f.getForecast);
-
-/* if(favorites.some(f => f.data[0].nasa_id === id))
-*/
 

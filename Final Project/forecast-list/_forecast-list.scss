@@ -283,6 +283,53 @@
     }
 }
 
+.collapse {
+    margin-top:2rem;
+    width: 100%;
+    font-family: $secondary-font;
+    font-size: x-large;
+    font-weight: 800;
+    color: $l-color-4;
+    padding: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #777;
+    text-align: left;
+    transition: background-color .5s;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px -3px gray;
+}
+.active, .collapse:hover {
+    background-color: #555;
+    transition: all .2s;
+}
+.active{
+    box-shadow: none;
+}
+
+.content {
+    padding: 0 .5rem;
+    overflow: hidden;
+    background-color: $l-color-4;
+    font-family: $primary-font;
+    display: grid;
+    grid-template-columns: .1fr 1fr;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: 0 5px 5px -4px gray;
+    display: none;
+    transition: all .5s;
+    border-radius: 0 0 10px 10px;  
+    span {
+        border-left: 2px solid rgba(0, 0, 0, 0.548);
+        padding-left: .5rem;
+        //font-weight: 500;
+        color: red;
+    }   
+}
+
+
 //Make note of this
 main {
     margin-bottom: 5rem;

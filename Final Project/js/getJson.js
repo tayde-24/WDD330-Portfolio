@@ -11,15 +11,6 @@ list of cities in the beginning.
 -----------------------------------------------------------------------------------*/
 
 export function getInfo(url) {
-    //Checks to see if value is missing, otherwise the error message remains blank
-    // if(document.getElementById("searchingCity").value === "") {
-    //     document.querySelector(".error").innerHTML = "Enter city name."
-    //     Errors();
-    //     return;
-    // } else {
-    //     makeBlank(); 
-    // }
-    
     return fetch(url) //Fetches the URL
     .then(response => {
         if(response.ok) {
@@ -29,7 +20,7 @@ export function getInfo(url) {
         }
     })
     .then (data => {
-        
+        console.log(data);
          //Displays the list render on webpage
         /*Demonstration-----------------------
         
@@ -113,21 +104,11 @@ export function getInfoForecast(url) {
         console.log(newF);
         document.querySelector(".original").classList.add("hidden-o");
         document.querySelector(".hidden-o").setAttribute("style", "display:none;");
-        //displayCities(cityWeather);
-        //return data.coord;
     })
     .catch(error => console.log(error));
-    //Do the saving here?
 }
 
 // export function getInfoCurrent(url) {
-//     if(document.getElementById("searchingCity").value === "") {
-//         document.querySelector(".error").innerHTML = "Enter city name."
-//         Errors();
-//         return;
-//     } else {
-//         makeBlank(); 
-//     }
 //     return fetch(url)
 //     .then(response => {
 //         if(response.ok) {

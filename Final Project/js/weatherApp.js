@@ -2,29 +2,16 @@ import { writeToLS, readFromLS } from "./localStorage.js";
 import { getInfo, getInfoForecast } from "./getJson.js";
 import { blank, makeBlank } from "./utilities.js";
 
-
+export const key = "898f2ddbf4eac9fea85f9525f87370a8";
 export let cityWeather = [];
 
 /*This class deals with the first part when the app opens*/
 export class CurrentWeather {
     constructor(name) {
-        this.name = name;
+        this.name = cityWeather;
         //this.baseUrl = "https://api.openweathermap.org/data/2.5/weather";
     }
 
-    getCurrentWeather() {
-        let c = new City;
-        this.name = c.cityName();
-        const baseUrl = "https://api.openweathermap.org/data/2.5/weather";
-        var units = `imperial`;
-        let url = baseUrl + `?q=${this.name}&cnt=7&apiKey=${key}&units=${units}`;
-        //blank(); 
-        let weather = new getInfo(url);
-
-        console.log(weather);
-        makeBlank();
-        //let p = weather;   
-    }
     getI(c) {
         //This seems to work when getting the information from the localStorage
         //There is some slight hiccup here with local storage though
@@ -39,19 +26,14 @@ export class CurrentWeather {
         } else {
             item = c.map(newTask => baseUrl + `?q=${newTask.city}&cnt=7&apiKey=${key}&units=imperial`);
             console.log("Check if it went through");
+            console.log(item);
         }
-        //item = c.map(newTask => baseUrl + `?q=${newTask.city}&cnt=7&apiKey=${key}&units=imperial`);
-        let weather = new getInfo(item);
-        console.log(weather);
-        //const item = c.map(newTask => `<li>${newTask.city}</li>`);
-        //ul.innerHTML = item;
-        //return item;
+        for(let l of item) {
+            //console.log(l);
+            let weather = new getInfo(l);
+            console.log(weather);
+        }
     }
-    // deleteI(c) {
-    //     const index = cityWeather.findIndex(name => name.city === c);
-    //     console.log(index);
-    //     //c.splice(index, 1);
-    // }
 }
 
 /*This class plays out after you put in the city name at the footer input*/
