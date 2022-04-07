@@ -6,6 +6,22 @@
         font-weight: 500;
         margin-bottom: .5rem;
         }
+    .go-back {
+        font-family: $secondary-font;
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+        border: none;
+        background-color: gray;
+        color: $l-color-4;
+        font-weight: 800;
+        padding: .5rem;
+        border-radius: 10px;
+        transition: margin .5s, background-color .5s;
+    }
+    .go-back:hover {
+        margin-left: -1rem;
+        background-color: rgb(109, 157, 201);
+    }
     .sky {
         display: flex;
         background-color: $l-color-4;
@@ -13,6 +29,8 @@
         height: 51rem;
         flex-wrap: wrap;
         margin-top: 2.5rem;
+        border-radius: 50px;
+        box-shadow: 0 5px 5px -4px gray; 
         .current {
             background-color: antiquewhite;
             padding: 1rem 2rem;
@@ -46,6 +64,7 @@
                 font-family: $secondary-font;
                 font-size: 1rem;
                 border-radius: 10px;
+                box-shadow: 0 5px 5px -2px gray; 
             }
             .description {
                 font-size: 1.2rem;
@@ -109,8 +128,8 @@
             font-weight: 600;
             box-shadow: 0 4px 5px -2px grey;
             transition: background-color .7s;
-            animation: shake 5s ease-in-out infinite;
-            animation-delay: 1s;
+            animation: shake 3.5s ease-in-out infinite;
+            //animation-delay: 1s;
         }
         button:hover {
             background-color: rgb(107, 154, 173);
@@ -134,13 +153,13 @@
     20% {transform: rotate(0);}
     30% {transform: rotate(0);}
     40% {transform: rotate(0);}
-    50% {transform: rotate(-3deg);}
-    55% {transform: rotate(3deg);}
-    60% {transform: rotate(-3deg);}
-    65% {transform: rotate(3deg);}
-    70% {transform: rotate(-3deg);}
-    75% {transform: rotate(3deg);}
-    80% {transform: rotate(-3deg);}
+    50% {transform: rotate(-2deg);}
+    55% {transform: rotate(2deg);}
+    60% {transform: rotate(-2deg);}
+    65% {transform: rotate(2deg);}
+    70% {transform: rotate(-2deg);}
+    75% {transform: rotate(2deg);}
+    80% {transform: rotate(-2deg);}
     90% {transform: rotate(0);}
     100% {transform: rotate(0);}
 }
@@ -173,10 +192,13 @@
                 display: inline;
                 padding: .5rem 1rem;
                 transition: background-color .5s, transform .8s;
+                box-shadow: 0 5px 5px -2px gray; 
+                
                 img {
                     background-color:rgba(109, 121, 128, 0.432);
                     border-radius: 60px;
                     width: 70%;
+                    
                 }
             }
             li:hover {
@@ -219,6 +241,7 @@
                 padding: 1rem 2rem .3rem 2rem;
                 border-radius: 20px;
                 transition: background-color .5s, transform .8s;
+                box-shadow: 0 5px 5px -2px gray; 
             }
             li span:nth-last-child(1) {
                 text-align: right;
@@ -281,11 +304,29 @@ main {
 }
 
 
-// @media 
-// only screen and (max-width: 751.10px),
-// (min-device-width: 768px) and (max-device-width: 1024px)  {
-
-// }
+@media 
+only screen and (max-width: 751.10px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    .weather-forecast {
+        .go-back {
+            width: 25rem;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            transition: margin-left .5s, background-color .5s, transform .5s;
+        }
+        h1 {
+            text-align: center;
+        }
+        .go-back:hover {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .go-back:active{
+            transform: scale(1.03);
+        }
+    }
+}
 @media screen and (max-width: 1320px) {
     .weather-forecast{
         .sky {
@@ -446,19 +487,26 @@ main {
 }
 @media screen and (max-width: 880px) {
     .weather-forecast{
+        // .go-back {
+        //     width: 50%;
+        // }
         .sky {
-            flex-wrap: wrap;
-            flex-direction: row;
-            height: 92rem;
-            background: linear-gradient(180deg, rgb(247, 210, 160), white);
+            display: block;
+            height: auto;
+            background: linear-gradient(180deg, rgb(247, 210, 160), rgb(255, 255, 255));
             .current {
-                flex: 40%;
+                //flex: 40%;
                 background-color: $l-color-4;
                 border: none;
                 margin-right: 0;
+                padding-bottom: 2.9rem;
                 .possible-grid > div {
                     background-color: rgb(253, 222, 181);
-                   
+                    box-shadow: 0 5px 5px -2px gray; 
+                }
+                .possible-grid > div:nth-child(1), 
+                .possible-grid > div:nth-child(2) {
+                    margin-top: 1.8rem;
                 }
                 .possible-grid {
                     grid-gap: 20px;
@@ -466,22 +514,22 @@ main {
                 }
             }
             .forecasting {
-                flex: 30%;
                 margin-left: 0;
                 .hourly {
                     margin-top: 1rem;
                     padding-left: 2rem;
-                    padding-right: .5rem;
+                    padding-right: 2rem;
                     background-color: $l-color-4;
                     p {
                         text-align: center;
                     }
                     ul {
-                        width:30rem;
+                        width:100%;
                         padding-left: .5rem;
                         padding-right: .5rem;
                         li {
                             background-color: rgb(253, 222, 181);
+                            
                         }
                         li:hover {
                             background-color: rgb(211, 145, 211);
@@ -499,6 +547,7 @@ main {
                         height: 30rem;
                         li {
                             background-color: rgb(253, 222, 181);
+                            
                         }
                         li:hover {
                             background-color: rgb(211, 145, 211, 0.781);
@@ -510,4 +559,251 @@ main {
     }
 }
 
-//1250px
+@media screen and (max-width: 650px) {
+    .weather-forecast{
+        .go-back {
+            width: 50%;
+        }
+        .sky {
+            display: block;
+            height: auto;
+            background: linear-gradient(180deg, rgb(247, 210, 160), rgb(255, 255, 255));
+            .forecasting {
+                //margin-left: 0;
+                .future-forecast {
+                    background-color: $l-color-4;
+                    padding-left: .5rem;
+                    padding-right: .5rem; 
+                        li {
+                            background-color: rgb(253, 222, 181);
+                            grid-template-columns: 1fr 1fr .7fr .5fr;
+                            grid-column-gap: 2px;
+                            padding: 1rem .9rem .3rem .9rem;
+                            .tempers, .spacing {
+                                font-size: 1.2rem;
+                            }
+                            .small-font {
+                                font-size: .7rem;
+                            }
+                        }
+                        
+                    }
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 380px) { 
+    .weather-forecast{
+        h1 {
+            font-size: 2.8rem;
+        }
+        .go-back {
+            width: 17.59rem;
+        }
+        .sky {
+            display: block;
+            //height: 85rem;
+            background: linear-gradient(180deg, rgb(247, 210, 160), rgb(255, 255, 255));
+            .current {
+                flex: 40%;
+                background-color: $l-color-4;
+                border: none;
+                margin-right: 0;
+                
+                h2 {
+                    font-size: 3.7rem;
+                }
+                img {
+                    width: 30%;
+                }
+                .possible-grid > div {
+                    background-color: rgb(253, 222, 181);
+                    font-size: .8rem;
+                    padding: .5rem;
+                }
+                
+                .possible-grid {
+                    grid-gap: 15px;
+                    margin: 0;
+                    .strong-font {
+                        font-size: .8rem;
+                    }
+                }
+                
+            }
+            .forecasting {
+                flex: 10%;
+                margin-left: 0;
+                .hourly {
+                    margin-top: 1rem;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    background-color: $l-color-4;
+                    p {
+                        text-align: center;
+                        font-size: 1.2rem;
+                    }
+                    ul {
+                        
+                        li {
+                            background-color: rgb(253, 222, 181);
+                            font-size: 1.1rem;
+                            padding: 1rem .5rem .3rem .5rem;
+                            .temper {
+                                font-size: 1.1rem;
+                            }
+                        }
+                        li:hover {
+                            background-color: rgb(211, 145, 211);
+                        }
+                    }
+                }
+                .future-forecast {
+                    background-color: $l-color-4;
+                    padding-left: .5rem;
+                    padding-right: .5rem; 
+                    p {
+                        text-align: center;
+                        font-size: 1.2rem;
+                    }
+                    ul {
+                        //height: 30rem;
+                        li {
+                            grid-template-columns: 1fr .8fr  1fr;
+                            background-color: rgb(253, 222, 181);
+                            .tempers, .spacing {
+                                font-size: 1rem;
+                            }
+                            .small-font {
+                                //visibility: hidden;
+                                display: none;
+                                font-size: .5rem;
+                            }
+                            img {
+                                width: 60%;
+                            }
+                        }
+                        li:hover {
+                            background-color: rgb(211, 145, 211, 0.781);
+                        }
+                    }
+                }
+            }
+             
+        }
+        .centered {
+            margin: 2rem auto 0 auto;
+            display: table;
+            input[type="text"] {
+                display: table;
+                width: 17.59rem;
+                font-family: $secondary-font;
+                font-weight: 600;
+                font-size: 2rem;
+                text-align: center;
+            }
+            input:disabled {
+                background-color: rgba(255, 255, 255, 0.692);
+                border: none;
+                border-bottom: 3px solid darkorange;
+                border-top: 3px solid darkorange;
+            }
+            button {
+                display: inline-block;
+                background-color: skyblue;
+                margin-top: 1rem;
+                font-size: 1.4rem;
+                font-family: $primary-font;
+                text-transform: uppercase;
+                border: none;
+                padding: .2rem 1rem;
+                width: 17.59rem;
+                border-radius: 5px;
+                font-weight: 600;
+                box-shadow: 0 4px 5px -2px grey;
+                transition: background-color .7s;
+                animation: shake 5s ease-in-out infinite;
+                animation-delay: 1s;
+            }
+            button:hover {
+                background-color: rgb(107, 154, 173);
+                animation: stop 1s infinite;
+            }
+        }  
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .weather-forecast{
+        .sky {
+            .forecasting {   
+                .future-forecast {
+                    ul {
+                        //height: 30rem;
+                        li {
+                            grid-template-columns: .1fr .8fr  1fr;
+                            background-color: rgb(253, 222, 181);
+                            .tempers, .spacing {
+                                font-size: .8rem;
+                            }
+                            .small-font {
+                                //visibility: hidden;
+                                display: none;
+                                font-size: .9rem;
+                            }
+                            img {
+                                width: 60%;
+                                //display: none;
+                            }
+                        }
+                        li:hover {
+                            background-color: rgb(211, 145, 211, 0.781);
+                        }
+                    }
+                }
+            }
+             
+        }
+        .centered {
+            margin: 2rem auto 0 auto;
+            display: table;
+            input[type="text"] {
+                display: table;
+                width: 17.59rem;
+                font-family: $secondary-font;
+                font-weight: 600;
+                font-size: 2rem;
+                text-align: center;
+            }
+            input:disabled {
+                background-color: rgba(255, 255, 255, 0.692);
+                border: none;
+                border-bottom: 3px solid darkorange;
+                border-top: 3px solid darkorange;
+            }
+            button {
+                display: inline-block;
+                background-color: skyblue;
+                margin-top: 1rem;
+                font-size: 1.4rem;
+                font-family: $primary-font;
+                text-transform: uppercase;
+                border: none;
+                padding: .2rem 1rem;
+                width: 17.59rem;
+                border-radius: 5px;
+                font-weight: 600;
+                box-shadow: 0 4px 5px -2px grey;
+                transition: background-color .7s;
+                animation: shake 5s ease-in-out infinite;
+                animation-delay: 1s;
+            }
+            button:hover {
+                background-color: rgb(107, 154, 173);
+                animation: stop 1s infinite;
+            }
+        }  
+    }
+}

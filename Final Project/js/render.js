@@ -1,7 +1,7 @@
 import * as toMemory from "./localStorage.js";
 import { readableTime, readableDate, scrollers, blank, loadWindow, makeBlank } from "./utilities.js";
 import { cityWeather, CurrentWeather } from "./weatherApp.js";
-import { Errors } from "./utilities.js";
+import { Errors, Saved } from "./utilities.js";
 export let savedCities = [];
 const metric = document.getElementById("metric");
 const imperial = document.getElementById("imperial");
@@ -65,8 +65,6 @@ export function displayCities(data) {
             
         }
     })
-    // console.log(list);
-    
     
    
 }
@@ -76,11 +74,9 @@ function deleteI(key) {
     console.log(p);
     cityWeather.splice(p, 1);
     toMemory.writeToLS(cityWeather);
-    toMemory.readFromLS(cityWeather);
+    const aBtn = document.getElementById("addCity");
     aBtn.classList.remove("stop");
-    //document.querySelector(".stop").setAttribute("style", "animation:stop 1s infinite;background-color:gray;");
-    //let n = new CurrentWeather()
-    displayCities(data);
+    displayCities(cityWeather);
     loadWindow();
 }
 
@@ -117,7 +113,7 @@ export function displayForecast(name, id, data) {
                 </div>
 
                 <div class="future-forecast"> 
-                    <p>Forecast for the next 7 days</p>
+                    <p>Forecast for next 8 days</p>
                     <ul class="vertical-scroll" id="vertical scroll">`; //Created a new section ul for the daily forecast
     for (let day of data.daily) { //Goes through daily forecast array
         tForecast += `<li><span class="spacing">${readableDate(day.dt, data.timezone_offset)}</span>
@@ -235,8 +231,10 @@ export function displayForecast(name, id, data) {
             //aBtn.disabled = true;
             aBtn.classList.add("stop");
             document.querySelector(".stop").setAttribute("style", "animation:stop 1s infinite;background-color:gray;");
+            document.querySelector(".error").innerHTML = "Saved city.";
+            Saved();
         }
-        makeBlank();
+        //makeBlank();
     })
 
     const goBack = document.getElementById("goBack");

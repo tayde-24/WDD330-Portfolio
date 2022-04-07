@@ -2,12 +2,7 @@ import { writeToLS, readFromLS } from "./localStorage.js";
 import { getInfo, getInfoForecast } from "./getJson.js";
 import { blank, makeBlank } from "./utilities.js";
 
-// const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
-// const forecastUrl= "https://api.openweathermap.org/data/2.5/forecast";
-
-// const metric = document.getElementById("metric");
-// const imperial = document.getElementById("imperial");
-
+export const key = "898f2ddbf4eac9fea85f9525f87370a8";
 export let cityWeather = [];
 
 /*This class deals with the first part when the app opens*/
@@ -47,17 +42,16 @@ export class CurrentWeather {
         }
         //item = c.map(newTask => baseUrl + `?q=${newTask.city}&cnt=7&apiKey=${key}&units=imperial`);
         let weather = new getInfo(item);
+        console.log(weather);
         //const item = c.map(newTask => `<li>${newTask.city}</li>`);
-        
-        //console.log(item);
         //ul.innerHTML = item;
         //return item;
     }
-    deleteI(c) {
-        const index = c.findIndex(name => name.city === c.city);
-        console.log(index);
-        //c.splice(index, 1);
-    }
+    // deleteI(c) {
+    //     const index = cityWeather.findIndex(name => name.city === c);
+    //     console.log(index);
+    //     //c.splice(index, 1);
+    // }
 }
 
 /*This class plays out after you put in the city name at the footer input*/
@@ -73,20 +67,6 @@ export class ForecastWeather {
         let url = baseUrl + `?q=${this.name}&apiKey=${key}&units=imperial`; //Inputs city name in the query and gets api key
         //blank(); 
         let forecast = new getInfoForecast(url); //creates new fetch from 'getJson.js file
-        // let weather = new getInfoCurrent(url);
-
-        // metric.addEventListener("click", function() {
-        //     let c = new City;
-        //     this.name = c.cityName();
-        //     let weather = new getInfo(baseUrl + `?q=${this.name}&cnt=7&apiKey=${key}&units=metric`);
-        //     console.log(weather);
-        // })
-        // imperial.addEventListener("click", function() {
-        //     let weather = new getInfo(baseUrl + `?q=${this.name}&cnt=7&apiKey=${key}&units=imperial`);
-        //     console.log(weather);
-        // })
-
-        //const search = document.getElementById("searchingCity").value;
         console.log(forecast);
     }
 }
@@ -128,16 +108,3 @@ Functions to keep in mind:
 */
 //getInfo();
 //getInfo(weatherUrl);
-
-// export function addCity() {
-//     const addInput = document.getElementById("searchingCity").value;
-//     if(addInput === "") {
-//         return;
-//     }
-//     const newCity = {
-//         id: data.id,
-//         city: addInput
-//     }
-//     cityWeather.push(newCity);
-//     toMemory.writeToLS(cityWeather);
-// }

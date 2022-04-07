@@ -121,6 +121,7 @@ only screen and (max-width: 751.10px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
     
     .weatherList {
+        
         li {
            font-size: 2.5rem;
             margin-right: 0;
@@ -174,6 +175,63 @@ only screen and (max-width: 751.10px),
         .small-font {
             font-size: 1.2rem;
             margin-top: -2.5rem;
+        }
+    } 
+}
+
+
+@media screen and (max-width:320px) {
+    .weatherList {
+        display: block;
+        li {
+           font-size: 1.5rem;
+            margin-right: 0;
+            display: grid;
+            grid-template-columns: 4fr .4fr .5fr 1fr;
+            grid-column-gap: 20px;
+            //grid-template-rows: .5fr .5fr;
+            //grid-row-gap: -10px;
+            padding-top: 1.5rem;
+            //padding-bottom: 1.5rem;
+            span{
+                margin-bottom: -1rem;
+                white-space: nowrap;
+            }
+            span img {
+                width: 2.8rem;
+                margin-top: .5rem;
+                background-color:rgba(109, 121, 128, 0.432);
+                border-radius: 60px;
+            }
+            button {
+                width: 2rem;
+                height: 2rem;
+                border: none;
+                display: table;
+                border-radius: 30px;
+                //margin-left: auto ;
+                margin-top: .45rem;
+                background-color: transparent;
+                //background-color: white;
+            }
+            .delete {
+                border: none;
+                background-image: url("images-icons/icons8-cancel-48.svg");
+                width: 2rem;
+                height: 2rem;
+                background-size: contain;
+                display: inline-block;
+                margin-left:-.4rem;
+                transition: .5s;
+               // margin-top: -1.3rem;
+            }
+        }
+        .item {
+            padding-bottom: 32px;
+        }
+        .small-font {
+            font-size: 1rem;
+            margin-top: -1.5rem;
         }
     } 
 }

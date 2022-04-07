@@ -161,10 +161,13 @@ nav {
         border-radius: 10px;
         border: none;
         box-shadow: 2px 2px 7px rgb(81, 125, 143);
-        transition: background-color .5s;
+        transition: background-color .2s, transform .5s;
     }
     .metrics:hover {
         background-color: rgba(180, 108, 20, 0.733);
+    }
+    .metrics:active {
+        transform: scale(.97);
     }
 }
 
@@ -196,6 +199,7 @@ main {
         // margin-bottom: -10rem;
         margin-top: 3rem;
         text-align: center;
+        transition: all .5s;
     }
 }
 
@@ -408,6 +412,100 @@ only screen and (max-width: 751.10px),
     main {
         margin-right: 1.2rem;
         margin-left: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        padding-right: .2rem;
+        padding-left: .2rem;
+    }
+    main {
+        margin-right: 1.2rem;
+        margin-left: 1.2rem;
+    }
+    footer {
+        box-shadow: 0 -7px 8px -2px rgba(206, 206, 206, 0.705);
+        background-color: $l-color-2;
+        text-align: center;
+        width: 100%;
+        //  position: fixed;
+        //  bottom: 0;
+        .list-footer {
+            transition: 1s;
+            padding: 3.5rem 1rem;
+            input[type="text"] {
+                position: inherit;
+                width: 290px;
+                padding: 1rem rem;
+                font-size: 1rem;
+                outline: none;
+                border-radius: 40px;
+                transition: all .5s;
+                font-family: $secondary-font;
+                font-weight: 600;
+            }
+            input[type="text"]:focus {
+                background-color: rgb(203, 253, 255);
+                width: 330px;
+            }
+            button {
+                margin-top: .8rem;
+                margin-left: -3.7rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 330px) {
+    nav {
+        padding-right: 0rem;
+        padding-left: 0rem;
+        .metrics {
+            font-size: 1rem;
+        }
+        .next {
+            margin-right: .5rem;
+            margin-left: .5rem;
+        }
+    }
+    main {
+        margin-right: 1.2rem;
+        margin-left: 1.2rem;
+    }
+    footer {
+        box-shadow: 0 -7px 8px -2px rgba(206, 206, 206, 0.705);
+        background-color: $l-color-2;
+        text-align: center;
+        width: 100%;
+        //  position: fixed;
+        //  bottom: 0;
+        .list-footer {
+            transition: 1s;
+            padding: 3.5rem 1rem;
+            input[type="text"] {
+                position: inherit;
+                width: 250px;
+                padding: 1rem .5rem;
+                font-size: 1rem;
+                outline: none;
+                border-radius: 40px;
+                transition: all .5s;
+                font-family: $secondary-font;
+                font-weight: 600;
+            }
+            input[type="text"]:focus {
+                background-color: rgb(203, 253, 255);
+                width: 270px;
+            }
+            button {
+                margin-top: .8rem;
+                margin-left: -3.7rem;
+            }
+        }
+    }
+    span.error {
+        width: 17.59rem;
     }
 }
 

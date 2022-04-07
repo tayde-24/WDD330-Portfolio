@@ -7,8 +7,29 @@ import { cityWeather } from "./weatherApp.js";
 
 export function Errors() {
     document.getElementById("searchingCity").value = "";
-    document.querySelector(".error").setAttribute("style", "padding:1rem 3rem;background-color:red;color:white;font-family:'Titillium Web';font-weight:600;text-transform:uppercase;width:25rem;display:table;margin-left:auto;margin-right:auto;");
-    
+    var x = window.innerWidth;
+    if (x < 321) {
+        document.querySelector(".error").setAttribute("style", "padding:1rem 3rem;background-color:red;color:white;font-family:'Titillium Web';font-weight:600;text-transform:uppercase;width:17.59rem;display:table;margin-left:auto;margin-right:auto;");
+    } else {
+        document.querySelector(".error").setAttribute("style", "padding:1rem 3rem;background-color:red;color:white;font-family:'Titillium Web';font-weight:600;text-transform:uppercase;width:25rem;display:table;margin-left:auto;margin-right:auto;");
+    }
+}
+
+export function Saved() {
+    document.getElementById("searchingCity").value = "";
+    var x = window.innerWidth;
+    if (x < 321) {
+        document.querySelector(".error").setAttribute("style", "padding:1rem 3rem;background-color:green;color:white;font-family:'Titillium Web';font-weight:600;text-transform:uppercase;width:17.59rem;display:table;margin-left:auto;margin-right:auto;");
+        setTimeout(() => {
+           makeBlank();
+        }, 4000);
+        
+    } else {
+        document.querySelector(".error").setAttribute("style", "padding:1rem 3rem;background-color:green;color:white;font-family:'Titillium Web';font-weight:600;text-transform:uppercase;width:25rem;display:table;margin-left:auto;margin-right:auto;");
+        setTimeout(() => {
+            makeBlank();
+        }, 4000);     
+    }
 }
 
 export function makeBlank() {
@@ -180,7 +201,7 @@ export function loadWindow() {
 setTimeout(() => {
     document.querySelector(".big-font").classList.add("hide-i");
     document.querySelector(".hide-i").setAttribute("style", "display:none;");
-}, 7999);
+}, 7979);
 
 loadTime();
 loadWindow();
