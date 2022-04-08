@@ -3,7 +3,7 @@ import { getInfo, getInfoForecast } from "./getJson.js";
 import { blank, makeBlank } from "./utilities.js";
 
 
-//export const key = "INSERT_YOUR_API_KEY";
+export const key = "INSERT_YOUR_API_KEY";
 export let cityWeather = [];
 
 /*This class deals with the first part when the app opens*/
